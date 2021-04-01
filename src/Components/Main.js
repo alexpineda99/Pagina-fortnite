@@ -21,7 +21,7 @@ function Main() {
     <div className="">
 
         <h1 className="titulo-p"> Daily </h1>
-
+        
     </div>
   );
 }
