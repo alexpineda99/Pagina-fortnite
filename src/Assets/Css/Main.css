@@ -1,0 +1,49 @@
+  .main {
+    margin: 0;
+    padding: 0;
+    background: #f0d8f0;
+    width: 100%;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    background-color: #000018;
+  }
+  
+  ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    list-style: none;
+    width: 100%;
+    margin-block-end: 0em;
+    margin-block-start: 0em;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
+  a:hover {
+    transition: ease-in-out .2s;
+    color: #180078;
+  }
+
+  /* titulos principales */
+
+  .titulo-p {
+    display: flex;
+    justify-content: center;
+    color: #000018;
+  }
+
+  /* paleta de colores */
+
+  /* #000018 */
+  /* #180078 */
+  /* #f0d8f0 */
+  /* #9090a8 */
+  /* #301860 */
