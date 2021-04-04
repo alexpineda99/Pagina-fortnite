@@ -40,6 +40,32 @@
     color: #000018;
   }
 
+  .main-daily {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .item {
+    margin-right: 2.5%;
+    margin-left: 2.5%;
+    margin-bottom: 5%;
+    width: 20%;
+    align-items: center;
+}
+
+  .img-item {
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    height: 50%;
+    border: 1px red;
+}
+
+  .v-bucks-img {
+   
+  }
   /* paleta de colores */
 
   /* #000018 */
