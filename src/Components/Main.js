@@ -1,20 +1,21 @@
 <<<<<<< Updated upstream
 import '../Assets/Css/Main.css';
+import Daily from "../Components/Daily"
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 
 function Main() {
-
-    let [Daily, setDaily] = useState([]);
+ 
+    // let [Dailys, setDailys] = useState([]);
 
     useEffect(() =>{
 
-        axios.get(`https://fortnite-api.com/v2/shop/br`)
-      .then(res => {
-        // console.log(res.data.data.daily.entries);
-        setDaily(res.data.data.daily.entries);
-        console.log(Daily);
-      })
+      //   axios.get(`https://fortnite-api.com/v2/shop/br`)
+      // .then(res => {
+
+      //     setDailys(res.data.data.daily.entries);
+      //     console.log(res.data.data.daily.entries);
+      // })
         
         }, []);
 
@@ -22,6 +23,10 @@ function Main() {
     <div className="">
 
         <h1 className="titulo-p"> Daily </h1>
+
+        <div>
+            <Daily/>
+        </div>
         
     </div>
   );
