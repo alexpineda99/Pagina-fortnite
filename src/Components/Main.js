@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import '../Assets/Css/Main.css';
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
@@ -27,3 +28,10 @@ function Main() {
 }
 
 export default Main;
+=======
+        /* #109DFA */
+        /* #024A86 */
+        /* #E69DFB */
+        /* #FF689D*/
+        /* #222222 */
+>>>>>>> Stashed changes

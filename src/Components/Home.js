@@ -1,12 +1,13 @@
 import '../Assets/Css/Main.css';
-import Navbar from "../Components/Navbar";
-import Main from "../Components/Main";
+import Daily from "./Shop/Daily";
+import Navbar from "./Navbar";
 
 function Home() {
   return (
     <div className="main">
       <Navbar/>
-      <Main/>
+      <Daily/>
+      
     </div>
   );
 }
