@@ -1,25 +1,58 @@
-  .main {
+@font-face {
+  font-family: 'Fortnite';
+  src: local('Fortnite'), url(../Fonts/Font-Fortnite/Fortnite.ttf);
+}
+
+  body {
     margin: 0;
     padding: 0;
-    background: #f0d8f0;
+    background: #FF689D;
+    height:100%;
     width: 100%;
+    font-family: "Fornite";
+    font-size: 17px;
   }
 
   nav {
     display: flex;
     align-items: center;
     height: 50px;
-    background-color: #000018;
+    background-color: #222222;
+    width: 100%;
+  }
+
+  .nav-user {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 20px;
+  }
+
+  .ul-user {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    list-style: none;
+    width: 20%;
+    margin-block-end: 0em;
+    margin-block-start: 0em;
   }
   
+
   ul {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-around;
     list-style: none;
     width: 100%;
     margin-block-end: 0em;
     margin-block-start: 0em;
+  }
+
+  li {
+    display: flex;
+    margin-right: 5%;
   }
 
   a {
@@ -29,15 +62,25 @@
 
   a:hover {
     transition: ease-in-out .2s;
-    color: #180078;
+    color: #109DFA;
   }
 
   /* titulos principales */
 
   .titulo-p {
+
     display: flex;
     justify-content: center;
-    color: #000018;
+    height: 50px;
+    width: 100%;
+    font-size:70px;
+    letter-spacing:0.1em;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: white;
+    text-shadow: 
+              7px 7px #ff1f8f,
+              12px 12px #000000;
   }
 
   .main-daily {
@@ -48,28 +91,69 @@
   }
 
   .item {
-    margin-right: 2.5%;
-    margin-left: 2.5%;
+    margin-right: 4%;
+    margin-left: 3.5%;
     margin-bottom: 5%;
-    width: 20%;
-    align-items: center;
-}
+    width: 9%;
+  }
+
+ .item-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  align-content: center;
+ }
 
   .img-item {
     display: flex;
     flex-wrap: wrap;
-    width: 50%;
-    height: 50%;
-    border: 1px red;
+    width: 100%;
+    height: 90%;
 }
 
   .v-bucks-img {
+    border-radius: 50%;
+    width: 8%;
+    height: 8%;
+  }
+
+  @media only screen and (max-width: 768px) {
    
+  }
+
+  @media only screen and (max-width: 425px) {
+    .item {
+      width: 20%;
+  }
+
+  .nav-user {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 15px;
+    margin-right: 1.5%;
+  }
+  }
+
+  @media only screen and (max-width: 320px) {
+
+    .nav-user {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+      font-size: 12.5px;
+      margin-right: 5%;
+    }
+    
   }
   /* paleta de colores */
 
-  /* #000018 */
-  /* #180078 */
-  /* #f0d8f0 */
-  /* #9090a8 */
-  /* #301860 */
+        /* #109DFA */
+        /* #024A86 */
+        /* #E69DFB */
+        /* #FF689D*/
+        /* #222222 */
