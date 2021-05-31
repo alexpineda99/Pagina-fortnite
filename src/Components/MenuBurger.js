@@ -10,7 +10,7 @@ import {
   Link
 } from "react-router-dom";
 
-function Navbar() {
+function MenuBurger() {
 
   let [isOpen, setisOpen] = useState([]); //Creative
     // let [Loading, setLoading] = useState(false);
@@ -18,7 +18,7 @@ function Navbar() {
 
     useEffect(() =>{
 
-        
+        setisOpen(true);
 
         }, []);
 
@@ -31,29 +31,18 @@ function Navbar() {
          <li> <a href="/tienda"> Shop </a> </li>
          <li> <a href="/descripcion"> Busqueda </a> </li>
         </ul> */}
-        <Menu disableAutoFocus itemListElement="div">
-        <div className="ul-burger">
-        <li className="li-burger"> <a href="/"> Home </a>  </li>
-        <li className="li-burger"> <a href="/shop"> Shop </a> </li>
-        <li className="li-burger"> <a href="/news"> News </a> </li>
-        <li className="li-burger"> <a href="/about"> About </a> </li>
-        <li className="li-burger"> <a href="/signin"> Sign in </a>  </li>
-        <li className="li-burger"> <a href="/signup"> Sign up </a> </li>
-        </div>
-        </Menu>
-        <div className="nav-user">
-        <ul className="ul-user">
+        <Menu isOpen={isOpen} pageWrapId={"menu-burger"}>
+        <ul className="ul-user" id="menu-burger">
          <li> <a href="/"> Home </a>  </li>
          <li> <a href="/shop"> Shop </a> </li>
          <li> <a href="/news"> News </a> </li>
          <li> <a href="/about"> About </a> </li>
         </ul>
         <ul className="ul-user">
-        <li> <a href="/signin"> Sign in </a>  </li>
-        <li> <a href="/signup"> Sign up </a> </li>
+        <li> <a href="/"> Iniciar sesion </a>  </li>
+        <li> <a href="/"> Cerrar sesion </a> </li>
         </ul>
-        </div> 
-        
+        </Menu>
       </nav>
     </div>
 
@@ -61,4 +50,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default MenuBurger;

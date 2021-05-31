@@ -1,5 +1,9 @@
 import Home from "./Components/Home";
 import Shop from "./Components/Shop";
+import News from "./Components/News";
+import About from "./Components/About";
+import SignIn from "./Components/Register/SignIn";
+import SignUp from "./Components/Register/SignUp";
 import Notfound from "./Pages/Pagenotfound";
 import {
   BrowserRouter as Router,
@@ -14,7 +18,11 @@ function App() {
         <div> 
         <Switch> 
           <Route exact path="/" component={Home} />
-          <Route exact path="/tienda" component={Shop} />
+          <Route exact path="/shop" component={Shop} />
+          <Route exact path="/news" component={News} />
+          <Route exact path="/about" component={About} />
+          <Route exact path="/signin" component={SignIn} />
+          <Route exact path="/signup" component={SignUp} />
           <Route component={Notfound} />
         </Switch>
         </div>

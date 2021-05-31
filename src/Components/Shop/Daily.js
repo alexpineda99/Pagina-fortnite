@@ -37,7 +37,7 @@ function Daily() {
   return (
     <div>
       <h2 className="titulo-p"> {Name} </h2>
-        <div>
+        <div className="Loader">
         {Loading ?  <Loader 
           type="Rings" 
           color="#109DFA" 

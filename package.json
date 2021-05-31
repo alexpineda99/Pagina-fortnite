@@ -1,25 +1,37 @@
 {
   "name": "pagina-alex",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.10",
-    "@testing-library/react": "^11.2.5",
-    "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.1",
+    "express": "^4.17.1",
+    "paper-input": "^3.0.2",
     "react": "^17.0.2",
+    "react-awesome-button": "^6.5.1",
+    "react-burger-menu": "^3.0.6",
+    "react-country-region-selector": "^3.0.2",
     "react-dom": "^17.0.2",
+    "react-elastic-carousel": "^0.11.4",
+    "react-form-input-fields": "^1.0.9",
     "react-loader-spinner": "^4.0.0",
+    "react-password-checklist": "^1.1.1",
+    "react-phone-number-input": "^3.1.19",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.3",
+    "react-scripts": "^4.0.3",
+    "react-smart-card": "^0.4.0",
+    "react-world-flags": "^1.4.0",
+    "sass": "^1.32.8",
+    "styled-components": "^5.2.3",
     "web-vitals": "^1.1.1"
   },
+  "devDependencies": {},
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "proxy": "http://localhost:3001",
   "eslintConfig": {
     "extends": [
       "react-app",
