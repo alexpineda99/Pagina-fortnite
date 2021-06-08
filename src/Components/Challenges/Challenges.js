@@ -1,6 +1,7 @@
 import "../../Assets/Css/Main.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import SmartCard from 'react-smart-card';
 
 function Challenges() {
   let [Challenges, setChallenges] = useState([]);
@@ -27,22 +28,35 @@ function Challenges() {
     };
 
     fetchChallenges();
+    console.log(Challenges);
   }, []);
 
   return (
     <div className="main">
       <h2 className="titulo-challenge"> Challenges </h2>
+        <div className="challenge-main-div">
         {Challenges.map(Challenge=>
-          <div className="item">
-            {Challenge.metadata.map(item=>
-              
-              <span> {item.value} </span>
-
-              )}
+          <div className="challenges-div">
+            <SmartCard imgSrc={Challenge.metadata[4].value} title="Challenge" des={Challenge.metadata[1].value}
+               titleColor="orange" desColor="red" btnBg="orange" btnColor="white"/>
+            {/* <span> {Challenge.metadata[1].value} - {Challenge.metadata[4].value} </span> */}
           </div>
         )}
+      </div>
     </div>
   );
 }
 
 export default Challenges;
+
+
+
+        {/* {Challenges.map(Challenge=>
+          <div className="item">
+            {Challenge.metadata.map(items=>
+              
+              <span> {items.value} </span>
+
+              )}
+          </div>
+        )} */}
