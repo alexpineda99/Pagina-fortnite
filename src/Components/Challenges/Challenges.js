@@ -48,15 +48,3 @@ function Challenges() {
 }
 
 export default Challenges;
-
-
-
-        {/* {Challenges.map(Challenge=>
-          <div className="item">
-            {Challenge.metadata.map(items=>
-              
-              <span> {items.value} </span>
-
-              )}
-          </div>
-        )} */}
