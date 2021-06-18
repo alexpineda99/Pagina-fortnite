@@ -2,6 +2,9 @@ import '../../Assets/Css/Main.css';
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import Loader from "react-loader-spinner";
+import {
+  Link
+} from "react-router-dom";
 
 function Daily() {
  
@@ -51,20 +54,24 @@ function Daily() {
         />
         : 
           <div className="main-daily"> 
-            {Dailys.map(Daily=> 
+            {Dailys.map((Daily, index)=> 
               
-              <div className="item">
+              <div className="item" key={index}>
                 
-                {Daily.items.slice(0,1).map(Item=>
+                {Daily.items.slice(0,1).map((Item, index)=>
 
-                  <div className="item-info"> 
+                  <div className="item-info" key={index}> 
                   <img src={Item.images.icon} className="img-item" />
-                  <span> {Item.name} </span>
+                  <div className="text-item-box"> 
+                    <span className="text-item"> {Item.name} </span>
+                  </div>
                   </div>
                 )}
                 <div className="item-info"> 
                 <span> {Daily.finalPrice} </span>
-              {/* <span> {Daily.regularPrice}<img src="https://www.hoyfortnite.com/images/skins/V-bucks_1.png" className="v-bucks-img" /> </span>  */}
+                <Link to={{pathname:'/item', state: {props: Daily}}}>
+                  <button className="View-button"> View more </button>
+                </Link>
               </div>
               </div>
               )}

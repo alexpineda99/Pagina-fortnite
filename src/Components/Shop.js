@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import Daily from "./Shop/Daily";
 import Featured from "./Shop/Featured";
 import Specialfeatured from "./Shop/Specialfeatured";
+import Footer from "./Footer"
 
 function Shop() {
   return (
@@ -11,6 +12,7 @@ function Shop() {
       <Featured/>
       <Daily/>
       <Specialfeatured/>
+      <Footer/>
     </div>
   );
 }

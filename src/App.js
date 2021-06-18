@@ -4,6 +4,7 @@ import News from "./Components/News";
 import About from "./Components/About";
 import SignIn from "./Components/Register/SignIn";
 import SignUp from "./Components/Register/SignUp";
+import Item from "./Components/Shop/Item";
 import Notfound from "./Pages/Pagenotfound";
 import {
   BrowserRouter as Router,
@@ -21,6 +22,7 @@ function App() {
           <Route exact path="/shop" component={Shop} />
           <Route exact path="/news" component={News} />
           <Route exact path="/about" component={About} />
+          <Route exact path="/item" component={Item} />
           <Route exact path="/signin" component={SignIn} />
           <Route exact path="/signup" component={SignUp} />
           <Route component={Notfound} />

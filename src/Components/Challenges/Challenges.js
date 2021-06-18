@@ -35,11 +35,10 @@ function Challenges() {
     <div className="main">
       <h2 className="titulo-challenge"> Challenges </h2>
         <div className="challenge-main-div">
-        {Challenges.map(Challenge=>
-          <div className="challenges-div">
+        {Challenges.map((Challenge, index)=>
+          <div className="challenges-div" key={index}>
             <SmartCard imgSrc={Challenge.metadata[4].value} title="Challenge" des={Challenge.metadata[1].value}
                titleColor="orange" desColor="red" btnBg="orange" btnColor="white"/>
-            {/* <span> {Challenge.metadata[1].value} - {Challenge.metadata[4].value} </span> */}
           </div>
         )}
       </div>

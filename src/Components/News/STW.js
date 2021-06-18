@@ -39,14 +39,6 @@ function STW() {
                 titleColor="orange" desColor="red" btnBg="orange" btnColor="white"/>
             </div>
             )}
-            
-            {/* {Brs.map(Br=> 
-                <div className="Carousel-news">
-                  <img src={Br.image} />
-                  <span className="Carousel-news-title">{Br.title}</span>
-                  <span>{Br.body}</span>
-                </div>
-              )} */}
             </div>
 
         </div>

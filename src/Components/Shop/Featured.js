@@ -60,12 +60,14 @@ function Featured() {
 
                   <div className="item-info"> 
                   <img src={Item.images.icon} className="img-item" />
-                  <span> {Item.name} </span>
+                  <div className="text-item-box"> 
+                    <span className="text-item"> {Item.name} </span>
+                  </div>
                   </div>
                 )}
                 <div className="item-info"> 
                 <span> {Feature.finalPrice} </span>
-              {/* <span> {Daily.regularPrice}<img src="https://www.hoyfortnite.com/images/skins/V-bucks_1.png" className="v-bucks-img" /> </span>  */}
+                <button className="View-button"> View more </button>
               </div>
               </div>
               )}
