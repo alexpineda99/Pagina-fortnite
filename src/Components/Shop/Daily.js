@@ -54,7 +54,7 @@ function Daily() {
         /* #222222 */
         />
         : 
-          <div className="main-daily"> 
+          <div className="main-all"> 
             {Dailys.map((Daily, index)=> 
               
               <div className="item" key={index}>

@@ -55,7 +55,7 @@ function Featured() {
         /* #222222 */
         />
         :
-          <div className="main-daily"> 
+          <div className="main-all"> 
             {Features.map(Feature=> 
               
               <div className="item">

@@ -3,6 +3,9 @@ import React, {useState, useEffect} from 'react';
 import VBucks from "../../Assets/Images/V-bucks_1.png";
 import Loader from "react-loader-spinner";
 import axios from 'axios';
+import {
+  Link
+} from "react-router-dom";
 
 function Specialfeatured() {
  
@@ -54,7 +57,7 @@ function Specialfeatured() {
         /* #222222 */
         />
         :
-          <div className="main-daily"> 
+          <div className="main-all"> 
             {Specialfeatures.map(Feature=> 
               
               <div className="item">
@@ -73,7 +76,9 @@ function Specialfeatured() {
                 <div className="item-price"> 
                   <span> {Feature.finalPrice}</span> &nbsp;  <img src={VBucks} className="v-bucks-img" />
                 </div>
-                <button className="View-button"> View more </button>
+                <Link to={{pathname:'/item', state: {props: Feature}}}>
+                  <button className="View-button"> View more </button>
+                </Link>
               </div>
               </div>
               )}

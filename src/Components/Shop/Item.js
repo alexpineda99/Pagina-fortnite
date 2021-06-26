@@ -36,7 +36,7 @@ function Item(props) {
                                    
                     </div>
                     <div className="item-price"> 
-                        <span> {Features.finalPrice} </span> &nbsp;  <img src={VBucks} className="v-bucks-img" />
+                        <span> {Features.finalPrice} </span> &nbsp;  <img src={VBucks} className="v-bucks-img-item" />
                     </div>
                     <span className="additional-name"> Additional items:  </span>
                     <div className="main-additional-item">
