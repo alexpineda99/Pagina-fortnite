@@ -103,14 +103,16 @@
   }
 
   .main {
+    /* display: flex;
+    justify-content: center; */
     font-family: "Fortnite";
   }
 
   .main-daily {
     display: flex;
+    justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
-    /* justify-content: center; */
     width: 100%;
   }
 
@@ -131,6 +133,12 @@
   align-content: center;
  }
 
+ .item-price {
+   display: flex;
+   justify-content: center;
+   margin-bottom: 5%;
+ }
+
  .text-item-box {
   display: flex;
   align-items: center;
@@ -145,9 +153,9 @@
 }
 
   .v-bucks-img {
-    border-radius: 50%;
-    width: 8%;
-    height: 8%;
+    /* border-radius: 50%; */
+    width: 15%;
+    height: 15%;
   }
 
   .frame {
@@ -233,6 +241,83 @@
 
 .main-carousel-div:focus{
   border: red 1px solid;
+}
+
+.main-div-item {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.item-name {
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  width: 100%;
+  font-size: 70px;
+  letter-spacing:0.1em;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: white;
+  font-family: serif;
+}
+
+.item-image {
+  display: flex;
+  justify-content: center;
+  width: 60%;
+  height: 170px;
+  
+}
+
+.item-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.main-additional-item {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.additional-item {
+  align-items: center;
+  margin-bottom: 10%;
+  margin-right: 5%;
+  margin-left: 5%;
+  width: 15%;
+
+}
+
+.additional-item-name {
+  display: flex;
+  justify-content: center;
+  height: 50%;
+  width: 100%;
+  font-size: 25px;
+  font-family: serif;
+
+}
+
+.additional-name {
+  font-size: 30px;
+}
+
+.additional-item-image {
+
+  display: flex;
+  justify-content: center;
+  width: 60%;
+  height: 120px;
+
+}
+
+.main-div-item > .v-bucks-img {
+  
 }
 
 /* Carousel: Almost every element in react-elastic-carousel has a css class with the rec- prefix (rec is short React Elastic Carousel). */
@@ -369,17 +454,23 @@
 
 .about-div {
   display: flex;
+  font-family: 'Fortnite';
   flex-direction: column;
   width: 100%;
 }
 
 .info-about-div {
-  border: #222222 1px solid;
+  border: #222222 2px solid;
   align-items: center;
   align-self: center;
   margin-top: 2%;
   margin-bottom: 5%;
   width: 50%;
+  /* padding: 2%; */
+}
+
+.info-about-div > p {
+  padding: 5%;
 }
 
 .Loader {
@@ -660,6 +751,20 @@ display: none;
 
   .signup-div select {
     width: 40%;
+  }
+
+  .titulo-p {
+    font-size: 30px;
+    align-items: center;
+    text-shadow: 3px 3px #ff1f8f, 4px 4px #000000;
+  }
+
+  .title-specialfeatured {
+    display: flex;
+  }
+
+  .footer {
+    flex-direction: column;
   }
 
   }

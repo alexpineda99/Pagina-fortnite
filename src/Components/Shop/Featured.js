@@ -1,7 +1,11 @@
 import '../../Assets/Css/Main.css';
 import React, {useState, useEffect} from 'react';
+import VBucks from "../../Assets/Images/V-bucks_1.png";
 import axios from 'axios';
 import Loader from "react-loader-spinner";
+import {
+  Link
+} from "react-router-dom";
 
 function Featured() {
  
@@ -66,8 +70,12 @@ function Featured() {
                   </div>
                 )}
                 <div className="item-info"> 
-                <span> {Feature.finalPrice} </span>
-                <button className="View-button"> View more </button>
+                <div className="item-price"> 
+                  <span> {Feature.finalPrice}</span> &nbsp;  <img src={VBucks} className="v-bucks-img" />
+                </div>
+                <Link to={{pathname:'/item', state: {props: Feature}}}>
+                  <button className="View-button"> View more </button>
+                </Link>
               </div>
               </div>
               )}

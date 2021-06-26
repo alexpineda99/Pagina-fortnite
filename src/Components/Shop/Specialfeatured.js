@@ -1,5 +1,6 @@
 import '../../Assets/Css/Main.css';
 import React, {useState, useEffect} from 'react';
+import VBucks from "../../Assets/Images/V-bucks_1.png";
 import Loader from "react-loader-spinner";
 import axios from 'axios';
 
@@ -37,7 +38,9 @@ function Specialfeatured() {
 
   return (
     <div>
-        <h2 className="titulo-p"> {Name} </h2>
+        <div className="title-specialfeatured">
+         <h2 className="titulo-p"> {Name} </h2>
+        </div>
         <div>
             {Loading ?  <Loader 
           type="Rings" 
@@ -67,7 +70,9 @@ function Specialfeatured() {
                   </div>
                 )}
                 <div className="item-info"> 
-                <span className="price-item"> {Feature.finalPrice} </span>
+                <div className="item-price"> 
+                  <span> {Feature.finalPrice}</span> &nbsp;  <img src={VBucks} className="v-bucks-img" />
+                </div>
                 <button className="View-button"> View more </button>
               </div>
               </div>

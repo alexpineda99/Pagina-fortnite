@@ -1,5 +1,4 @@
 import Navbar from "../Components/Navbar"
-import React, {useState, useEffect} from 'react';
 import Flag from 'react-world-flags'
 import { AwesomeButtonSocial } from 'react-awesome-button';
 import AwesomeButtonStyles from 'react-awesome-button/src/styles/styles.scss';
@@ -7,22 +6,15 @@ import '../Assets/Css/Main.css';
 
 function About() {
  
-    // let [Dailys, setDailys] = useState([]);
-
-    useEffect(() =>{
-
-        
-        }, []);
-
   return (
     <div className="about-div">
         <Navbar/>
         <h1 className="titulo-p"> About </h1>
         
         <div className="info-about-div">
-        <p><Flag code="ven" height="35" /> Pagina de ejemplo </p>
-        <p><Flag code="USA" height="35" /> Webapp </p>
-        <p><Flag code="ITA" height="35" /> </p>
+        <p><Flag code="ven" height="35" /> Aplicación web de ejemplo. </p>
+        <p><Flag code="USA" height="35" /> Web application as a work example. </p>
+        <p><Flag code="ITA" height="35" /> Pagina web di esempio. </p>
         
         </div>
 
@@ -43,7 +35,7 @@ function About() {
         className="social-button"
         cssModule={AwesomeButtonStyles}
         type="github"
-        url="https://github.com/alexpineda99"
+        url="https://github.com/alexpineda99/Pagina-fortnite"
       />
         </div>
         

@@ -1,5 +1,6 @@
 import '../../Assets/Css/Main.css';
 import React, {useState, useEffect} from 'react';
+import VBucks from "../../Assets/Images/V-bucks_1.png";
 import axios from 'axios';
 import Loader from "react-loader-spinner";
 import {
@@ -68,7 +69,9 @@ function Daily() {
                   </div>
                 )}
                 <div className="item-info"> 
-                <span> {Daily.finalPrice} </span>
+                <div className="item-price"> 
+                  <span> {Daily.finalPrice} </span> &nbsp;  <img src={VBucks} className="v-bucks-img" />
+                </div>
                 <Link to={{pathname:'/item', state: {props: Daily}}}>
                   <button className="View-button"> View more </button>
                 </Link>
