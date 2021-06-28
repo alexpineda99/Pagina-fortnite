@@ -44,7 +44,7 @@ function Specialfeatured() {
         <div className="title-specialfeatured">
          <h2 className="titulo-p"> {Name} </h2>
         </div>
-        <div>
+        <div className="Loader">
             {Loading ?  <Loader 
           type="Rings" 
           color="#109DFA" 

@@ -2,7 +2,9 @@ import "../../Assets/Css/Main.css"
 import React, {useState, useEffect} from 'react';
 import {useHistory} from "react-router-dom"
 import VBucks from "../../Assets/Images/V-bucks_1.png";
+import Arrowback from "../../Assets/Images/arrow.png";
 import Navbar from "../Navbar"
+import Footer from "../Footer"
 
 function Item(props) {
  
@@ -25,6 +27,9 @@ function Item(props) {
   return (
             <div className="main">
             <Navbar/>
+            <div className="arrow-back-div">
+            <img src={Arrowback} className="arrow-back" onClick={goToPreviousPath} />
+            </div>
                     <div className="main-div-item">
                         {Features.items.slice(0,1).map(item => 
                             <div className="item-info"> 
@@ -60,7 +65,7 @@ function Item(props) {
                         } 
                         </div>
                     
-
+                        <Footer/>
             </div>
   );
 }
