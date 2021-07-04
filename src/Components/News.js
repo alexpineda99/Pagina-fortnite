@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import Br from "./News/Br";
 import Creative from "./News/Creative";
 import STW from "./News/STW";
+import Footer from "./Footer"
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 // import Carousel from 'react-elastic-carousel';
@@ -53,6 +54,7 @@ function News() {
         <Br/>
         <Creative/>
         <STW/>
+        <Footer/>
         
     </div>
   );

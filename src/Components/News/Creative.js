@@ -35,8 +35,13 @@ function Creative() {
             <h3 className="news-text"> Creative </h3>
             {Creatives.map(Creative=> 
             <div className="creative-div">
-                <SmartCard imgSrc={Creative.image} title={Creative.title} des={Creative.body} btnText="Know More"
-                titleColor="orange" desColor="red" btnBg="orange" btnColor="white"/>
+                <SmartCard imgSrc={Creative.image} title={Creative.title} des={Creative.body}
+                titleColor="orange" desColor="red"/>
+                {/* <img src={Creative.image} className="item-image" />
+                <p> {Creative.title} </p>
+                <div className="creative-div-des"> 
+                  
+                </div> */}
             </div>
             )}
             </div>

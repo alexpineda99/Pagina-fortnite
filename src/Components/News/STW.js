@@ -35,8 +35,8 @@ function STW() {
             <h3 className="news-text"> Save The World </h3>
             {STWS.map(STW=> 
             <div className="">
-                <SmartCard imgSrc={STW.image} title={STW.title} des={STW.body} btnText="Know More"
-                titleColor="orange" desColor="red" btnBg="orange" btnColor="white"/>
+                <SmartCard imgSrc={STW.image} title={STW.title} des={STW.body}
+                titleColor="orange" desColor="red"/>
             </div>
             )}
             </div>

@@ -25,9 +25,11 @@ function Featured() {
         
         // console.log(res.data.data.daily.entries);
 
-        console.log(res.data.data);
+        // console.log(res.data.data);
 
         setName(res.data.data.featured.name);
+
+        console.log(window.pageYOffset)
 
         // console.log(Dailys.slice(0,1));
         setLoading(false);
@@ -56,13 +58,13 @@ function Featured() {
         />
         :
           <div className="main-all"> 
-            {Features.map(Feature=> 
+            {Features.map((Feature, index)=> 
               
-              <div className="item">
+              <div className="item" key={index}>
                 
-                {Feature.items.slice(0,1).map(Item=>
+                {Feature.items.slice(0,1).map((Item, index)=>
 
-                  <div className="item-info"> 
+                  <div className="item-info" key={index}> 
                   <img src={Item.images.icon} className="img-item" />
                   <div className="text-item-box"> 
                     <span className="text-item"> {Item.name} </span>
@@ -73,7 +75,7 @@ function Featured() {
                 <div className="item-price"> 
                   <span> {Feature.finalPrice}</span> &nbsp;  <img src={VBucks} className="v-bucks-img" />
                 </div>
-                <Link to={{pathname:'/item', state: {props: Feature}}}>
+                <Link to={{pathname:`/item/${Feature.items[0].id}`, state: {props: Feature}}}>
                   <button className="View-button"> View more </button>
                 </Link>
               </div>

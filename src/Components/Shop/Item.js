@@ -1,6 +1,6 @@
 import "../../Assets/Css/Main.css"
 import React, {useState, useEffect} from 'react';
-import {useHistory} from "react-router-dom"
+import {useHistory, useLocation} from "react-router-dom"
 import VBucks from "../../Assets/Images/V-bucks_1.png";
 import Arrowback from "../../Assets/Images/arrow.png";
 import Navbar from "../Navbar"
@@ -11,18 +11,20 @@ function Item(props) {
     // console.log(props.history.location.state.props);
     let [Features, setFeatures] = useState(props.history.location.state.props);
     let [Itemlength, setItemlength] = useState(Features.items.length);
+    const { pathname } = useLocation();
     let history = useHistory();
 
     const goToPreviousPath = () =>{
         history.goBack();
     }
-
+    console.log(window.pageYOffset)
     console.log(Features);
     console.log(Itemlength);
     useEffect(() =>{
         
+        window.scrollTo(0, 0);
         
-        }, []);
+        }, [pathname]);
 
   return (
             <div className="main">

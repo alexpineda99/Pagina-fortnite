@@ -25,10 +25,11 @@ function Daily() {
         
         // console.log(res.data.data.daily.entries);
 
-        console.log(res.data.data);
+        // console.log(res.data.data);
 
         setName(res.data.data.daily.name);
 
+        console.log(window.pageYOffset)
         // console.log(Dailys.slice(0,1));
         setLoading(false);
       })
@@ -72,7 +73,7 @@ function Daily() {
                 <div className="item-price"> 
                   <span> {Daily.finalPrice} </span> &nbsp;  <img src={VBucks} className="v-bucks-img" />
                 </div>
-                <Link to={{pathname:'/item', state: {props: Daily}}}>
+                <Link to={{pathname:`/item/${Daily.items[0].id}`, state: {props: Daily}}}>
                   <button className="View-button"> View more </button>
                 </Link>
               </div>

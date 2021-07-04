@@ -429,14 +429,8 @@
     font-family: 'Fortnite';
   }
 
-  .rsc-border {
+  /* .rsc-border {
     border: none !important;
-  }
-
-  .rsc-flex {
-    display: flex;
-    flex-direction: column;
-    align-items: center !important;
   }
 
   .challenges-div > .rsc-flex {
@@ -468,6 +462,11 @@
   background-color: #ffc107 !important;
   transition: ease-in-out 0.2s;
 
+} */
+
+.rsc-border-gray {
+  border: none !important;
+  margin-bottom: 5%;
 }
 
 .about-div {
@@ -743,6 +742,10 @@ display: none;
       font-size: 55px;
     }
 
+    .titulo-p{
+      font-size: 60px;
+    }
+
     .footer-main {
       flex-direction: column;
       height: 100%;
@@ -755,8 +758,12 @@ display: none;
   }
 
   @media only screen and (max-width: 425px) {
-    .item {
+  .item {
       width: 20%;
+  }
+
+  .text-item {
+    font-size: 15px;
   }
 
   .nav-user{
@@ -781,9 +788,27 @@ display: none;
     display: flex;
   }
 
+  .rsc-flex-child {
+    width: 60% !important;
+  }
+
   .footer {
     flex-direction: column;
   }
+  }
+
+  @media only screen and (max-width: 375px) {
+
+    .rsc-flex {
+      display: flex;
+      flex-direction: column;
+      align-items: center !important;
+    }
+
+    .text-item {
+      font-size: 13px;
+    }
+    
   }
 
   @media only screen and (max-width: 320px) {
@@ -795,6 +820,7 @@ display: none;
     .bm-burger-button {
       width: 9.5%;
     }
+
     
   }
   /* paleta de colores */

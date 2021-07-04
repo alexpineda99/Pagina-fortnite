@@ -22,7 +22,7 @@ function App() {
           <Route exact path="/shop" component={Shop} />
           <Route exact path="/news" component={News} />
           <Route exact path="/about" component={About} />
-          <Route exact path="/item" component={Item} />
+          <Route exact path="/item/:id" component={Item} />
           <Route exact path="/signin" component={SignIn} />
           <Route exact path="/signup" component={SignUp} />
           <Route component={Notfound} />
