@@ -18,12 +18,17 @@ function SignUp() {
     let [phone, setPhone] = useState("");
     let [n, setn] = useState(2);
     let [showp, setShowp] = useState(true);
+
+    function register () {
+
+    }
+
   return (
     <div className="main">
         <Navbar/>
         <div className="signup-div">
         <h2>Sign up</h2>
-
+        <form onSubmit={() => alert("register succesful")}>
         <FormField
         type={"text"}
         standard="labeleffect"
@@ -41,7 +46,7 @@ function SignUp() {
         effect={'effect_3'}
         handleOnChange={value => setEmail(value)}
         placeholder={'Enter Email'} />
-
+        <div className="country-region-div">
         <CountryDropdown
         value={country}
         onChange={value => setCountry(value)} 
@@ -50,7 +55,7 @@ function SignUp() {
           color: 'black',
           border: "1px #cccccc solid",
           outline: 0,
-          margin: "3% 0% 2% 0%",
+          margin: "3% 0% 2% 0%"
         }}
         />
         <RegionDropdown
@@ -64,10 +69,10 @@ function SignUp() {
           color: 'black',
           border: "1px #cccccc solid",
           outline: 0,
-          margin: "2% 0% 2% 0%",
+          margin: "3% 0% 2% 0%",
         }}
         />
-
+        </div>
         <PhoneInput
         initialValueFormat="national"
         className="_7avJu undefined"
@@ -116,6 +121,7 @@ function SignUp() {
 
         <button class="btn-login" onClick={() => alert("hola")}>Sign up</button>  
 
+        </form>
         </div>
     </div>
   );

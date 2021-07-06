@@ -1,4 +1,5 @@
 import Navbar from "../Components/Navbar"
+import Footer from "./Footer";
 import Flag from 'react-world-flags'
 import { AwesomeButtonSocial } from 'react-awesome-button';
 import AwesomeButtonStyles from 'react-awesome-button/src/styles/styles.scss';
@@ -38,6 +39,8 @@ function About() {
         url="https://github.com/alexpineda99/Pagina-fortnite"
       />
         </div>
+
+      <Footer/>
         
     </div>
   );

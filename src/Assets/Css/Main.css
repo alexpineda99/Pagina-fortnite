@@ -503,6 +503,7 @@
   justify-content: space-around;
   align-self: center;
   width: 50%;
+  margin-bottom: 5%;
 }
 
 .social-button {
@@ -633,6 +634,7 @@ display: none;
   border: none;
   border-bottom: 1px solid #ccc;
   outline: 0;
+  width: 50%;
 }
 
 .PhoneInputInput::placeholder{
@@ -649,7 +651,12 @@ display: none;
 }
 
 .signup-div select {
-  width: 15%;
+  width: 50%;
+}
+
+.country-region-div {
+  display: flex;
+  justify-content: center;
 }
 
 .btn-login {
