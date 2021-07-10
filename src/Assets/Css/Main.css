@@ -634,7 +634,20 @@ display: none;
   border: none;
   border-bottom: 1px solid #ccc;
   outline: 0;
-  width: 50%;
+  width: 100%;
+}
+
+.password-eye{
+  position: absolute;
+  top: 62%;
+  right: 37%;
+  cursor: pointer;
+}
+
+.password-eye-confirm{
+  /* position: absolute; */
+  top: 71%;
+  right: 38%;
 }
 
 .PhoneInputInput::placeholder{
@@ -690,6 +703,10 @@ display: none;
 
 .btn-login:hover:before {
   top: 0;
+}
+
+._2eBPT ._7avJu ~ ._2f4YC {
+  z-index: unset !important;
 }
 
 .footer {

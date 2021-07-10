@@ -5,6 +5,8 @@ import PhoneInput, {isPossiblePhoneNumber} from 'react-phone-number-input'
 import { FormField } from 'react-form-input-fields';
 import PasswordChecklist from "react-password-checklist"
 import { CountryDropdown, RegionDropdown, CountryRegionData } from 'react-country-region-selector';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye,faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import 'react-form-input-fields/dist/index.css'
 import 'react-phone-number-input/style.css'
 
@@ -16,8 +18,13 @@ function SignUp() {
     let [pass, setPass] = useState("");
     let [passAgain, setPassAgain] = useState("");
     let [phone, setPhone] = useState("");
-    let [n, setn] = useState(2);
-    let [showp, setShowp] = useState(true);
+    const [passwordShown, setPasswordShown] = useState(false);
+    const eye = <FontAwesomeIcon icon={faEye} />
+    const eyeSlash = <FontAwesomeIcon icon={faEyeSlash} />
+
+    const togglePasswordVisiblity = () => {
+      setPasswordShown(passwordShown ? false : true);
+    };
 
     function register () {
 
@@ -28,6 +35,7 @@ function SignUp() {
         <Navbar/>
         <div className="signup-div">
         <h2>Sign up</h2>
+        
         <form onSubmit={() => alert("register succesful")}>
         <FormField
         type={"text"}
@@ -85,22 +93,14 @@ function SignUp() {
         Is possible: {phone && isPossiblePhoneNumber(phone) ? 'true' : 'false'} */}
 
         <FormField
-        type={showp ? "text" : "password"}
+        type={passwordShown ? "text" : "password"}
         standard="labeleffect"
         value={pass}
         keys={'pass'}
         effect={'effect_3'}
         handleOnChange={value => setPass(value)}
         placeholder={'Enter pass'} />
-
-        {/* <FormField
-        type="switch"
-        value={showp}
-        keys={'showp'}
-        handleOnChange={value => setShowp(value)}
-        label={'Show password'} /> */}
-
-        {/* <span> Estado: {showp  ? 'true' : 'false'} </span> */}
+        <i onClick={togglePasswordVisiblity} className="password-eye"> {passwordShown ? eye : eyeSlash} </i>
 
         <FormField
         type={"password"}
