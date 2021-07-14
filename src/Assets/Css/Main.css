@@ -607,6 +607,12 @@ display: none;
   align-items: center;
 }
 
+.button-signup {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .link-signup:link{
   text-decoration: underline;
 }
@@ -637,18 +643,36 @@ display: none;
   width: 100%;
 }
 
-.password-eye{
+.input-password {
+  /* width: 100%; */
+}
+
+.icon-eye {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.icon {
   position: absolute;
-  top: 62%;
+  padding-top: 10px;
+  cursor: pointer;
+  z-index: 999;
+
+}
+
+/* .password-eye{
+  position: absolute;
+  top: 52%;
   right: 37%;
   cursor: pointer;
 }
 
 .password-eye-confirm{
-  /* position: absolute; */
+  position: absolute;
   top: 71%;
   right: 38%;
-}
+} */
 
 .PhoneInputInput::placeholder{
   color: #222222;
@@ -739,11 +763,61 @@ display: none;
         /* #E69DFB */
         /* #FF689D*/
         /* #222222 */
+  @media only screen and (max-width: 2560px) {
+
+    .password-eye{
+      position: absolute;
+      top: 41%;
+      right: 43%;
+      cursor: pointer;
+    }
+    
+    .password-eye-confirm{
+      position: absolute;
+      top: 46%;
+      right: 43%;
+    }
+
+
+    }
+
+    @media only screen and (max-width: 1440px) and (max-height: 608px) {
+
+      .password-eye{
+        position: absolute;
+        top: 66%;
+        right: 38%;
+        cursor: pointer;
+      }
+      
+      .password-eye-confirm{
+        position: absolute;
+        top: 75%;
+        right: 38%;
+        cursor: pointer;
+      }
+  
+  
+      }
 
   @media only screen and (max-width: 1024px) {
 
+    .password-eye{
+      position: absolute;
+      top: 69.5%;
+      right: 34%;
+      cursor: pointer;
+    }
+    
+    .password-eye-confirm{
+      position: absolute;
+      top: 79.5%;
+      right: 34%;
+      cursor: pointer;
+    }
 
-        }
+
+    }
 
   @media only screen and (max-width: 768px) {
     .bm-burger-button {
@@ -778,6 +852,20 @@ display: none;
     .footer-item {
       width: 100%;
       justify-content: center;
+    }
+
+    .password-eye{
+      position: absolute;
+      top: 67.9%;
+      right: 28%;
+      cursor: pointer;
+    }
+    
+    .password-eye-confirm{
+      position: absolute;
+      top: 77.8%;
+      right: 28%;
+      cursor: pointer;
     }
   }
 
@@ -819,6 +907,20 @@ display: none;
   .footer {
     flex-direction: column;
   }
+
+  .password-eye{
+    position: absolute;
+    top: 65%;
+    right: 10%;
+    cursor: pointer;
+  }
+  
+  .password-eye-confirm{
+    position: absolute;
+    top: 75%;
+    right: 10%;
+    cursor: pointer;
+  }
   }
 
   @media only screen and (max-width: 375px) {
@@ -831,6 +933,20 @@ display: none;
 
     .text-item {
       font-size: 13px;
+    }
+
+    .password-eye{
+      position: absolute;
+      top: 64.5%;
+      right: 4%;
+      cursor: pointer;
+    }
+    
+    .password-eye-confirm{
+      position: absolute;
+      top: 74.5%;
+      right: 4%;
+      cursor: pointer;
     }
     
   }
@@ -845,6 +961,23 @@ display: none;
       width: 9.5%;
     }
 
+    .password-eye{
+      position: absolute;
+      top: 63%;
+      right: 10%;
+      cursor: pointer;
+    }
+    
+    .password-eye-confirm{
+      position: absolute;
+      top: 73%;
+      right: 10%;
+      cursor: pointer;
+    }
+
+    .signup-div form {
+      width: 80%;
+    }
     
   }
   /* paleta de colores */

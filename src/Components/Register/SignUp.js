@@ -19,11 +19,15 @@ function SignUp() {
     let [passAgain, setPassAgain] = useState("");
     let [phone, setPhone] = useState("");
     const [passwordShown, setPasswordShown] = useState(false);
+    const [passwordconfirmShown, setPasswordConfirmShown] = useState(false);
     const eye = <FontAwesomeIcon icon={faEye} />
     const eyeSlash = <FontAwesomeIcon icon={faEyeSlash} />
 
     const togglePasswordVisiblity = () => {
       setPasswordShown(passwordShown ? false : true);
+    };
+    const togglePasswordConfirmVisiblity = () => {
+      setPasswordConfirmShown(passwordconfirmShown ? false : true);
     };
 
     function register () {
@@ -92,6 +96,10 @@ function SignUp() {
         {/* <span> aqui mira {phone} </span>
         Is possible: {phone && isPossiblePhoneNumber(phone) ? 'true' : 'false'} */}
 
+        <div className="input-password">
+        <div className="icon-eye">
+          <i onClick={togglePasswordVisiblity} className="icon"> {passwordShown ? eye : eyeSlash} </i>
+        </div>
         <FormField
         type={passwordShown ? "text" : "password"}
         standard="labeleffect"
@@ -100,16 +108,21 @@ function SignUp() {
         effect={'effect_3'}
         handleOnChange={value => setPass(value)}
         placeholder={'Enter pass'} />
-        <i onClick={togglePasswordVisiblity} className="password-eye"> {passwordShown ? eye : eyeSlash} </i>
+        </div>
 
+        <div className="input-password">
+        <div className="icon-eye">
+         <i onClick={togglePasswordConfirmVisiblity} className="icon"> {passwordconfirmShown ? eye : eyeSlash} </i>
+        </div>
         <FormField
-        type={"password"}
+        type={passwordconfirmShown ? "text" : "password"}
         standard="labeleffect"
         value={passAgain}
         keys={'passAgain'}
         effect={'effect_3'}
         handleOnChange={value => setPassAgain(value)}
         placeholder={'Confirm pass'} />
+        </div>
 
         <PasswordChecklist
           rules={["length","specialChar","number","capital","match"]}
@@ -117,10 +130,10 @@ function SignUp() {
           value={pass}
           valueAgain={passAgain}
           onChange={(isValid) => {}}
-          />
-
+        />
+        <div className="button-signup">
         <button class="btn-login" onClick={() => alert("hola")}>Sign up</button>  
-
+        </div>
         </form>
         </div>
     </div>
