@@ -1,14 +1,17 @@
 import '../../Assets/Css/Main.css';
 import Navbar from "../Navbar";
-import { useState } from 'react';
+import PopupRegistration from './PopupRegistration';
+import React, { useState, useEffect } from 'react';
 import PhoneInput, {isPossiblePhoneNumber} from 'react-phone-number-input'
 import { FormField } from 'react-form-input-fields';
 import PasswordChecklist from "react-password-checklist"
-import { CountryDropdown, RegionDropdown, CountryRegionData } from 'react-country-region-selector';
+import { CountryDropdown, RegionDropdown} from 'react-country-region-selector';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye,faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import 'react-form-input-fields/dist/index.css'
 import 'react-phone-number-input/style.css'
+import 'reactjs-popup/dist/index.css';
+import axios from 'axios';
 
 function SignUp() {
     let [name, setName] = useState("");
@@ -18,6 +21,8 @@ function SignUp() {
     let [pass, setPass] = useState("");
     let [passAgain, setPassAgain] = useState("");
     let [phone, setPhone] = useState("");
+    let [msg, setmsg] = useState("");
+    let [open, setOpen] = useState(false);
     const [passwordShown, setPasswordShown] = useState(false);
     const [passwordconfirmShown, setPasswordConfirmShown] = useState(false);
     const eye = <FontAwesomeIcon icon={faEye} />
@@ -30,17 +35,51 @@ function SignUp() {
       setPasswordConfirmShown(passwordconfirmShown ? false : true);
     };
 
-    function register () {
+    const registeruser = (e) => {
+      e.preventDefault();
+      const data = {
+      name: name,
+      country: country,
+      region: region,
+      phone: phone,
+      email: email,
+      password: pass
+      }
 
+      axios.post("http://localhost:3001/register", data)
+      .then(res => {
+        console.log(res.data);
+
+        if (res.data.success === false) {
+
+          // setOpen(o => !o);
+          setmsg(res.data.msg);
+          // window.location = "/signin";
+          
+        } else {
+
+          setOpen(o=> !o);
+          
+        }
+      })
+      .catch(error => {
+        alert(error);
+      })
     }
+
+    useEffect(() =>{
+
+    }, []);
 
   return (
     <div className="main">
         <Navbar/>
+
+     { open ? <PopupRegistration pop={open}/> : "" }
+        
         <div className="signup-div">
         <h2>Sign up</h2>
-        
-        <form onSubmit={() => alert("register succesful")}>
+        <form onSubmit={(e) => registeruser(e)}>
         <FormField
         type={"text"}
         standard="labeleffect"
@@ -131,8 +170,9 @@ function SignUp() {
           valueAgain={passAgain}
           onChange={(isValid) => {}}
         />
+        <span className="msg-error"> {msg} </span>
         <div className="button-signup">
-        <button class="btn-login" onClick={() => alert("hola")}>Sign up</button>  
+        <button class="btn-login" type="submit">Sign up</button>  
         </div>
         </form>
         </div>
