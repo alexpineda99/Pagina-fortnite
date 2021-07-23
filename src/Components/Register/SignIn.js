@@ -2,9 +2,7 @@ import '../../Assets/Css/Main.css';
 import Navbar from "../Navbar";
 import { useState, useEffect } from 'react';
 import { FormField } from 'react-form-input-fields';
-import { AwesomeButton } from "react-awesome-button";
-import AwesomeButtonStyles from "react-awesome-button/src/styles/styles.scss";
-import 'react-form-input-fields/dist/index.css'
+import axios from 'axios';
 
 function SignIn() {
 
@@ -13,10 +11,34 @@ function SignIn() {
   let [showp, setShowp] = useState(true);
   const [data, setData] = useState(null);
 
+  const logUser = (e) => {
+    e.preventDefault();
+
+    const data = {
+      email: email,
+      password: pass
+    }
+
+    axios.post("http://localhost:3001/login", data)
+
+    .then(res => {
+      if (res.data.success === false) {
+
+       console.log("Usuario invalido");
+        
+      } else {
+
+        console.log("User logged");
+        
+      }
+    })
+
+  }
+
   useEffect(() =>{
-    fetch("/api")
-      .then((res) => res.json())
-      .then((data) => setData(data.message));
+    // fetch("/api")
+    //   .then((res) => res.json())
+    //   .then((data) => setData(data.message));
         
   }, []);
 
@@ -28,8 +50,7 @@ function SignIn() {
         <div className="signin-div">
 
         <h2>Sign in</h2>
-
-        <div className="">
+        <form onSubmit={(e)=> logUser(e)}>
         <FormField
         type="email"
         standard="labeleffect"
@@ -39,7 +60,6 @@ function SignIn() {
         handleOnChange={value => setEmail(value)}
         placeholder={'Enter email'} 
         />
-        </div>
 
         <FormField
         type={showp ? "text" : "password"}
@@ -50,10 +70,11 @@ function SignIn() {
         handleOnChange={value => setPass(value)}
         placeholder={'Enter pass'} />
 
-        <button class="btn-login" onClick={() => alert("hola")}>Log in</button>  
-        
+        <button class="btn-login" type="submit">Log in</button>  
+        </form>
         <span>¿Don´t you have an account? <a href="/signup" className="link-signup"> Sign up </a> </span>
         resultado aqui {data}
+       
         </div>
       
     </div>

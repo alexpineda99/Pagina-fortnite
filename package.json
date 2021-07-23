@@ -23,6 +23,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.3",
     "react-smart-card": "^0.4.0",
+    "react-with-redux": "0.0.3",
     "react-world-flags": "^1.4.0",
     "reactjs-popup": "^2.0.5",
     "sass": "^1.32.8",
