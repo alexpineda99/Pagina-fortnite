@@ -1,10 +1,10 @@
-const reducerLogin = (state = null, action) => {
+const reducerLogin = (state = "", action) => {
 
     switch(action.type){
         case "logged":
-            return state = action.payload
+            return state + action.payload;
         default:
-            return state
+            return state 
     }
 
 }

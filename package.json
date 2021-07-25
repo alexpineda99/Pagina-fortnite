@@ -26,6 +26,7 @@
     "react-with-redux": "0.0.3",
     "react-world-flags": "^1.4.0",
     "reactjs-popup": "^2.0.5",
+    "redux-thunk": "^2.3.0",
     "sass": "^1.32.8",
     "styled-components": "^5.2.3",
     "web-vitals": "^1.1.1"

@@ -6,7 +6,6 @@ import SignIn from "./Components/Register/SignIn";
 import SignUp from "./Components/Register/SignUp";
 import Item from "./Components/Shop/Item";
 import Notfound from "./Pages/Pagenotfound";
-import { useSelector } from 'react-redux'; 
 import {
   BrowserRouter as Router,
   Switch,
@@ -14,8 +13,7 @@ import {
 } from "react-router-dom";
 
 function App() {
-  const state = useSelector((state) =>state.User);
-  console.log(state);
+
   return (
       <Router>
     <div>

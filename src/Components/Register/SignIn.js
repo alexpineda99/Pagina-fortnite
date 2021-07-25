@@ -2,6 +2,9 @@ import '../../Assets/Css/Main.css';
 import Navbar from "../Navbar";
 import { useState, useEffect } from 'react';
 import { FormField } from 'react-form-input-fields';
+import { bindActionCreators } from 'redux';
+import { actionCreators } from '../../State/index';
+import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 
 function SignIn() {
@@ -9,7 +12,11 @@ function SignIn() {
   let [email, setEmail] = useState("");
   let [pass, setPass] = useState("");
   let [showp, setShowp] = useState(true);
+  const user = useSelector((state)=> state.User);
+  const dispatch = useDispatch();
   const [data, setData] = useState(null);
+
+  const {logInUser} = bindActionCreators(actionCreators, dispatch);
 
   const logUser = (e) => {
     e.preventDefault();
@@ -28,7 +35,10 @@ function SignIn() {
         
       } else {
 
-        console.log("User logged");
+        // console.log("User logged");
+        // console.log(res.data.token);
+        logInUser(res.data.token);
+        localStorage.setItem('user', res.data.token);
         
       }
     })
