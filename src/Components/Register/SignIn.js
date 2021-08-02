@@ -16,7 +16,7 @@ function SignIn() {
   const dispatch = useDispatch();
   const [data, setData] = useState(null);
 
-  const {logInUser} = bindActionCreators(actionCreators, dispatch);
+  const {logInUser, logOutUser} = bindActionCreators(actionCreators, dispatch);
 
   const logUser = (e) => {
     e.preventDefault();
@@ -37,7 +37,10 @@ function SignIn() {
 
         // console.log("User logged");
         // console.log(res.data.token);
+        console.log(res.headers);
+        alert("hola")
         logInUser(res.data.token);
+        // logOutUser();
         localStorage.setItem('user', res.data.token);
         
       }
@@ -60,6 +63,7 @@ function SignIn() {
         <div className="signin-div">
 
         <h2>Sign in</h2>
+        <p>{user}</p>
         <form onSubmit={(e)=> logUser(e)}>
         <FormField
         type="email"

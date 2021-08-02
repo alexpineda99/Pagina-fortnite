@@ -1,27 +1,41 @@
 import "../../Assets/Css/Main.css"
 import React, {useState, useEffect} from 'react';
-import {useHistory, useLocation} from "react-router-dom"
+import {useHistory, useLocation, useParams, Redirect} from "react-router-dom"
 import VBucks from "../../Assets/Images/V-bucks_1.png";
 import Arrowback from "../../Assets/Images/arrow.png";
 import Navbar from "../Navbar"
 import Footer from "../Footer"
+import axios from "axios";
+const token = localStorage.getItem('user');
 
 function Item(props) {
  
     // console.log(props.history.location.state.props);
     let [Features, setFeatures] = useState(props.history.location.state.props);
     let [Itemlength, setItemlength] = useState(Features.items.length);
-    const { pathname } = useLocation();
     let history = useHistory();
+    const { pathname } = useLocation();
+    const {id} = useParams();
 
     const goToPreviousPath = () =>{
         history.goBack();
     }
-    console.log(window.pageYOffset)
-    console.log(Features);
-    console.log(Itemlength);
+    // console.log(window.pageYOffset)
+    // console.log(Features);
+    // console.log(Itemlength);
     useEffect(() =>{
-        
+        console.log(id);
+        axios.get(`/item/${id}`, {
+            headers: {'auth': token}
+          })
+        .then(res=> {
+            console.log(res.data);
+            
+        })
+        .catch(err => {
+            console.log(err);
+            window.location.href = "/signin";
+        })
         window.scrollTo(0, 0);
         
         }, [pathname]);

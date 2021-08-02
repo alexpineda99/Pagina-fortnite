@@ -1,11 +1,7 @@
-const reducerLogout = (state = localStorage.getItem('user'), action) => {
+const reducerLogout = (state) => {
 
-    switch(action.type){
-        case "logout":
-            return state = localStorage.removeItem('user');
-        default:
-            return state
-    }
+    return state = null;
+
 
 }
 

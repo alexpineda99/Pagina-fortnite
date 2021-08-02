@@ -12,6 +12,7 @@ function Daily() {
     let [Dailys, setDailys] = useState([]);
     let [Name, setName] = useState("");
     let [Loading, setLoading] = useState(false);
+    const token = localStorage.getItem('user');
     const url = "https://fortnite-api.com/v2/shop/br"
 
     useEffect(() =>{
@@ -29,6 +30,7 @@ function Daily() {
 
         setName(res.data.data.daily.name);
 
+        // console.log(res.headers);
         console.log(window.pageYOffset)
         // console.log(Dailys.slice(0,1));
         setLoading(false);
@@ -41,7 +43,7 @@ function Daily() {
 
   return (
     <div>
-      <h2 className="titulo-p"> {Name} </h2>
+      <h2 className="titulo-p"> {Name}  </h2>
         <div className="Loader">
         {Loading ?  <Loader 
           type="Rings" 

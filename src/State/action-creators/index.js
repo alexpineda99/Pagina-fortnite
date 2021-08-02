@@ -10,7 +10,8 @@ export const logInUser = (userData) => {
 export const logOutUser = () => {
     return (dispatch) => {
         dispatch({
-            type: "logout"
+            type: "logout",
+            payload: ""
         })
     }
 }
