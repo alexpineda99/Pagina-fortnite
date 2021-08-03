@@ -2,6 +2,7 @@ import '../../Assets/Css/Main.css';
 import React, {useState, useEffect} from 'react';
 import VBucks from "../../Assets/Images/V-bucks_1.png";
 import Loader from "react-loader-spinner";
+import ContentUnavailable from '../Pages/ContentUnavailable';
 import axios from 'axios';
 import {
   Link
@@ -16,23 +17,27 @@ function Specialfeatured() {
 
     useEffect(() =>{
         setLoading(true);
+        setName("SPECIAL FEATURED");
         let fetchDaily = async () =>{
         await axios.get(url)
         .then(res => {
 
         setSpecialfeatured(res.data.data.specialFeatured.entries);
         
-        // console.log(res.data.data.daily.entries);
+        console.log(Specialfeatured);
 
-        // console.log(res.data.data);
-
-        setName("SPECIAL FEATURED");
+        // console.log(Specialfeatured);
 
         console.log(window.pageYOffset)
 
         // console.log(Dailys.slice(0,1));
         setLoading(false);
 
+      })
+      .catch(error=> {
+        console.log(error)
+        setLoading(null);
+        console.log(Specialfeatured);
       })
 
     }
@@ -46,18 +51,19 @@ function Specialfeatured() {
          <h2 className="titulo-p"> {Name} </h2>
         </div>
         <div className="Loader">
-            {Loading ?  <Loader 
-          type="Rings" 
-          color="#109DFA" 
-          height={80} 
-          width={80} 
-        /* #109DFA */
-        /* #024A86 */
-        /* #E69DFB */
-        /* #FF689D*/
-        /* #222222 */
-        />
+            {Loading  ?
+            <Loader 
+            type="Rings" 
+            color="#109DFA" 
+            height={80} 
+            width={80} 
+          />
         :
+
+        Loading === null ?
+        <ContentUnavailable/>
+        :
+
           <div className="main-all"> 
             {Specialfeatures.map((Feature, index)=> 
               
@@ -66,7 +72,7 @@ function Specialfeatured() {
                 {Feature.items.slice(0,1).map((Item, index)=>
 
                   <div className="item-info" key={index}> 
-                  <img src={Item.images.icon} className="img-item" />
+                  <img src={Item.images.icon} className="img-item" alt={Item.name} />
                   <div className="text-item-box"> 
                     <span className="text-item"> {Item.name} </span>
                   </div>
@@ -75,7 +81,7 @@ function Specialfeatured() {
                 )}
                 <div className="item-info"> 
                 <div className="item-price"> 
-                  <span> {Feature.finalPrice}</span> &nbsp;  <img src={VBucks} className="v-bucks-img" />
+                  <span> {Feature.finalPrice}</span> &nbsp;  <img src={VBucks} className="v-bucks-img" alt="v-bucks price" />
                 </div>
                 <Link to={{pathname:`/item/${Feature.items[0].id}`, state: {props: Feature}}}>
                   <button className="View-button"> View more </button>
@@ -85,7 +91,8 @@ function Specialfeatured() {
               )}
                 
           </div>
-        }
+      }
+
         </div>
     </div>
   );

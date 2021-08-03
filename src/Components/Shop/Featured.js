@@ -65,7 +65,7 @@ function Featured() {
                 {Feature.items.slice(0,1).map((Item, index)=>
 
                   <div className="item-info" key={index}> 
-                  <img src={Item.images.icon} className="img-item" />
+                  <img src={Item.images.icon} className="img-item" alt={Item.name} />
                   <div className="text-item-box"> 
                     <span className="text-item"> {Item.name} </span>
                   </div>
@@ -73,7 +73,7 @@ function Featured() {
                 )}
                 <div className="item-info"> 
                 <div className="item-price"> 
-                  <span> {Feature.finalPrice}</span> &nbsp;  <img src={VBucks} className="v-bucks-img" />
+                  <span> {Feature.finalPrice}</span> &nbsp;  <img src={VBucks} className="v-bucks-img" alt="v-bucks price" />
                 </div>
                 <Link to={{pathname:`/item/${Feature.items[0].id}`, state: {props: Feature}}}>
                   <button className="View-button"> View more </button>
@@ -89,44 +89,3 @@ function Featured() {
 }
 
 export default Featured;
-
-
-
-
-
-
-
-// {Dailys.map(Daily => (
-
-//   <div className="item"> 
-//   {/* {Daily.items.images.map(image =>
-
-//       <span> {image.icon} </span>
-
-//   )} */}
-//       <span> {Daily.name} </span> 
-
-//   </div>
-// ))}
-
-
-// old
-
-{/* {Dailys.map(Daily => (
-
-            <div className="item">  */}
-            {/* {Daily.items.images.map(image =>
-
-                <span> {image.icon} </span>
-
-            )} */}
-
-            {/* {Daily.items.map((item,index) => 
-                
-                <span>{item.name}</span>
-                
-    
-            )} */}
-                {/* <span> {Daily.name} </span> 
-            </div>
-        ))} */}

@@ -1,6 +1,6 @@
 import "../../Assets/Css/Main.css"
 import React, {useState, useEffect} from 'react';
-import {useHistory, useLocation, useParams, Redirect} from "react-router-dom"
+import {useHistory, useLocation, useParams} from "react-router-dom"
 import VBucks from "../../Assets/Images/V-bucks_1.png";
 import Arrowback from "../../Assets/Images/arrow.png";
 import Navbar from "../Navbar"
@@ -10,7 +10,6 @@ const token = localStorage.getItem('user');
 
 function Item(props) {
  
-    // console.log(props.history.location.state.props);
     let [Features, setFeatures] = useState(props.history.location.state.props);
     let [Itemlength, setItemlength] = useState(Features.items.length);
     let history = useHistory();
@@ -20,9 +19,7 @@ function Item(props) {
     const goToPreviousPath = () =>{
         history.goBack();
     }
-    // console.log(window.pageYOffset)
-    // console.log(Features);
-    // console.log(Itemlength);
+
     useEffect(() =>{
         console.log(id);
         axios.get(`/item/${id}`, {
@@ -44,20 +41,20 @@ function Item(props) {
             <div className="main">
             <Navbar/>
             <div className="arrow-back-div">
-            <img src={Arrowback} className="arrow-back" onClick={goToPreviousPath} />
+            <img src={Arrowback} className="arrow-back" onClick={goToPreviousPath} alt="arrowback" />
             </div>
                     <div className="main-div-item">
                         {Features.items.slice(0,1).map(item => 
                             <div className="item-info"> 
                                 <h1 className="item-name"> {item.name} </h1> 
-                                <img src={item.images.icon} className="item-image" />
+                                <img src={item.images.icon} className="item-image" alt={item.name} />
                             </div>
                             )}
 
                                    
                     </div>
                     <div className="item-price"> 
-                        <span> {Features.finalPrice} </span> &nbsp;  <img src={VBucks} className="v-bucks-img-item" />
+                        <span> {Features.finalPrice} </span> &nbsp;  <img src={VBucks} className="v-bucks-img-item" alt="v-bucks price" />
                     </div>
                     <span className="additional-name"> Additional items:  </span>
                     <div className="main-additional-item">
@@ -72,7 +69,7 @@ function Item(props) {
 
                                 <div className="additional-item">
                                     <h1 className="additional-item-name"> {item.name} </h1> 
-                                    <img src={item.images.icon} className="additional-item-image" />
+                                    <img src={item.images.icon} className="additional-item-image" alt={item.name} />
                                 </div>
                             )
 

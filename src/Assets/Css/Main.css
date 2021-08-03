@@ -53,6 +53,17 @@
     margin-right: 5%;
   }
 
+  li .signout {
+    text-decoration: none;
+    color: white;
+  }
+
+  .signout:hover {
+    transition: ease-in-out .2s;
+    color: #109DFA;
+    cursor: pointer;
+  }
+
   .li-burger {
     margin-bottom: 10%;
   }
@@ -328,9 +339,15 @@
 
 }
 
+.unavailable-content {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
 .v-bucks-img {
   /* border-radius: 50%; */
-  width: 10%;
+  width: 14%;
   height: 15%;
 }
 
@@ -511,6 +528,7 @@
   justify-content: center;
   width: 100%;
   font-size: 25px;
+  margin-bottom: 5%;
 }
 
 .social-button {
@@ -648,10 +666,6 @@ display: none;
   border-bottom: 1px solid #ccc;
   outline: 0;
   width: 100%;
-}
-
-.input-password {
-  /* width: 100%; */
 }
 
 .icon-eye {
@@ -883,6 +897,10 @@ display: none;
       font-size: 60px;
     }
 
+    .v-bucks-img {
+      width: 20%;
+    }
+
     .footer-main {
       flex-direction: column;
       height: 100%;
@@ -918,7 +936,7 @@ display: none;
   }
 
   .text-item {
-    font-size: 15px;
+    font-size: 17px;
   }
 
   .nav-user{
@@ -931,6 +949,10 @@ display: none;
 
   .signup-div select {
     width: 40%;
+  }
+
+  .v-bucks-img {
+    width: 25%;
   }
 
   .titulo-p {
@@ -949,6 +971,10 @@ display: none;
 
   .footer {
     flex-direction: column;
+  }
+
+  .View-button {
+    font-size: 17px;
   }
 
   .password-eye{
@@ -977,10 +1003,6 @@ display: none;
       display: flex;
       flex-direction: column;
       align-items: center !important;
-    }
-
-    .text-item {
-      font-size: 13px;
     }
 
     .password-eye{
@@ -1013,6 +1035,10 @@ display: none;
       width: 9.5%;
     }
 
+    .text-item {
+      font-size: 14px;
+    }
+
     .password-eye{
       position: absolute;
       top: 63%;
@@ -1035,6 +1061,9 @@ display: none;
       width: 80% !important;
     }
     
+    .v-bucks-img {
+      width: 35%;
+    }
   }
   /* paleta de colores */
 

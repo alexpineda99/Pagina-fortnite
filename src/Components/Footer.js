@@ -1,14 +1,8 @@
 import "../Assets/Css/Main.css"
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 
 function Footer() {
  
-
-    useEffect(() =>{
-
-        
-        }, []);
-
   return (
             <div className="footer">
 

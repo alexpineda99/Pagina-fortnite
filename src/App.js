@@ -5,7 +5,7 @@ import About from "./Components/About";
 import SignIn from "./Components/Register/SignIn";
 import SignUp from "./Components/Register/SignUp";
 import Item from "./Components/Shop/Item";
-import Notfound from "./Pages/Pagenotfound";
+import Notfound from "./Components/Pages/Pagenotfound";
 import {
   BrowserRouter as Router,
   Switch,

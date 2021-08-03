@@ -33,7 +33,7 @@ function Map() {
     <div className="main">
         <h2 className="titulo-challenge"> Season´s Map </h2>
           <div className="map-div">
-            <img src={Map} className="map-image" />
+            <img src={Map} className="map-image" alt="Seasons map" />
           </div>
     </div>
   );

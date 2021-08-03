@@ -2,7 +2,7 @@ import "../../Assets/Css/Main.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import SmartCard from 'react-smart-card';
-import ChallengeAdvice from "./ChallengesAdvice";
+import LoginAdvice from "../Pages/LoginAdvice";
 
 function Challenges() {
   let [Challenges, setChallenges] = useState([]);
@@ -37,7 +37,7 @@ function Challenges() {
   return (
     <div className="main">
       <h2 className="titulo-challenge"> Challenges </h2>
-      {Challenges.length === 0 ? <ChallengeAdvice/> 
+      {Challenges.length === 0 ? <LoginAdvice/> 
       :
         <div className="challenge-main-div">
         {Challenges.map((Challenge, index)=>
