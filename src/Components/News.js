@@ -23,23 +23,12 @@ function News() {
         await axios.get(url)
         .then(res => {
 
-        // setFeatures(res.data.data.featured.entries);
-
-        // console.log(res.data.data.br);
-
         setCreatives(res.data.data.creative);
         setBrs(res.data.data.br.motds);
         setStws(res.data.data.stw);
 
-        // console.log(Creatives);
         console.log(res.data.data.br.motds);
         console.log(res.data.data.creative);
-        // console.log(Stw);
-        // console.log(res.data.data.br.motds);
-
-        // console.log(Dailys.slice(0,1));
-        // setLoading(false);
-
       })
 
     }

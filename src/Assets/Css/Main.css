@@ -3,7 +3,7 @@
   src: local('Fortnite'), url(../Fonts/Font-Fortnite/Fortnite.ttf);
 }
 
-  body {
+  html, body {
     margin: 0;
     padding: 0;
     background: #FF689D;
@@ -13,14 +13,6 @@
     font-size: 17px;
     font-family: sans-serif;
   }
-
-  /* nav {
-    display: flex;
-    align-items: center;
-    height: 50px;
-    background-color: #222222;
-    width: 100%;
-  } */
 
   .nav-user {
     display: flex;
@@ -114,21 +106,46 @@
   }
 
   .main {
-    /* display: flex;
-    justify-content: center; */
     font-family: "Fortnite";
+    min-height: 100vh;
+    position:relative;
   }
 
-  .main-all {
+  .main-all, .main-div-search {
     display: flex;
     justify-content: flex-start;
     flex-direction: row;
     flex-wrap: wrap;
+    margin-bottom: 5%;
     width: 80%;
     margin-left: 10%;
     margin-right: 10%;
+    min-height: 100vh;
   }
 
+  .search-buttons {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .search-button {
+    width: 20%;
+    background-image:none;
+  }
+
+  .search-buttons > ._yoqu0 {
+    width: 20%;
+  }
+
+  .search-buttons > ._yoqu0 > img  {
+    background-image:none;
+  }
+
+  .search-buttons >._yoqu0 ._1z8bk {
+    background-color: transparent;
+  }
   .item {
     margin-bottom: 5%;
     margin: 5%;
@@ -491,6 +508,7 @@
   font-family: 'Fortnite';
   flex-direction: column;
   width: 100%;
+  /* min-height: 100vh; */
 }
 
 .info-about-div {
@@ -639,7 +657,7 @@ display: none;
 }
 
 .link-signup:link{
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .input-signin {
@@ -700,6 +718,10 @@ display: none;
 
 .modal > p > svg:not(:root).svg-inline--fa  {
   color: #4BB543;
+}
+
+.modal > .fail-popup > svg:not(:root).svg-inline--fa  {
+  color: #bb2124;
 }
 
 .popup-button {
@@ -787,7 +809,6 @@ display: none;
   position: relative;
   justify-content: space-between;
   align-items: center;
-  left: 0;
   bottom: 0;
   height: 65px;
   width: 100%;

@@ -28,7 +28,7 @@ function Daily() {
 
         // console.log(res.data.data);
 
-        setName(res.data.data.daily.name);
+        setName("Daily");
 
         // console.log(res.headers);
         console.log(window.pageYOffset)

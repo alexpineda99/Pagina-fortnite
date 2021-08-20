@@ -27,7 +27,7 @@ function Featured() {
 
         // console.log(res.data.data);
 
-        setName(res.data.data.featured.name);
+        setName("Featured");
 
         console.log(window.pageYOffset)
 
@@ -43,7 +43,7 @@ function Featured() {
 
   return (
     <div>
-        <h2 className="titulo-p"> {Name} </h2>
+        <h2 className="titulo-p"> Featured </h2>
         <div className="Loader">
         {Loading ?  <Loader 
           type="Rings" 

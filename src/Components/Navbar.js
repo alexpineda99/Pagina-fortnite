@@ -10,7 +10,6 @@ import {
 
 function Navbar() {
 
-  let [isOpen, setisOpen] = useState([]); //Creative
   const token = localStorage.getItem('user');
   const user = useSelector((state)=>state.User)
   const dispatch = useDispatch();
@@ -33,13 +32,16 @@ function Navbar() {
           <li className="li-burger"> <a href="/"> Home </a>  </li>
           <li className="li-burger"> <a href="/shop"> Shop </a> </li>
           <li className="li-burger"> <a href="/news"> News </a> </li>
+          <li className="li-burger"> <a href="/search"> Search </a> </li>
           <li className="li-burger"> <a href="/about"> About </a> </li>
+          <li> <span className="signout" onClick={() =>signout()}> Sign out </span> </li>
         </div>
       :
         <div>         
           <li className="li-burger"> <a href="/"> Home </a>  </li>
           <li className="li-burger"> <a href="/shop"> Shop </a> </li>
           <li className="li-burger"> <a href="/news"> News </a> </li>
+          <li className="li-burger"> <a href="/search"> Search </a> </li>
           <li className="li-burger"> <a href="/about"> About </a> </li>
           <li className="li-burger"> <a href="/signin"> Sign in </a>  </li>
           <li className="li-burger"> <a href="/signup"> Sign up </a> </li>
@@ -55,6 +57,7 @@ function Navbar() {
          <li> <a href="/"> Home </a>  </li>
          <li> <a href="/shop"> Shop </a> </li>
          <li> <a href="/news"> News </a> </li>
+         <li> <a href="/search"> Search </a> </li>
          <li> <a href="/about"> About </a> </li>
         </ul>
         <ul className="ul-user">
@@ -67,6 +70,7 @@ function Navbar() {
          <li> <a href="/"> Home </a>  </li>
          <li> <a href="/shop"> Shop </a> </li>
          <li> <a href="/news"> News </a> </li>
+         <li> <a href="/search"> Search </a> </li>
          <li> <a href="/about"> About </a> </li>
         </ul>
         <ul className="ul-user">

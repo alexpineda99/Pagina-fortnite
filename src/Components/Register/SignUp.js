@@ -1,6 +1,7 @@
 import '../../Assets/Css/Main.css';
 import Navbar from "../Navbar";
 import PopupRegistration from './PopupRegistration';
+import PopupFailRegistration from './PopupFailRegistration';
 import React, { useState, useEffect } from 'react';
 import PhoneInput, {isPossiblePhoneNumber} from 'react-phone-number-input'
 import { FormField } from 'react-form-input-fields';
@@ -23,6 +24,7 @@ function SignUp() {
     let [phone, setPhone] = useState("");
     let [msg, setmsg] = useState("");
     let [open, setOpen] = useState(false);
+    let [fail, setFail] = useState(false);
     const [passwordShown, setPasswordShown] = useState(false);
     const [passwordconfirmShown, setPasswordConfirmShown] = useState(false);
     const eye = <FontAwesomeIcon icon={faEye} />
@@ -46,26 +48,46 @@ function SignUp() {
       password: pass
       }
 
-      axios.post("http://localhost:3001/register", data)
-      .then(res => {
-        console.log(res.data);
+      if (name.length === 0) {
+        alert("Name field required");
+      }
+      else if (email.length === 0) {
+        alert("Email field required");
+      }
+      else if (country.length === 0) {
+        alert("Country field required");
+      }
+      else if (region.length === 0) {
+        alert("Region field required");
+      }
+      else if (phone.length === 0) {
+        alert("Phone field required");
+      }
+      else if (pass.length === 0) {
+        alert("Password field required");
+      }
 
-        if (res.data.success === false) {
+      else {
+       axios.post("http://localhost:3001/register", data)
+        .then(res => {
+          console.log(res.data);
 
-          // setOpen(o => !o);
-          setmsg(res.data.msg);
-          // window.location = "/signin";
+          if (res.data.success === true) {
+
+            setOpen(o=> !o);
           
-        } else {
+          } else {
 
-          setOpen(o=> !o);
+            console.log(res.data);
+            setmsg(res.data.msg);
+          }
+        })
+        .catch(error => {
+          console.log(error);
           
-        }
-      })
-      .catch(error => {
-        alert(error);
-      })
-    }
+        })
+      }
+    } //end register function
 
     useEffect(() =>{
 
@@ -75,7 +97,7 @@ function SignUp() {
     <div className="main">
         <Navbar/>
 
-     { open ? <PopupRegistration pop={open}/> : "" }
+     { open ? <PopupRegistration pop={open}/> : fail ? <PopupFailRegistration pop={fail} /> : "" }
         
         <div className="signup-div">
         <h2>Sign up</h2>

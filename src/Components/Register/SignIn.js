@@ -13,10 +13,11 @@ function SignIn() {
 
   let [email, setEmail] = useState("");
   let [pass, setPass] = useState("");
-  const user = useSelector((state)=> state.User);
-  const dispatch = useDispatch();
+  let [msg, setmsg] = useState("");
   const [data, setData] = useState(null);
   const [passwordShown, setPasswordShown] = useState(false);
+  const user = useSelector((state)=> state.User);
+  const dispatch = useDispatch();
   const eye = <FontAwesomeIcon icon={faEye} />
   const eyeSlash = <FontAwesomeIcon icon={faEyeSlash} />
   
@@ -24,7 +25,7 @@ function SignIn() {
     setPasswordShown(passwordShown ? false : true);
   };
 
-  const {logInUser, logOutUser} = bindActionCreators(actionCreators, dispatch);
+  const {logInUser} = bindActionCreators(actionCreators, dispatch);
   
   const logUser = (e) => {
     e.preventDefault();
@@ -39,18 +40,21 @@ function SignIn() {
     .then(res => {
       if (res.data.success === false) {
 
-       console.log("Usuario invalido");
+       console.log(res.data.msg);
+       setmsg(res.data.msg)
         
-      } else {
+      } else if (res.data.success === true) {
 
-        // console.log("User logged");
-        // console.log(res.data.token);
         console.log(res.headers);
         logInUser(res.data.token);
-        // logOutUser();
         localStorage.setItem('user', res.data.token);
+        window.location.href="/";
         
-      }
+      } 
+      // console.log(res.data);
+    })
+    .catch(err => {
+      console.log(err);
     })
 
   }
@@ -63,7 +67,6 @@ function SignIn() {
         <div className="signin-div">
 
         <h2>Sign in</h2>
-        <p>{user}</p>
         <form onSubmit={(e)=> logUser(e)}>
         <FormField
         type="email"
@@ -87,13 +90,12 @@ function SignIn() {
         handleOnChange={value => setPass(value)}
         placeholder={'Enter pass'} />
         </div>
-
+        <span className="msg-error"> {msg} </span>
         <button class="btn-login" type="submit">Log in</button>  
         </form>
         <span>¿Don´t you have an account? <a href="/signup" className="link-signup"> Sign up </a> </span>
        
         </div>
-      
     </div>
   );
 }

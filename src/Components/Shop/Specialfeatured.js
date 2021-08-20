@@ -17,7 +17,7 @@ function Specialfeatured() {
 
     useEffect(() =>{
         setLoading(true);
-        setName("SPECIAL FEATURED");
+        setName("Special Featured");
         let fetchDaily = async () =>{
         await axios.get(url)
         .then(res => {

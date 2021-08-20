@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import SmartCard from 'react-smart-card';
 import LoginAdvice from "../Pages/LoginAdvice";
+import ContentUnavailable from "../Pages/ContentUnavailable";
 
 function Challenges() {
   let [Challenges, setChallenges] = useState([]);
@@ -35,10 +36,11 @@ function Challenges() {
   }, []);
 
   return (
-    <div className="main">
+    <div className="">
       <h2 className="titulo-challenge"> Challenges </h2>
-      {Challenges.length === 0 ? <LoginAdvice/> 
-      :
+      {/* { open ? <PopupRegistration pop={open}/> : fail ? <PopupFailRegistration pop={fail} /> : "" } */}
+      {!token ? <LoginAdvice/>
+      : Challenges.length === 0 ? <ContentUnavailable/> :
         <div className="challenge-main-div">
         {Challenges.map((Challenge, index)=>
           <div className="challenges-div" key={index}>
