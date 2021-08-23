@@ -128,19 +128,25 @@
     flex-direction: row;
     width: 100%;
     justify-content: center;
+    align-items: flex-end;
   }
 
   .search-button {
     width: 20%;
-    background-image:none;
+  }
+
+  .search-buttons > ._2EAj2 {
+    margin-right: 2.5%;
+  }
+
+  .search-buttons > ._2EAj2 > img {
+    margin-right: 2.5%;
+    background-image: none;
   }
 
   .search-buttons > ._yoqu0 {
     width: 20%;
-  }
-
-  .search-buttons > ._yoqu0 > img  {
-    background-image:none;
+    margin-right: 2.5%;
   }
 
   .search-buttons >._yoqu0 ._1z8bk {

@@ -13,17 +13,6 @@ function Search() {
     //cosmetic´s variants
     let [cosmeticslength, setCosmeticslength] = useState();
     let [cosmeticsall, setCosmeticsall] = useState([]);
-    let [cosmeticsoutfit, setCosmeticsoutfit] = useState([]);
-    let [cosmeticswraps, setCosmeticswraps] = useState([]);
-    let [cosmeticsbanner, setCosmeticsbanner] = useState([]);
-    let [cosmeticsspray, setCosmeticsspray] = useState([]);
-    let [cosmeticsemoji, setCosmeticsemoji] = useState([]);
-    let [cosmeticspickaxe, setCosmeticspickaxe] = useState([]);
-    let [cosmeticsglider, setCosmeticsglider] = useState([]);
-    let [cosmeticsloadingscreen, setCosmeticsloadingscreen] = useState([]);
-    let [cosmeticsemote, setCosmeticsemote] = useState([]);
-    
-
     let [search, setSearch] = useState("");
     let [loading, setLoading] = useState(false);
     let [itemload, setItemload] = useState(25);
@@ -33,13 +22,10 @@ function Search() {
 
     function handletype(value) {
       setType(value);
-      console.log(value);
-
     }
 
     function handlesearch(value) {
       setSearch(value);
-      console.log(value);
     }
 
     function loadmore () {
@@ -53,102 +39,79 @@ function Search() {
 
     useEffect(() =>{
         setLoading(true);
-        // setType("All");
         axios.get(url)
         .then(res => {
         console.log(res.data.data);
         setCosmeticslength(res.data.data.length)
-        // setCosmeticsall(res.data.data);
+        setCosmeticsall(res.data.data);
         console.log(type);
         console.log(search);
 
         if (type === "outfit") {
 
           setCosmeticsall([]);
+          setCosmeticslength();
           setCosmeticsall(res.data.data.filter(items=>items.type.value === "outfit"))
+          setCosmeticslength(cosmeticsall.length)
 
         } else if (type === "wrap") {
           setCosmeticsall([]);
+          setCosmeticslength();
           setCosmeticsall(res.data.data.filter(items=>items.type.value === "wrap"))
+          setCosmeticslength(cosmeticsall.length)
         
         } else if (type === "banner") {
           setCosmeticsall([]);
-          setCosmeticsall(res.data.data.filter(items=>items.type.value === "wrap"))
+          setCosmeticslength();
+          setCosmeticsall(res.data.data.filter(items=>items.type.value === "banner"))
+          setCosmeticslength(cosmeticsall.length)
         
         } else if (type === "spray") {
           setCosmeticsall([]);
-          setCosmeticsall(res.data.data.filter(items=>items.type.value === "wrap"))
+          setCosmeticslength();
+          setCosmeticsall(res.data.data.filter(items=>items.type.value === "spray"))
+          setCosmeticslength(cosmeticsall.length)
         
         } else if (type === "emoji") {
           setCosmeticsall([]);
-          setCosmeticsall(res.data.data.filter(items=>items.type.value === "wrap"))
+          setCosmeticsall(res.data.data.filter(items=>items.type.value === "emoji"))
+          setCosmeticslength(cosmeticsall.length)
         
         } else if (type === "pickaxe") {
           setCosmeticsall([]);
-          setCosmeticsall(res.data.data.filter(items=>items.type.value === "wrap"))
+          setCosmeticslength();
+          setCosmeticsall(res.data.data.filter(items=>items.type.value === "pickaxe"))
+          setCosmeticslength(cosmeticsall.length)
         
         } else if (type === "glider") {
           setCosmeticsall([]);
-          setCosmeticsall(res.data.data.filter(items=>items.type.value === "wrap"))
+          setCosmeticslength();
+          setCosmeticsall(res.data.data.filter(items=>items.type.value === "glider"))
+          setCosmeticslength(cosmeticsall.length)
         
         } else if (type === "loadingscreen") {
           setCosmeticsall([]);
-          setCosmeticsall(res.data.data.filter(items=>items.type.value === "wrap"))
+          setCosmeticslength();
+          setCosmeticsall(res.data.data.filter(items=>items.type.value === "loadingscreen"))
+          setCosmeticslength(cosmeticsall.length)
         
         } else if (type === "emote") {
           setCosmeticsall([]);
-          setCosmeticsall(res.data.data.filter(items=>items.type.value === "wrap"))
+          setCosmeticslength();
+          setCosmeticsall(res.data.data.filter(items=>items.type.value === "emote"))
+          setCosmeticslength(cosmeticsall.length)
         
+        } else if (search.length > 0) {
+          setCosmeticsall([]);
+          setCosmeticslength();
+          setCosmeticsall(res.data.data.filter(itemsname=> itemsname.name.includes(search)))
+          setCosmeticslength(cosmeticsall.length)
         }
 
-        // res.data.data.filter(items=>items.type.value === "outfit").forEach(val=>{
-        //   cosmeticsoutfit.push(val);
-        // })
-        // console.log(cosmeticsoutfit);
-
-        // res.data.data.filter(items=>items.type.value === "wrap").forEach(val=>{
-        //   cosmeticswraps.push(val);
-        // })
-        // console.log(cosmeticswraps);
-
-        // res.data.data.filter(items=>items.type.value === "banner").forEach(val=>{
-        //   cosmeticsbanner.push(val);
-        // })
-        //   console.log(cosmeticsbanner);
-        // res.data.data.filter(items=>items.type.value === "spray").forEach(val=>{
-        //     cosmeticsspray.push(val);
-        // })
-        //   console.log(cosmeticsspray);
-        // res.data.data.filter(items=>items.type.value === "emoji").forEach(val=>{
-        //   cosmeticsemoji.push(val);
-        // })
-        //   console.log(cosmeticsemoji);
-        // res.data.data.filter(items=>items.type.value === "pickaxe").forEach(val=>{
-        //   cosmeticspickaxe.push(val);
-        // })
-        //   console.log(cosmeticspickaxe);
-        // res.data.data.filter(items=>items.type.value === "glider").forEach(val=>{
-        //   cosmeticsglider.push(val);
-        // })
-        //   console.log(cosmeticsglider);
-        // res.data.data.filter(items=>items.type.value === "loadingscreen").forEach(val=>{
-        //   cosmeticsloadingscreen.push(val);
-        // })
-        //   console.log(cosmeticsloadingscreen);
-        // res.data.data.filter(items=>items.type.value === "emote").forEach(val=>{
-        //   cosmeticsemote.push(val);
-        // })
-        //   console.log(cosmeticsemote);
           
         setLoading(false);
         })
 
-        // alert(type==="All" ? cosmeticsall.length : type === "outfit" ? cosmeticsoutfit.length : type === "banner" ? 
-        // cosmeticsbanner.length : type === "wrap" ? cosmeticswraps.length : type === "spay" ? cosmeticsspray.length : type === "emoji" ? cosmeticsemoji.length
-        // : type === "pickaxe" ? cosmeticspickaxe.length : type === "glider" ? cosmeticsglider.length : type === "loadingscreen" ? cosmeticsloadingscreen.length
-        // : cosmeticsemote.length
-        // )
-        console.log(cosmeticsall);
         }, [search, type]);
 
   return (
@@ -157,7 +120,7 @@ function Search() {
         <Navbar/>
         <h2 className="titulo-p">Search</h2>
         <div className="search-buttons">
-        <FormField
+          <FormField
           type="select"
           option={types}
           value={type}
@@ -171,7 +134,7 @@ function Search() {
           keys={'search'}
           effect={'effect_3'}
           handleOnChange={(value) => handlesearch(value)}
-          placeholder={'Enter pass'} />
+          placeholder={'Search item...'} />
           </div>
         <div className="main-div-search">
             {loading ? <div className="Loader"> <Loader 
@@ -182,8 +145,8 @@ function Search() {
           />
           </div>
           :
-          cosmeticsall.slice(0, 25).filter(type === "All" ? items=> items.type.value : items=> items.type.value === type)
-          .filter(itemsname=> itemsname.name.includes(search)).map((item, index) => 
+          cosmeticsall.filter(type === "All" ? items=> items.type.value : items=> items.type.value === type)
+          .filter(itemsname=> itemsname.name.includes(search)).slice(0, itemload).map((item, index) => 
             <div className="item" key={index}>
               <div className="item-info"> 
                   <img src={item.images.icon !== null ? item.images.icon : item.images.smallIcon} className="img-item" alt={item.name} />

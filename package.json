@@ -29,10 +29,8 @@
     "redux-persist": "^6.0.0",
     "redux-thunk": "^2.3.0",
     "sass": "^1.32.8",
-    "styled-components": "^5.2.3",
-    "web-vitals": "^1.1.1"
+    "styled-components": "^5.2.3"
   },
-  "devDependencies": {},
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -57,5 +55,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "devDependencies": {}
 }
