@@ -165,16 +165,3 @@ function Search() {
 }
 
 export default Search;
-
-
-//             {
-//            cosmeticsall.slice(0,cosmeticsall).filter(type === "All" ? items=> items.type.value : items=> items.type.value === type).filter(itemsname=> itemsname.name.includes(search)).map((item, index) => 
-//             <div className="item" key={index}>
-//               <div className="item-info" key={index}> 
-//                   <img src={item.images.icon} className="img-item" alt={item.name} />
-//                   <div className="text-item-box"> 
-//                     <span className="text-item"> {item.name} </span>
-//                   </div>
-//                </div>
-//             </div>
-//             )}
