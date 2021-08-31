@@ -1,7 +1,7 @@
 import '../../Assets/Css/Main.css';
 import Navbar from "../Navbar";
-import PopupRegistration from './PopupRegistration';
-import PopupFailRegistration from './PopupFailRegistration';
+import PopupRegistration from '../Popups/PopupRegistration';
+import PopupFailRegistration from '../Popups/PopupFailRegistration';
 import React, { useState, useEffect } from 'react';
 import PhoneInput, {isPossiblePhoneNumber} from 'react-phone-number-input'
 import { FormField } from 'react-form-input-fields';

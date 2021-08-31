@@ -24,6 +24,7 @@ function PopupRegistration(props) {
         {/* &times; */}
        
      <p> Succesfully Registered {check} </p>
+     <p> An email has been sent to your email. Please check your inbox. </p>
 
      
     </div>

@@ -10,18 +10,19 @@ import 'react-form-input-fields/dist/index.css'
 
 function Search() {
 
-    //cosmetic´s variants
     let [cosmeticslength, setCosmeticslength] = useState();
     let [cosmeticsall, setCosmeticsall] = useState([]);
     let [search, setSearch] = useState("");
     let [loading, setLoading] = useState(false);
     let [itemload, setItemload] = useState(25);
+    let [results, setResults] = useState(0);
     let [type, setType] = useState("All");
     const types = ["All", "outfit", "banner", "wrap", "spray", "emoji", "pickaxe", "glider", "loadingscreen", "emote"];
     const url = "https://fortnite-api.com/v2/cosmetics/br";
 
     function handletype(value) {
       setType(value);
+      
     }
 
     function handlesearch(value) {
@@ -29,11 +30,27 @@ function Search() {
     }
 
     function loadmore () {
-      setItemload(itemload+25)
-      if (itemload%25 == 0) {
+      if (itemload%25 === 0) {
+
+        setItemload(itemload+25);
 
       } else {
         alert("no more")
+      }
+    }
+
+    function loadless () {
+      if (itemload%25 === 0 && itemload > 25) {
+
+        setItemload(itemload-25)
+
+      } else if (itemload === 25) {
+
+        
+      }
+      else if (itemload%25 !== 0) {
+
+        alert("no more" + itemload%25)
       }
     }
 
@@ -44,74 +61,73 @@ function Search() {
         console.log(res.data.data);
         setCosmeticslength(res.data.data.length)
         setCosmeticsall(res.data.data);
-        console.log(type);
-        console.log(search);
+        // console.log(type);
+        // console.log(search);
 
         if (type === "outfit") {
 
           setCosmeticsall([]);
           setCosmeticslength();
-          setCosmeticsall(res.data.data.filter(items=>items.type.value === "outfit"))
+          setCosmeticsall(res.data.data.filter(items=>items.type.value === "outfit").filter(itemsname=> itemsname.name.includes(search)))
           setCosmeticslength(cosmeticsall.length)
 
         } else if (type === "wrap") {
           setCosmeticsall([]);
           setCosmeticslength();
-          setCosmeticsall(res.data.data.filter(items=>items.type.value === "wrap"))
+          setCosmeticsall(res.data.data.filter(items=>items.type.value === "wrap").filter(itemsname=> itemsname.name.includes(search)))
           setCosmeticslength(cosmeticsall.length)
         
         } else if (type === "banner") {
           setCosmeticsall([]);
           setCosmeticslength();
-          setCosmeticsall(res.data.data.filter(items=>items.type.value === "banner"))
+          setCosmeticsall(res.data.data.filter(items=>items.type.value === "banner").filter(itemsname=> itemsname.name.includes(search)))
           setCosmeticslength(cosmeticsall.length)
         
         } else if (type === "spray") {
           setCosmeticsall([]);
           setCosmeticslength();
-          setCosmeticsall(res.data.data.filter(items=>items.type.value === "spray"))
+          setCosmeticsall(res.data.data.filter(items=>items.type.value === "spray").filter(itemsname=> itemsname.name.includes(search)))
           setCosmeticslength(cosmeticsall.length)
         
         } else if (type === "emoji") {
           setCosmeticsall([]);
-          setCosmeticsall(res.data.data.filter(items=>items.type.value === "emoji"))
+          setCosmeticsall(res.data.data.filter(items=>items.type.value === "emoji").filter(itemsname=> itemsname.name.includes(search)))
           setCosmeticslength(cosmeticsall.length)
         
         } else if (type === "pickaxe") {
           setCosmeticsall([]);
           setCosmeticslength();
-          setCosmeticsall(res.data.data.filter(items=>items.type.value === "pickaxe"))
+          setCosmeticsall(res.data.data.filter(items=>items.type.value === "pickaxe").filter(itemsname=> itemsname.name.includes(search)))
           setCosmeticslength(cosmeticsall.length)
         
         } else if (type === "glider") {
           setCosmeticsall([]);
           setCosmeticslength();
-          setCosmeticsall(res.data.data.filter(items=>items.type.value === "glider"))
+          setCosmeticsall(res.data.data.filter(items=>items.type.value === "glider").filter(itemsname=> itemsname.name.includes(search)))
           setCosmeticslength(cosmeticsall.length)
         
         } else if (type === "loadingscreen") {
           setCosmeticsall([]);
           setCosmeticslength();
-          setCosmeticsall(res.data.data.filter(items=>items.type.value === "loadingscreen"))
+          setCosmeticsall(res.data.data.filter(items=>items.type.value === "loadingscreen").filter(itemsname=> itemsname.name.includes(search)))
           setCosmeticslength(cosmeticsall.length)
         
         } else if (type === "emote") {
           setCosmeticsall([]);
           setCosmeticslength();
-          setCosmeticsall(res.data.data.filter(items=>items.type.value === "emote"))
+          setCosmeticsall(res.data.data.filter(items=>items.type.value === "emote").filter(itemsname=> itemsname.name.includes(search)))
           setCosmeticslength(cosmeticsall.length)
         
-        } else if (search.length > 0) {
-          setCosmeticsall([]);
-          setCosmeticslength();
-          setCosmeticsall(res.data.data.filter(itemsname=> itemsname.name.includes(search)))
-          setCosmeticslength(cosmeticsall.length)
-        }
-
-          
+        } 
+        // else if (search.length > 0) {
+        //   setCosmeticsall([]);
+        //   setCosmeticslength();
+        //   setCosmeticsall(res.data.data.filter(itemsname=> itemsname.name.includes(search)))
+        //   setCosmeticslength(cosmeticsall.length)
+        // }
+        
         setLoading(false);
         })
-
         }, [search, type]);
 
   return (
@@ -136,6 +152,9 @@ function Search() {
           handleOnChange={(value) => handlesearch(value)}
           placeholder={'Search item...'} />
           </div>
+          <div className="results-div">
+            <span> Results: {cosmeticsall.length} </span>
+          </div>
         <div className="main-div-search">
             {loading ? <div className="Loader"> <Loader 
             type="Rings" 
@@ -146,7 +165,8 @@ function Search() {
           </div>
           :
           cosmeticsall.filter(type === "All" ? items=> items.type.value : items=> items.type.value === type)
-          .filter(itemsname=> itemsname.name.includes(search)).slice(0, itemload).map((item, index) => 
+          .filter(itemsname=> itemsname.name.includes(search))
+          .slice(0, itemload).map((item, index) => 
             <div className="item" key={index}>
               <div className="item-info"> 
                   <img src={item.images.icon !== null ? item.images.icon : item.images.smallIcon} className="img-item" alt={item.name} />
@@ -157,8 +177,11 @@ function Search() {
             </div>
             )}
         </div>
-        <button onClick={loadmore}> load more</button>
-        <button onClick={loadmore}> load less</button>
+        
+        <div className="load-buttons"> 
+          <button className="load-items" onClick={loadmore}> Show more</button>
+          <button className="load-items" onClick={loadless}> Show less</button>
+        </div>
         <Footer/>
     </div>
   );

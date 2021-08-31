@@ -108,7 +108,6 @@
   .main {
     font-family: "Fortnite";
     min-height: 100vh;
-    position:relative;
   }
 
   .main-all, .main-div-search {
@@ -139,9 +138,8 @@
     margin-right: 2.5%;
   }
 
-  .search-buttons > ._2EAj2 > img {
-    margin-right: 2.5%;
-    background-image: none;
+  ._yoqu0 ._3FOa_ ._2EAj2 {
+    display: none;
   }
 
   .search-buttons > ._yoqu0 {
@@ -514,7 +512,7 @@
   font-family: 'Fortnite';
   flex-direction: column;
   width: 100%;
-  /* min-height: 100vh; */
+  height: 100vh;
 }
 
 .info-about-div {
@@ -768,12 +766,12 @@ display: none;
   width: 50%;
 }
 
-.country-region-div {
+.country-region-div, .load-buttons, .results-div {
   display: flex;
   justify-content: center;
 }
 
-.btn-login {
+.btn-login, .load-items {
   position: relative;
   height: 45px;
   width: 150px;
@@ -816,7 +814,7 @@ display: none;
   justify-content: space-between;
   align-items: center;
   bottom: 0;
-  height: 65px;
+  height: 4em;
   width: 100%;
   background-color: #222222;
   color: white;

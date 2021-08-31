@@ -8,10 +8,10 @@ import '../Assets/Css/Main.css';
 function About() {
  
   return (
-    <div className="about-div">
+    <div className="main">
         <Navbar/>
         <h1 className="titulo-p"> About </h1>
-        
+        <div className="about-div"> 
         <div className="info-about-div">
         <p><Flag code="ven" height="35" /> Aplicación web de ejemplo. </p>
         <p><Flag code="USA" height="35" /> Web application as a work example. </p>
@@ -39,7 +39,7 @@ function About() {
         url="https://github.com/alexpineda99/Pagina-fortnite"
       />
         </div>
-
+        </div>
       <Footer/>
         
     </div>
