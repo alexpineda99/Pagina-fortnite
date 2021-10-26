@@ -70,7 +70,7 @@ function SignUp() {
       }
       
       else {
-      axios.post("http://localhost:3001/register", data)
+      axios.post("https://serverfortnite.cleverapps.io/register", data)
         .then(res => {
           console.log(res.data);
 

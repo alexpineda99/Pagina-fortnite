@@ -9,7 +9,7 @@ function Challenges() {
   let [Challenges, setChallenges] = useState([]);
   let [Loading, setLoading] = useState(false);
   const token = localStorage.getItem('user');
-  const url = "http://localhost:3001/challenges";
+  const url = "https://serverfortnite.cleverapps.io/challenges";
 
   useEffect(() => {
     let fetchChallenges = async () => {
