@@ -4,9 +4,11 @@ import Footer from "../Footer"
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import Loader from 'react-loader-spinner';
-import { FormField } from 'react-form-input-fields'
+import { FormField } from 'react-form-input-fields';
+import {
+  Link
+} from "react-router-dom";
 import 'react-form-input-fields/dist/index.css'
-// import Carousel from 'react-elastic-carousel';
 
 function Search() {
 
@@ -174,6 +176,9 @@ function Search() {
                     <span className="text-item"> {item.name} </span>
                   </div>
                </div>
+                <Link to={{pathname:`/item/${item.id}`, state: {props: item}}} className="link-item">
+                  <button className="View-button"> View more </button>
+                </Link>
             </div>
             )}
         </div>

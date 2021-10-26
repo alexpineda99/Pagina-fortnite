@@ -72,24 +72,8 @@
 
   /* titulos principales */
 
-  .titulo-p {
+  .titulo-p, .titulo-challenge {
 
-    display: flex;
-    justify-content: center;
-    height: 50px;
-    width: 100%;
-    font-size: 70px;
-    letter-spacing:0.1em;
-    -webkit-text-fill-color: transparent;
-    -webkit-text-stroke-width: 3px;
-    -webkit-text-stroke-color: white;
-    text-shadow: 
-              7px 7px #ff1f8f,
-              10px 10px #000000;
-    font-family: serif;
-  }
-
-  .titulo-challenge{
     display: flex;
     justify-content: center;
     height: 50px;
@@ -108,6 +92,29 @@
   .main {
     font-family: "Fortnite";
     min-height: 100vh;
+  }
+
+  .search-info {
+    display: flex;
+    width: 100%;
+  }
+
+  .search-info-main, .search-shophistory {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+  }
+
+  .search-shophistory  {
+    align-items: center;
+  }
+
+  .date-shophistory {
+    margin-bottom: 2%;
+  }
+
+  .search-info-main > p {
+    margin: 5%;
   }
 
   .main-all, .main-div-search {
@@ -162,8 +169,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  align-self: center;
-  align-content: center;
  }
 
  .item-price {
@@ -512,7 +517,6 @@
   font-family: 'Fortnite';
   flex-direction: column;
   width: 100%;
-  height: 100vh;
 }
 
 .info-about-div {
@@ -521,7 +525,7 @@
   align-self: center;
   margin-top: 2%;
   margin-bottom: 5%;
-  width: 50%;
+  width: 25%;
   /* padding: 2%; */
 }
 
@@ -542,7 +546,7 @@
   justify-content: space-around;
   align-self: center;
   width: 50%;
-  margin-bottom: 5%;
+  margin-bottom: 2.5%;
 }
 
 .Challenge-advice {
@@ -647,11 +651,18 @@ display: none;
 .signup-div {
   font-family: "fortnite";
   display: flex;
+  margin-top: 5%;
   flex-direction: column;
   width: 100%;
-  margin-top: 4.5%;
   justify-content: center;
   align-items: center;
+  position: absolute;
+}
+
+.main-loading {
+  background-color: #000000;
+  opacity: 50%;
+  z-index: 9;
 }
 
 .button-signup {
@@ -855,7 +866,7 @@ display: none;
 
     }
 
-    @media only screen and (max-width: 1440px) {
+    @media only screen and (max-width: 2560px) {
 
       .password-eye{
         position: absolute;
@@ -869,6 +880,11 @@ display: none;
         top: 75%;
         right: 38%;
         cursor: pointer;
+      }
+
+      .link-item  {
+        display: flex;
+        justify-content: center;
       }
   
   

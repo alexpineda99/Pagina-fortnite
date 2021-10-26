@@ -46,6 +46,7 @@ function SignIn() {
       } else if (res.data.success === true) {
 
         console.log(res.headers);
+        setmsg("")
         logInUser(res.data.token);
         localStorage.setItem('user', res.data.token);
         window.location.href="/";
@@ -91,7 +92,7 @@ function SignIn() {
         placeholder={'Enter pass'} />
         </div>
         <span className="msg-error"> {msg} </span>
-        <button class="btn-login" type="submit">Log in</button>  
+        <button className="btn-login" type="submit">Log in</button>  
         </form>
         <span>¿Don´t you have an account? <a href="/signup" className="link-signup"> Sign up </a> </span>
        

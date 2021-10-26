@@ -50,11 +50,6 @@ function Daily() {
           color="#109DFA" 
           height={80} 
           width={80} 
-        /* #109DFA */
-        /* #024A86 */
-        /* #E69DFB */
-        /* #FF689D*/
-        /* #222222 */
         />
         : 
           <div className="main-all"> 

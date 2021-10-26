@@ -5,7 +5,8 @@ import PopupFailRegistration from '../Popups/PopupFailRegistration';
 import React, { useState, useEffect } from 'react';
 import PhoneInput, {isPossiblePhoneNumber} from 'react-phone-number-input'
 import { FormField } from 'react-form-input-fields';
-import PasswordChecklist from "react-password-checklist"
+import PasswordChecklist from "react-password-checklist";
+import Loader from 'react-loader-spinner';
 import { CountryDropdown, RegionDropdown} from 'react-country-region-selector';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye,faEyeSlash } from '@fortawesome/free-solid-svg-icons'
@@ -23,6 +24,7 @@ function SignUp() {
     let [passAgain, setPassAgain] = useState("");
     let [phone, setPhone] = useState("");
     let [msg, setmsg] = useState("");
+    let [loading, setLoading] = useState(false);
     let [open, setOpen] = useState(false);
     let [fail, setFail] = useState(false);
     const [passwordShown, setPasswordShown] = useState(false);
@@ -49,41 +51,44 @@ function SignUp() {
       }
 
       if (name.length === 0) {
-        alert("Name field required");
+        setmsg("Name field required");
       }
       else if (email.length === 0) {
-        alert("Email field required");
+        setmsg("Email field required");
       }
       else if (country.length === 0) {
-        alert("Country field required");
+        setmsg("Country field required");
       }
       else if (region.length === 0) {
-        alert("Region field required");
+        setmsg("Region field required");
       }
       else if (phone.length === 0) {
-        alert("Phone field required");
+        setmsg("Phone field required");
       }
       else if (pass.length === 0) {
-        alert("Password field required");
+        setmsg("Password field required");
       }
-
+      
       else {
-       axios.post("http://localhost:3001/register", data)
+      axios.post("http://localhost:3001/register", data)
         .then(res => {
           console.log(res.data);
 
           if (res.data.success === true) {
 
             setOpen(o=> !o);
+            setLoading(false);
           
           } else {
 
             console.log(res.data);
-            setmsg(res.data.msg);
+            // setmsg(res.data.msg);
+            setLoading(false);
           }
         })
         .catch(error => {
           console.log(error);
+          setLoading(false);
           
         })
       }
@@ -96,8 +101,8 @@ function SignUp() {
   return (
     <div className="main">
         <Navbar/>
-
-     { open ? <PopupRegistration pop={open}/> : fail ? <PopupFailRegistration pop={fail} /> : "" }
+    {loading  ? <div className="signup-div  main-loading"> <Loader type="Rings" color="#109DFA" height={80} width={80} /> </div> : null}
+     { open ? <PopupRegistration pop={open}/> : fail ? <PopupFailRegistration pop={fail} /> : null }
         
         <div className="signup-div">
         <h2>Sign up</h2>
