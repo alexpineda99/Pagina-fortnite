@@ -32,7 +32,7 @@
     "sass": "^1.32.8",
     "styled-components": "^5.2.3"
   },
-  "homepage": "https://alex-fortnite.000webhostapp.com/",
+
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
