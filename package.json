@@ -39,7 +39,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": "https://serverfortnite.cleverapps.io/news",
+  "proxy": "https://serverfortnite.cleverapps.io",
   "eslintConfig": {
     "extends": [
       "react-app",
