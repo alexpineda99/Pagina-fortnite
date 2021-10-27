@@ -82,7 +82,7 @@ function SignUp() {
           } else {
 
             console.log(res.data);
-            // setmsg(res.data.msg);
+            setmsg(res.data.msg);
             setLoading(false);
           }
         })
