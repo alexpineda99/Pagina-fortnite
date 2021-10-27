@@ -41,6 +41,7 @@ function SignUp() {
 
     const registeruser = (e) => {
       e.preventDefault();
+      setLoading(true);
       const data = {
       name: name,
       country: country,
@@ -103,7 +104,6 @@ function SignUp() {
         <Navbar/>
     {loading  ? <div className="signup-div  main-loading"> <Loader type="Rings" color="#109DFA" height={80} width={80} /> </div> : null}
      { open ? <PopupRegistration pop={open}/> : fail ? <PopupFailRegistration pop={fail} /> : null }
-     <PopupRegistration pop={true}/>
         <div className="signup-div">
         <h2>Sign up</h2>
         <form onSubmit={(e) => registeruser(e)}>
