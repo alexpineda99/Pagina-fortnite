@@ -651,7 +651,6 @@ display: none;
 .signup-div {
   font-family: "fortnite";
   display: flex;
-  margin-top: 5%;
   flex-direction: column;
   width: 100%;
   justify-content: center;
