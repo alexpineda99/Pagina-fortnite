@@ -32,7 +32,7 @@
     "sass": "^1.32.8",
     "styled-components": "^5.2.3"
   },
-
+"proxy": "https://serverfortnite.cleverapps.io",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

@@ -65,8 +65,13 @@ function Search() {
         setCosmeticsall(res.data.data);
         // console.log(type);
         // console.log(search);
+        if (type === "All") {
+          setCosmeticsall([]);
+          setCosmeticslength();
+          setCosmeticsall(res.data.data.filter(itemsname=> itemsname.name.includes(search)))
+          setCosmeticslength(cosmeticsall.length)
 
-        if (type === "outfit") {
+        } else if (type === "outfit") {
 
           setCosmeticsall([]);
           setCosmeticslength();
@@ -120,7 +125,7 @@ function Search() {
           setCosmeticsall(res.data.data.filter(items=>items.type.value === "emote").filter(itemsname=> itemsname.name.includes(search)))
           setCosmeticslength(cosmeticsall.length)
         
-        } 
+        }
         // else if (search.length > 0) {
         //   setCosmeticsall([]);
         //   setCosmeticslength();

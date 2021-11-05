@@ -106,7 +106,7 @@ function SignUp() {
      { open ? <PopupRegistration pop={open}/> : fail ? <PopupFailRegistration pop={fail} /> : null }
         <div className="signup-div">
         <h2>Sign up</h2>
-        <form onSubmit={(e) => registeruser(e)}>
+        <form className="form-div" onSubmit={(e) => registeruser(e)}>
         <FormField
         type={"text"}
         standard="labeleffect"

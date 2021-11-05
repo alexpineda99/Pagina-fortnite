@@ -23,8 +23,7 @@ function PopupRegistration(props) {
     <div className="modal">
         {/* &times; */}
        
-     <p> Succesfully Registered {check} </p>
-     <p> An email has been sent to your email. Please check your inbox. </p>
+     <p> Succesfully Registered an email has been sent to your email. Please check your inbox {check} </p>
 
      
     </div>
