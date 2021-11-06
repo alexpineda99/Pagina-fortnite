@@ -46,6 +46,7 @@ function Item(props) {
   return (
     <div className="main">
       <Navbar />
+      <div className="main-div-item">
       <div className="arrow-back-div">
         <img
           src={Arrowback}
@@ -55,7 +56,7 @@ function Item(props) {
         />
       </div>
       
-      <div className="main-div-item">
+      
         {Search ? 
         <div className="item-info"> 
             <h1 className="item-name"> {Search.name} </h1>

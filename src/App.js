@@ -6,6 +6,7 @@ import SignIn from "./Components/Register/SignIn";
 import SignUp from "./Components/Register/SignUp";
 import Item from "./Components/Shop/Item";
 import Search from "./Components/Search/Search";
+import Test from "./Components/Test"
 import Notfound from "./Components/Pages/Pagenotfound";
 import {
   BrowserRouter as Router,
@@ -28,6 +29,7 @@ function App() {
           <Route exact path="/search" component={Search} />
           <Route exact path="/signin" component={SignIn} />
           <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/test" component={Test} />
           <Route component={Notfound} />
         </Switch>
         </div>
