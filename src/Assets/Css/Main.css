@@ -301,6 +301,10 @@
   width: 100%;
 }
 
+.main-info-item {
+ min-height: 100vh;
+}
+
 .item-name {
   display: flex;
   justify-content: center;
@@ -381,7 +385,7 @@
 }
 
 .v-bucks-img-item {
-  width: 1.5%;
+  width: 2.5%;
 }
 
 /* Carousel: Almost every element in react-elastic-carousel has a css class with the rec- prefix (rec is short React Elastic Carousel). */
@@ -425,6 +429,14 @@
   .rec .rec-dot_active:focus, .rec-dot_active:hover {
     box-shadow: 0 0 1px 3px #109DFA;
 
+  }
+
+  .info-news {
+    font-size: 20px;
+  }
+
+  .rsc-card-des {
+    font-size: 20px;
   }
 
   .Carousel-news-title {
@@ -917,6 +929,10 @@ display: none;
       width: 14%;
     }
 
+    .rec .rec-carousel {
+      width: 100%;
+    }
+
 
     }
 
@@ -984,6 +1000,11 @@ display: none;
     .popup-content {
       width: 40% !important;
     }
+
+    .additional-item {
+      width: 50%;
+      margin: 0;
+  }
   }
 
   @media only screen and (max-width: 425px) {

@@ -39,7 +39,7 @@ function Br() {
                 <div className="Carousel-news">
                   <img src={Br.image} />
                   <span className="Carousel-news-title">{Br.title}</span>
-                  <span>{Br.body}</span>
+                  <span className="info-news">{Br.body}</span>
                 </div>
               )}
             </Carousel>
