@@ -337,6 +337,7 @@
   flex-wrap: wrap;
   justify-content: flex-start;
   width: 100%;
+  margin-top: 2%;
 }
 
 .additional-item {
@@ -385,7 +386,7 @@
 }
 
 .v-bucks-img-item {
-  width: 2.5%;
+  width: 1.5%;
 }
 
 /* Carousel: Almost every element in react-elastic-carousel has a css class with the rec- prefix (rec is short React Elastic Carousel). */
@@ -1010,6 +1011,14 @@ display: none;
   @media only screen and (max-width: 425px) {
   .item {
       width: 40%;
+  }
+
+  .item-image {
+    width: 40%;
+  }
+  
+  .v-bucks-img-item {
+    width: 4.5%;
   }
 
   .arrow-back {
