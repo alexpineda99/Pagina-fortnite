@@ -47,6 +47,7 @@ function Item(props) {
 
   return (
     <div className="main">
+      <div>
       <Navbar />
       <div className="arrow-back-div">
         <img
@@ -56,7 +57,8 @@ function Item(props) {
           alt="arrowback"
         />
       </div>
-
+      </div>
+    <div>
       <div>
         {Search ? (
           <div className="item-info">
@@ -153,7 +155,7 @@ function Item(props) {
           </div>
         )}
       </div>
-
+      </div>
       <Footer />
     </div>
   );
