@@ -1007,6 +1007,10 @@ display: none;
       width: 50%;
       margin: 0;
   }
+
+  .main-info-additional-item{
+    margin-bottom: 10%;
+  }
   }
 
   @media only screen and (max-width: 425px) {
@@ -1093,12 +1097,6 @@ display: none;
 
   .v-bucks-img {
     width: 12%;
-  }
-
-  .main-info-additional-item{
-
-    margin-bottom: 5%;
-  
   }
 
   }
