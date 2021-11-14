@@ -124,7 +124,7 @@ function Item(props) {
             </div>
           </div>
         ) : (
-          <div>
+          <div className="main-info-additional-item">
             <div className="item-price">
               <span> {Features.finalPrice} </span> &nbsp;{" "}
               <img
