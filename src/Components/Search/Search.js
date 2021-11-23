@@ -16,7 +16,7 @@ function Search() {
     let [cosmeticsall, setCosmeticsall] = useState([]);
     let [search, setSearch] = useState("");
     let [loading, setLoading] = useState(false);
-    let [itemload, setItemload] = useState(0);
+    let [itemload, setItemload] = useState(25);
     let [results, setResults] = useState(0);
     let [type, setType] = useState("All");
     const types = ["All", "Skins", "Backpack", "banner", "wrap", "spray", "emoji", "pickaxe", "glider", "loadingscreen", "emote"];
@@ -29,7 +29,7 @@ function Search() {
     }
 
     function handlesearch(value) {
-
+    setItemload(25);
     function capitalize(value) {
      return value.charAt(0).toUpperCase() + value.slice(1);
     }
