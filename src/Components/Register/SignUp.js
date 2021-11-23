@@ -43,7 +43,7 @@ function SignUp() {
       e.preventDefault();
       setLoading(true);
       let regLetter = /^[a-zA-Z\s]*$/; // regular expression only letters
-      let regPass = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,16}$/; // regular expression password
+      let regPass = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/; // regular expression password
       let regEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.([a-zA-Z]{2,4})+$/; // regular expression email
 
       const data = {
