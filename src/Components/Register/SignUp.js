@@ -64,7 +64,7 @@ function SignUp() {
         setmsg("Name field requires only letters");
         setLoading(false);
       }
-      else if (name.length <= 3) {
+      else if (name.length < 3) {
         setmsg("Your name must be at least 3 characters");
         setLoading(false);
       }
