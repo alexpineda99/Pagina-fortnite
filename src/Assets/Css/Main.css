@@ -542,8 +542,6 @@
   align-self: center;
   margin-top: 2%;
   margin-bottom: 5%;
-  width: 25%;
-  /* padding: 2%; */
 }
 
 .info-about-div > p {
@@ -577,6 +575,30 @@
 .social-button {
   width: 20%;
 }
+
+/* loading screen */
+.shader {
+  width: 100%;
+  height: 100%;
+  background-color: black; /** change it to this background-color: rgba(0, 0, 0, 0.65) **/
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  position: fixed;
+  opacity: 0.5; /** you can remove this **/
+  z-index: 1000000;
+}
+.loadingContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+}
+
+
 
 /* menu burger */
 .bm-burger-button {

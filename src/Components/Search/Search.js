@@ -16,44 +16,44 @@ function Search() {
     let [cosmeticsall, setCosmeticsall] = useState([]);
     let [search, setSearch] = useState("");
     let [loading, setLoading] = useState(false);
-    let [itemload, setItemload] = useState(25);
+    let [itemload, setItemload] = useState(0);
     let [results, setResults] = useState(0);
     let [type, setType] = useState("All");
-    const types = ["All", "outfit", "banner", "wrap", "spray", "emoji", "pickaxe", "glider", "loadingscreen", "emote"];
+    const types = ["All", "Skins", "Backpack", "banner", "wrap", "spray", "emoji", "pickaxe", "glider", "loadingscreen", "emote"];
     const url = "https://fortnite-api.com/v2/cosmetics/br";
 
     function handletype(value) {
-      setType(value);
+
+      setType(value === "Skins" ? value = "outfit" : value);
       
     }
 
     function handlesearch(value) {
-      setSearch(value);
+
+    function capitalize(value) {
+     return value.charAt(0).toUpperCase() + value.slice(1);
+    }
+
+    const result = value.split(' ').map(capitalize).join(' ');
+    setSearch(result);
+    setItemload(25);
     }
 
     function loadmore () {
-      if (itemload%25 === 0) {
 
-        setItemload(itemload+25);
+      setItemload(itemload+25);
 
-      } else {
-        alert("no more")
-      }
+
     }
 
     function loadless () {
-      if (itemload%25 === 0 && itemload > 25) {
 
-        setItemload(itemload-25)
+      if (itemload >= 26) {
 
-      } else if (itemload === 25) {
+      setItemload(itemload-25);
 
-        
       }
-      else if (itemload%25 !== 0) {
 
-        alert("no more" + itemload%25)
-      }
     }
 
     useEffect(() =>{
@@ -78,48 +78,56 @@ function Search() {
           setCosmeticsall(res.data.data.filter(items=>items.type.value === "outfit").filter(itemsname=> itemsname.name.includes(search)))
           setCosmeticslength(cosmeticsall.length)
 
-        } else if (type === "wrap") {
+        } else if (type === "Backpack") {
+
+          setCosmeticsall([]);
+          setCosmeticslength();
+          setCosmeticsall(res.data.data.filter(items=>items.type.value === "backpack").filter(itemsname=> itemsname.name.includes(search)))
+          setCosmeticslength(cosmeticsall.length)
+
+        }
+        else if (type === "Wrap") {
           setCosmeticsall([]);
           setCosmeticslength();
           setCosmeticsall(res.data.data.filter(items=>items.type.value === "wrap").filter(itemsname=> itemsname.name.includes(search)))
           setCosmeticslength(cosmeticsall.length)
         
-        } else if (type === "banner") {
+        } else if (type === "Banner") {
           setCosmeticsall([]);
           setCosmeticslength();
           setCosmeticsall(res.data.data.filter(items=>items.type.value === "banner").filter(itemsname=> itemsname.name.includes(search)))
           setCosmeticslength(cosmeticsall.length)
         
-        } else if (type === "spray") {
+        } else if (type === "Spray") {
           setCosmeticsall([]);
           setCosmeticslength();
           setCosmeticsall(res.data.data.filter(items=>items.type.value === "spray").filter(itemsname=> itemsname.name.includes(search)))
           setCosmeticslength(cosmeticsall.length)
         
-        } else if (type === "emoji") {
+        } else if (type === "Emoji") {
           setCosmeticsall([]);
           setCosmeticsall(res.data.data.filter(items=>items.type.value === "emoji").filter(itemsname=> itemsname.name.includes(search)))
           setCosmeticslength(cosmeticsall.length)
         
-        } else if (type === "pickaxe") {
+        } else if (type === "Pickaxe") {
           setCosmeticsall([]);
           setCosmeticslength();
           setCosmeticsall(res.data.data.filter(items=>items.type.value === "pickaxe").filter(itemsname=> itemsname.name.includes(search)))
           setCosmeticslength(cosmeticsall.length)
         
-        } else if (type === "glider") {
+        } else if (type === "Glider") {
           setCosmeticsall([]);
           setCosmeticslength();
           setCosmeticsall(res.data.data.filter(items=>items.type.value === "glider").filter(itemsname=> itemsname.name.includes(search)))
           setCosmeticslength(cosmeticsall.length)
         
-        } else if (type === "loadingscreen") {
+        } else if (type === "Loadingscreen") {
           setCosmeticsall([]);
           setCosmeticslength();
           setCosmeticsall(res.data.data.filter(items=>items.type.value === "loadingscreen").filter(itemsname=> itemsname.name.includes(search)))
           setCosmeticslength(cosmeticsall.length)
         
-        } else if (type === "emote") {
+        } else if (type === "Emote") {
           setCosmeticsall([]);
           setCosmeticslength();
           setCosmeticsall(res.data.data.filter(items=>items.type.value === "emote").filter(itemsname=> itemsname.name.includes(search)))
@@ -135,7 +143,7 @@ function Search() {
         
         setLoading(false);
         })
-        }, [search, type]);
+        }, [search, type, itemload]);
 
   return (
 
@@ -146,7 +154,7 @@ function Search() {
           <FormField
           type="select"
           option={types}
-          value={type}
+          value={type === "outfit" ? "Skins" : type}
           label={'Search by...'}
           keys={"type"}
           handleOnChange={(value) => handletype(value)} />
@@ -171,7 +179,7 @@ function Search() {
           />
           </div>
           :
-          cosmeticsall.filter(type === "All" ? items=> items.type.value : items=> items.type.value === type)
+          cosmeticsall.filter(type === "All" ? items=> items.type.value.toLowerCase() : items=> items.type.value === type.toLowerCase())
           .filter(itemsname=> itemsname.name.includes(search))
           .slice(0, itemload).map((item, index) => 
             <div className="item" key={index}>

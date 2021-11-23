@@ -102,7 +102,7 @@ function Item(props) {
                   Introduction:{" "}
                   {Search.introduction
                     ? Search.introduction.text
-                    : "Introduction date not available"}{" "}
+                    : "Introduction date not available"}
                 </p>
                 <p> Item added - UTC time: {addeditem.toUTCString()} </p>
                 <p> Item added - local time: {addeditem.toString()} </p>

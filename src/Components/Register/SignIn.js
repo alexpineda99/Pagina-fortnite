@@ -7,6 +7,7 @@ import { actionCreators } from '../../State/index';
 import { useDispatch, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye,faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import Loader from 'react-loader-spinner';
 import axios from 'axios';
 
 function SignIn() {
@@ -14,6 +15,7 @@ function SignIn() {
   let [email, setEmail] = useState("");
   let [pass, setPass] = useState("");
   let [msg, setmsg] = useState("");
+  let [loading, setLoading] = useState(false);
   const [data, setData] = useState(null);
   const [passwordShown, setPasswordShown] = useState(false);
   const user = useSelector((state)=> state.User);
@@ -29,6 +31,7 @@ function SignIn() {
   
   const logUser = (e) => {
     e.preventDefault();
+    setLoading(true);
 
     const data = {
       email: email,
@@ -41,6 +44,7 @@ function SignIn() {
       if (res.data.success === false) {
 
        console.log(res.data.msg);
+       setLoading(false);
        setmsg(res.data.msg)
         
       } else if (res.data.success === true) {
@@ -49,6 +53,7 @@ function SignIn() {
         setmsg("")
         logInUser(res.data.token);
         localStorage.setItem('user', res.data.token);
+        setLoading(false);
         window.location.href="/";
         
       } 
@@ -56,6 +61,7 @@ function SignIn() {
     })
     .catch(err => {
       console.log(err);
+      setLoading(false);
     })
 
   }
@@ -65,6 +71,19 @@ function SignIn() {
   return (
     <div className="main">
         <Navbar/>
+        {loading  ? 
+     <div className="shader"> 
+        <div class="loadingContainer"> 
+         <Loader 
+            type="Rings" 
+            color="#109DFA" 
+            height={80} 
+            width={80} 
+          /> 
+        </div>
+      </div> 
+    : 
+    null}
         <div className="signin-div">
 
         <h2>Sign in</h2>

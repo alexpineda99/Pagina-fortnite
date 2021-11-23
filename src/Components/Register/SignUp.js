@@ -42,6 +42,10 @@ function SignUp() {
     const registeruser = (e) => {
       e.preventDefault();
       setLoading(true);
+      let regLetter = /^[a-zA-ZñÑáÁéÉíÍóÓúÚ]*$/i; // regular expression only letters
+      let regPass = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,16}$/; // regular expression password
+      let regEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.([a-zA-Z]{2,4})+$/; // regular expression email
+
       const data = {
       name: name,
       country: country,
@@ -51,24 +55,60 @@ function SignUp() {
       password: pass
       }
 
+      //Name validation
       if (name.length === 0) {
         setmsg("Name field required");
+        setLoading(false);
       }
+      else if (!regLetter.test(name)) {
+        setmsg("Name field requires only letters");
+        setLoading(false);
+      }
+      else if (name.length >= 3) {
+        setmsg("Your name must be at least 3 characters");
+        setLoading(false);
+      }
+      //Email validation
       else if (email.length === 0) {
         setmsg("Email field required");
+        setLoading(false);
       }
-      else if (country.length === 0) {
-        setmsg("Country field required");
+      else if (!regEmail.test(email)) {
+        setmsg("Please enter a valid email address");
+        setLoading(false);
       }
+      //Region validation
       else if (region.length === 0) {
         setmsg("Region field required");
+        setLoading(false);
       }
+      //Phone validation
       else if (phone.length === 0) {
         setmsg("Phone field required");
+        setLoading(false);
       }
+      else if (!isPossiblePhoneNumber) {
+        setmsg("Phone field required");
+        setLoading(false);
+      }
+
+      //Pass validation
       else if (pass.length === 0) {
         setmsg("Password field required");
+        setLoading(false);
       }
+      else if (pass.length >= 8 && pass.length <= 16) {
+        setmsg("Your name must be between 8 and 16 characters");
+        setLoading(false);
+      }
+      else if (!regPass.test(pass)) {
+        setLoading(false);
+      }
+      else if (pass !== passAgain) {
+        setmsg("Password and password confirmation don´t match");
+        setLoading(false);
+      }
+
       
       else {
       axios.post("https://serverfortnite.cleverapps.io/register", data)
@@ -102,7 +142,19 @@ function SignUp() {
   return (
     <div className="main">
         <Navbar/>
-    {loading  ? <div className="signup-div  main-loading"> <Loader type="Rings" color="#109DFA" height={80} width={80} /> </div> : null}
+    {loading  ? 
+     <div className="shader"> 
+        <div class="loadingContainer"> 
+         <Loader 
+            type="Rings" 
+            color="#109DFA" 
+            height={80} 
+            width={80} 
+          /> 
+        </div>
+      </div> 
+    : 
+    null}
      { open ? <PopupRegistration pop={open}/> : fail ? <PopupFailRegistration pop={fail} /> : null }
         <div className="signup-div">
         <h2>Sign up</h2>
