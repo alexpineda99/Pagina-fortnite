@@ -103,6 +103,7 @@ function SignUp() {
       }
       else if (!regPass.test(pass)) {
         setLoading(false);
+        setmsg("");
       }
       else if (pass !== passAgain) {
         setmsg("Password and password confirmation don´t match");
