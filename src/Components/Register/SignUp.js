@@ -42,7 +42,7 @@ function SignUp() {
     const registeruser = (e) => {
       e.preventDefault();
       setLoading(true);
-      let regLetter = /^[a-zA-ZñÑáÁéÉíÍóÓúÚ]*$/i; // regular expression only letters
+      let regLetter = /^[a-zA-Z\s]{3,25}*$/; // regular expression only letters
       let regPass = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,16}$/; // regular expression password
       let regEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.([a-zA-Z]{2,4})+$/; // regular expression email
 
@@ -64,8 +64,8 @@ function SignUp() {
         setmsg("Name field requires only letters");
         setLoading(false);
       }
-      else if (name.length < 3) {
-        setmsg("Your name must be at least 3 characters");
+      else if (name.length < 3 && name.length > 26) {
+        setmsg("Your name must be at least 3 characters and no more than 25");
         setLoading(false);
       }
       //Email validation
