@@ -40,7 +40,7 @@ function Item(props) {
       })
       .catch((err) => {
         console.log(err);
-        window.location.href = "/signin";
+        window.location.href = "https://alex-fortnite.netlify.app/signin";
       });
     window.scrollTo(0, 0);
   }, [pathname]);
