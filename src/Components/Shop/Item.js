@@ -32,7 +32,7 @@ function Item(props) {
     console.log(shophistory);
     console.log(id);
     axios
-      .get(`/item/${id}`, {
+      .get(`https://alex-fortnite.netlify.app/item/${id}`, {
         headers: {'auth': token},
       })
       .then((res) => {
