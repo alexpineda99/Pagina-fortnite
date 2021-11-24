@@ -37,9 +37,11 @@ function Item(props) {
       })
       .then((res) => {
         console.log(res.data);
+        console.log("authorized");
       })
       .catch((err) => {
         console.log(err);
+        console.log("not authorized");
         window.location.href = "https://alex-fortnite.netlify.app/signin";
       });
     window.scrollTo(0, 0);
