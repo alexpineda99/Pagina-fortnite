@@ -36,13 +36,13 @@ function Item(props) {
         headers: {'auth': token},
       })
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         console.log("authorized");
       })
       .catch((err) => {
         console.log(err);
         console.log("not authorized");
-        window.location.href = "https://alex-fortnite.netlify.app/signin";
+        window.location.href = "/signin";
       });
     window.scrollTo(0, 0);
   }, [pathname]);
