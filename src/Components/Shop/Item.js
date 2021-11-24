@@ -33,7 +33,7 @@ function Item(props) {
     console.log(id);
     axios
       .get(`/item/${id}`, {
-        headers: { auth: token },
+        headers: {'auth': token},
       })
       .then((res) => {
         console.log(res.data);
