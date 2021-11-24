@@ -103,7 +103,8 @@ function SignUp() {
       }
       else if (!regPass.test(pass)) {
         setLoading(false);
-        setmsg("");
+        // setmsg("Your name must be between 8 and 16 characters");
+        console.log("Password must has at least: one digit. one special character. one capital letter. minimun 8 characters");
       }
       else if (pass !== passAgain) {
         setmsg("Password and password confirmation don´t match");
@@ -244,8 +245,9 @@ function SignUp() {
         </div>
 
         <PasswordChecklist
-          rules={["length","specialChar","number","capital","match"]}
-          minLength={5}
+          rules={["minLength","maxLength","specialChar","number","capital","match"]}
+          minLength={7}
+          maxLength={16}
           value={pass}
           valueAgain={passAgain}
           onChange={(isValid) => {}}
