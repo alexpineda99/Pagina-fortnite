@@ -246,7 +246,7 @@ function SignUp() {
 
         <PasswordChecklist
           rules={["minLength","maxLength","specialChar","number","capital","match"]}
-          minLength={7}
+          minLength={8}
           maxLength={16}
           value={pass}
           valueAgain={passAgain}
