@@ -26,6 +26,7 @@ function Challenges() {
           setLoading(false);
         })
         .catch(err=>{
+          console.log(err)
           console.log("No autenticado para ver los desafios");
           console.log(Challenges);
         })

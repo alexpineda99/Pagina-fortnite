@@ -36,7 +36,7 @@ function Item(props) {
         headers: {'auth': token},
       })
       .then((res) => {
-        // console.log(res.data);
+        console.log(res.data);
         console.log("authorized");
       })
       .catch((err) => {
