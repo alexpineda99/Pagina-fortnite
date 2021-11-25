@@ -36,8 +36,9 @@ function Item(props) {
         headers: {'auth': token},
       })
       .then((res) => {
-        console.log(res.data);
-        console.log("authorized");
+        if (!token) {
+          window.location.href = "/signin";
+        }
       })
       .catch((err) => {
         console.log(err);
