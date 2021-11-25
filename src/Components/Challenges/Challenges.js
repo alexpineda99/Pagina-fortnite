@@ -14,9 +14,7 @@ function Challenges() {
   useEffect(() => {
     let fetchChallenges = async () => {
       await axios
-        .get(url, {
-          headers: {'auth': token}
-        })
+        .get(url)
 
         .then((res) => {
           setChallenges(res.data.data.items);
