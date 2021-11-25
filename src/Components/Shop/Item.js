@@ -36,9 +36,7 @@ function Item(props) {
         headers: {'auth': token},
       })
       .then((res) => {
-        if (!token) {
-          window.location.href = "/signin";
-        }
+        console.log("Fetching completed")
       })
       .catch((err) => {
         console.log(err);
