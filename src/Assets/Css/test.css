@@ -1,4 +1,4 @@
-html, body {
+/* html, body {
     margin:0;
     padding:0;
     height:100%;
@@ -13,9 +13,9 @@ html, body {
  }
  #body {
     padding:10px;
-    padding-bottom:60px;   /* Height of the footer */
- }
- #footer {
+    padding-bottom:60px;
+ } */
+ /* #footer {
     margin-top: 1rem;
     padding: 1rem;
     background-color: rgb(235, 195, 64);
@@ -23,4 +23,4 @@ html, body {
     bottom: 0;
     left: 0;
     width: 100%;
- }
+ } */

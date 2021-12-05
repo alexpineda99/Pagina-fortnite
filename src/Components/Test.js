@@ -9,13 +9,10 @@ function Test() {
 
     useEffect(() => {
 
-        axios.get('/test',{
-            headers: {
-              'Test-Header': 'test-value'
-            }
-          })
+        axios.get('http://localhost:3001/test')
           .then(res=>{
-            console.log("hola api");
+            
+            console.log(res);
               // console.log(res.headers);
             //   console.log(token);
               // console.log(res.data.headers['Test-Header']);

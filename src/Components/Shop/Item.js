@@ -36,12 +36,14 @@ function Item(props) {
         headers: {'auth': token},
       })
       .then((res) => {
-        console.log("Fetching completed")
+        if (!token) {
+          window.location.href = "/signin";
+        }
       })
       .catch((err) => {
         console.log(err);
         console.log("not authorized");
-        window.location.href = "/signin";
+        // window.location.href = "/signin";
       });
     window.scrollTo(0, 0);
   }, [pathname]);
