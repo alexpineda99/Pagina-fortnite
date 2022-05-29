@@ -7,11 +7,13 @@ import Map from "./Map";
 
 function Home() {
   return (
-    <div className="main">
+    <div className="page-container">
+      <div className="content-wrap">
       <Navbar/>
       <Daily/>
       <Map/>
       <Challenges/>
+      </div>
       <Footer/>
     </div>
   );

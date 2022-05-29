@@ -147,7 +147,8 @@ function Search() {
 
   return (
 
-    <div className="main">
+    <div className="page-container">
+      <div className="content-wrap">
         <Navbar/>
         <h2 className="titulo-p">Search</h2>
         <div className="search-buttons">
@@ -199,6 +200,7 @@ function Search() {
         <div className="load-buttons"> 
           <button className="load-items" onClick={loadmore}> Show more</button>
           <button className="load-items" onClick={loadless}> Show less</button>
+        </div>
         </div>
         <Footer/>
     </div>

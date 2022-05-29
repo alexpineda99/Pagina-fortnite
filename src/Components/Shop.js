@@ -7,11 +7,13 @@ import Footer from "./Footer"
 
 function Shop() {
   return (
-    <div className="main">
+    <div className="page-container">
+      <div className="content-wrap">
       <Navbar/>
       <Featured/>
       <Daily/>
       <Specialfeatured/>
+      </div>
       <Footer/>
     </div>
   );

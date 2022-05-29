@@ -37,12 +37,14 @@ function News() {
         }, []);
 
   return (
-    <div className="main">
+    <div className="page-container">
+      <div className="content-wrap">
         <Navbar/>
         <h2 className="titulo-p">News</h2>
         <Br/>
         <Creative/>
         <STW/>
+        </div>
         <Footer/>
         
     </div>
