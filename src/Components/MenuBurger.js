@@ -38,10 +38,10 @@ function MenuBurger() {
          <li> <a href="/news"> News </a> </li>
          <li> <a href="/about"> About </a> </li>
         </ul>
-        <ul className="ul-user">
+        {/* <ul className="ul-user">
         <li> <a href="/"> Iniciar sesion </a>  </li>
         <li> <a href="/"> Cerrar sesion </a> </li>
-        </ul>
+        </ul> */}
         </Menu>
       </nav>
     </div>

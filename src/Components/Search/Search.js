@@ -20,13 +20,17 @@ function Search() {
     const types = ["All", "outfit", "banner", "wrap", "spray", "emoji", "pickaxe", "glider", "loadingscreen", "emote"];
     const url = "https://fortnite-api.com/v2/cosmetics/br";
 
+    function capitalizeFirstLetter(string) {
+      return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
     function handletype(value) {
       setType(value);
       
     }
 
     function handlesearch(value) {
-      setSearch(value);
+      setSearch(capitalizeFirstLetter(value));
     }
 
     function loadmore () {
@@ -132,7 +136,9 @@ function Search() {
 
   return (
 
-    <div className="main">
+    <div className="page-container">
+      {/* change main class */}
+      <div className="content-wrap">
         <Navbar/>
         <h2 className="titulo-p">Search</h2>
         <div className="search-buttons">
@@ -182,7 +188,8 @@ function Search() {
           <button className="load-items" onClick={loadmore}> Show more</button>
           <button className="load-items" onClick={loadless}> Show less</button>
         </div>
-        <Footer/>
+    </div>
+    <Footer/>
     </div>
   );
 }

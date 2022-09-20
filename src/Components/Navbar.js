@@ -43,8 +43,8 @@ function Navbar() {
           <li className="li-burger"> <a href="/news"> News </a> </li>
           <li className="li-burger"> <a href="/search"> Search </a> </li>
           <li className="li-burger"> <a href="/about"> About </a> </li>
-          <li className="li-burger"> <a href="/signin"> Sign in </a>  </li>
-          <li className="li-burger"> <a href="/signup"> Sign up </a> </li>
+          {/* <li className="li-burger"> <a href="/signin"> Sign in </a>  </li>
+          <li className="li-burger"> <a href="/signup"> Sign up </a> </li> */}
         </div>
       }
         </div>
@@ -74,8 +74,8 @@ function Navbar() {
          <li> <a href="/about"> About </a> </li>
         </ul>
         <ul className="ul-user">
-        <li> <a href="/signin"> Sign in </a>  </li>
-        <li> <a href="/signup"> Sign up </a> </li>
+        {/* <li> <a href="/signin"> Sign in </a>  </li>
+        <li> <a href="/signup"> Sign up </a> </li> */}
         </ul>
         </div>
         }

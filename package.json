@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/react-fontawesome": "^0.1.14",
+    "@mui/material": "^5.10.5",
     "axios": "^0.21.1",
     "express": "^4.17.1",
     "paper-input": "^3.0.2",
@@ -16,12 +19,13 @@
     "react-dom": "^17.0.2",
     "react-elastic-carousel": "^0.11.4",
     "react-form-input-fields": "^1.0.9",
+    "react-hook-form": "^7.35.0",
     "react-loader-spinner": "^4.0.0",
     "react-password-checklist": "^1.1.1",
     "react-phone-number-input": "^3.1.19",
     "react-redux": "^7.2.4",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^4.0.3",
+    "react-scripts": "^5.0.1",
     "react-smart-card": "^0.4.0",
     "react-with-redux": "0.0.3",
     "react-world-flags": "^1.4.0",
@@ -56,5 +60,8 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@tailwindcss/postcss7-compat": "^2.2.17",
+    "postcss": "^8.4.16"
+  }
 }
