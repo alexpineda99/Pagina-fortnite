@@ -6,12 +6,16 @@ import axios from 'axios';
 import Loader from 'react-loader-spinner';
 import { FormField } from 'react-form-input-fields'
 import 'react-form-input-fields/dist/index.css'
+import {
+  Link
+} from "react-router-dom";
 // import Carousel from 'react-elastic-carousel';
 
 function Search() {
 
     let [cosmeticslength, setCosmeticslength] = useState();
     let [cosmeticsall, setCosmeticsall] = useState([]);
+    let [Dailys, setDailys] = useState([]);
     let [search, setSearch] = useState("");
     let [loading, setLoading] = useState(false);
     let [itemload, setItemload] = useState(25);
@@ -179,6 +183,9 @@ function Search() {
                   <div className="text-item-box"> 
                     <span className="text-item"> {item.name} </span>
                   </div>
+                  <Link to={{pathname:`/item/${item.id}`, state: {props: item}}}>
+                  <button className="View-button"> View more </button>
+                </Link>
                </div>
             </div>
             )}

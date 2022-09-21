@@ -20,19 +20,18 @@ function Item(props) {
   };
 
   useEffect(() => {
+    console.log(props)
     console.log(id);
-    axios
-      .get(`/item/${id}`, {
-        headers: { auth: token },
-      })
-      // axios.get(`/item/${id}`)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-        // window.location.href = "/signin";
-      });
+    // axios
+    //   .get(`/item/${id}`)
+    //   // axios.get(`/item/${id}`)
+    //   .then((res) => {
+    //     console.log(res);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //     // window.location.href = "/signin";
+    //   });
     window.scrollTo(0, 0);
   }, [pathname]);
 
