@@ -340,7 +340,7 @@ a:hover {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
   width: 80%;
   margin-left: 10%;
   margin-right: 10%;
@@ -990,10 +990,6 @@ Note: Beware of modifying this element as it can break the animations - you shou
     margin-bottom: 0%;
     margin-left: 0%;
     margin-right: 0%;
-  }
-
-  .v-bucks-img {
-    width: 25%;
   }
 
   .titulo-p {

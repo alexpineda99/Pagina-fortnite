@@ -26,7 +26,7 @@ function Daily() {
         
         // console.log(res.data.data.daily.entries);
 
-        // console.log(res.data.data);
+        console.log(res.data.data);
 
         setName("Daily");
 

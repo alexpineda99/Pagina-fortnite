@@ -10,7 +10,7 @@ const token = localStorage.getItem("user");
 
 function Item(props) {
   let [Features, setFeatures] = useState(props.history.location.state.props);
-  let [Itemlength, setItemlength] = useState(Features.items.length);
+  let [Itemlength, setItemlength] = useState(Features);
   let history = useHistory();
   const { pathname } = useLocation();
   const { id } = useParams();
@@ -20,7 +20,7 @@ function Item(props) {
   };
 
   useEffect(() => {
-    console.log(props)
+    console.log(Itemlength);
     console.log(id);
     // axios
     //   .get(`/item/${id}`)
@@ -39,8 +39,8 @@ function Item(props) {
     <div className="page-container">
       {/* change main class */}
       <div className="content-wrap">
-      <div className="optional-content-wrap">
-        <Navbar />
+        <div className="optional-content-wrap">
+          <Navbar />
           <div className="arrow-back-div">
             <img
               src={Arrowback}
@@ -71,10 +71,10 @@ function Item(props) {
           </div>
           <div className="additional-name"> Additional items </div>
           <div className="main-additional-item">
-            {Itemlength === 1 ? (
-              <span className="additional-not-available"> Not availables </span>
+            {Itemlength.items.length === 1 ? (
+              <span className="additional-not-available"> Not included </span>
             ) : (
-              Features.items.slice(1, Itemlength).map((item) => (
+              Features.items.slice(1, Itemlength.items.length).map((item) => (
                 <div className="additional-item">
                   <h1 className="additional-item-name"> {item.name} </h1>
                   <img
@@ -88,6 +88,8 @@ function Item(props) {
           </div>
         </div>
       </div>
+
+      {/* {Itemlength.shopHistory[0]} */}
       <Footer />
     </div>
   );
