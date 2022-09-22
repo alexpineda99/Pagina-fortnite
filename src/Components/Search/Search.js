@@ -183,9 +183,9 @@ function Search() {
                   <div className="text-item-box"> 
                     <span className="text-item"> {item.name} </span>
                   </div>
-                  <Link to={{pathname:`/item/${item.id}`, state: {props: item}}}>
+                  {/* <Link to={{pathname:`/item/${item.id}`, state: {props: item}}}>
                   <button className="View-button"> View more </button>
-                </Link>
+                </Link> */}
                </div>
             </div>
             )}
