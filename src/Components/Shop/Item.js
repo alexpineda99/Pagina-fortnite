@@ -38,17 +38,17 @@ function Item(props) {
   return (
     <div className="page-container">
       {/* change main class */}
+      <Navbar />
+      <div className="arrow-back-div">
+        <img
+          src={Arrowback}
+          className="arrow-back"
+          onClick={goToPreviousPath}
+          alt="arrowback"
+        />
+      </div>
       <div className="content-wrap">
         <div className="optional-content-wrap">
-          <Navbar />
-          <div className="arrow-back-div">
-            <img
-              src={Arrowback}
-              className="arrow-back"
-              onClick={goToPreviousPath}
-              alt="arrowback"
-            />
-          </div>
           <div className="main-div-item">
             {Features.items.slice(0, 1).map((item) => (
               <div className="item-info">

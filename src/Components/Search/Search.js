@@ -66,9 +66,9 @@ function Search() {
         setLoading(true);
         axios.get(url)
         .then(res => {
-        console.log(res.data.data);
-        setCosmeticslength(res.data.data.length)
+        // setCosmeticslength(res.data.data.length);
         setCosmeticsall(res.data.data);
+        console.log(cosmeticsall.length);
         // console.log(type);
         // console.log(search);
 
@@ -77,7 +77,7 @@ function Search() {
           setCosmeticsall([]);
           setCosmeticslength();
           setCosmeticsall(res.data.data.filter(items=>items.type.value === "outfit").filter(itemsname=> itemsname.name.includes(search)))
-          setCosmeticslength(cosmeticsall.length)
+          setCosmeticslength(cosmeticsall.length);
 
         } else if (type === "wrap") {
           setCosmeticsall([]);
@@ -127,12 +127,14 @@ function Search() {
           setCosmeticslength(cosmeticsall.length)
         
         } 
-        // else if (search.length > 0) {
-        //   setCosmeticsall([]);
-        //   setCosmeticslength();
-        //   setCosmeticsall(res.data.data.filter(itemsname=> itemsname.name.includes(search)))
-        //   setCosmeticslength(cosmeticsall.length)
-        // }
+        else if (search.length > 0) {
+          setCosmeticsall([]);
+          setCosmeticslength();
+          setCosmeticsall(res.data.data.filter(itemsname=> itemsname.name.includes(search)))
+          setCosmeticslength(cosmeticsall.length)
+        }
+
+        console.log(cosmeticslength);
         
         setLoading(false);
         })
@@ -192,6 +194,7 @@ function Search() {
             )}
         </div>
         
+        {console.log(cosmeticsall.length)}
         <div className="load-buttons"> 
           <button className="load-items" onClick={loadmore}> Show more</button>
           <button className="load-items" onClick={loadless}> Show less</button>
