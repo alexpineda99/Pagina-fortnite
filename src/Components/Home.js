@@ -13,7 +13,7 @@ function Home() {
       <div className="content-wrap">
         <Navbar />
         <Daily />
-        {/* <CreatorCode /> */}
+        <CreatorCode />
         <Map />
         {/* <Challenges /> */}
       </div>

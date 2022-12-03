@@ -5,6 +5,7 @@ import About from "./Components/About";
 import SignIn from "./Components/Register/SignIn";
 import SignUp from "./Components/Register/SignUp";
 import Item from "./Components/Shop/Item";
+import itemsearch from "./Components/Shop/ItemSearch";
 import Search from "./Components/Search/Search";
 import CreateCode from "./Components/New Components/CreatorCode";
 import Notfound from "./Components/Pages/Pagenotfound";
@@ -26,6 +27,7 @@ function App() {
           <Route exact path="/news" component={News} />
           <Route exact path="/about" component={About} />
           <Route exact path="/item/:id" component={Item} />
+          <Route exact path="/itemsearch/:id" component={itemsearch} />
           <Route exact path="/search" component={Search} />
           <Route exact path="/signin" component={SignIn} />
           <Route exact path="/signup" component={SignUp} />

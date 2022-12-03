@@ -21,17 +21,16 @@ function Item(props) {
 
   useEffect(() => {
     console.log(Itemlength);
-    console.log(id);
-    // axios
-    //   .get(`/item/${id}`)
-    //   // axios.get(`/item/${id}`)
-    //   .then((res) => {
-    //     console.log(res);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //     // window.location.href = "/signin";
-    //   });
+    axios
+      .get(`https://fortnite-api.com/v2/cosmetics/br/${id}`)
+      // axios.get(`/item/${id}`)
+      .then((res) => {
+        console.log(res.data.data);
+      })
+      .catch((err) => {
+        console.log(err);
+        // window.location.href = "/signin";
+      });
     window.scrollTo(0, 0);
   }, [pathname]);
 

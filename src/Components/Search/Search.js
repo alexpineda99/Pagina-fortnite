@@ -43,7 +43,7 @@ function Search() {
         setItemload(itemload+25);
 
       } else {
-        alert("no more")
+        alert("There are not more items to load.")
       }
     }
 
@@ -177,18 +177,18 @@ function Search() {
           </div>
           :
           cosmeticsall.filter(type === "All" ? items=> items.type.value : items=> items.type.value === type)
-          .filter(itemsname=> itemsname.name.includes(search))
-          .slice(0, itemload).map((item, index) => 
+          .filter(itemsname=> itemsname.name.includes(search)) //filtra los items de acuerdo al valor del input search
+          .slice(0, itemload).map((item, index) => //divisiona solo los primeros 25 items del array
             <div className="item" key={index}>
               <div className="item-info"> 
                   <img src={item.images.icon !== null ? item.images.icon : item.images.smallIcon} className="img-item" alt={item.name} />
                   <div className="text-item-box"> 
                     <span className="text-item"> {item.name} </span>
                   </div>
-                  {/* {console.log(item)}
-                  <Link to={{pathname:`/item/${item.id}`, state: {props: item}}}>
-                  <button className="View-button"> View more </button>
-                </Link> */}
+                  <Link rel="noopener noreferrer" target={"_blank"} to={{pathname:`/itemsearch/${item.id}`, state: {props: item}}}>
+                    <button className="View-button"> View more </button>
+
+                </Link>
                </div>
             </div>
             )}
