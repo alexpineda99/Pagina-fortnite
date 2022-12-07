@@ -18,18 +18,21 @@ function Search() {
     let [Dailys, setDailys] = useState([]);
     let [search, setSearch] = useState("");
     let [loading, setLoading] = useState(false);
-    let [itemload, setItemload] = useState(25);
+    let [itemload, setItemload] = useState(20);
     let [results, setResults] = useState(0);
     let [type, setType] = useState("All");
     const types = ["All", "outfit", "banner", "wrap", "spray", "emoji", "pickaxe", "glider", "loadingscreen", "emote"];
     const url = "https://fortnite-api.com/v2/cosmetics/br";
 
-    function capitalizeFirstLetter(string) {
-      return string.charAt(0).toUpperCase() + string.slice(1);
+    function capitalizeFirstLetter(str) {
+      return str.replace(/\w\S*/g, function(txt){
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
     }
 
     function handletype(value) {
       setType(value);
+      setItemload(20);
       
     }
 
@@ -38,9 +41,9 @@ function Search() {
     }
 
     function loadmore () {
-      if (itemload%25 === 0) {
+      if (itemload%20 === 0) {
 
-        setItemload(itemload+25);
+        setItemload(itemload+20);
 
       } else {
         alert("There are not more items to load.")
@@ -48,17 +51,17 @@ function Search() {
     }
 
     function loadless () {
-      if (itemload%25 === 0 && itemload > 25) {
+      if (itemload%20 === 0 && itemload > 20) {
 
-        setItemload(itemload-25)
+        setItemload(itemload-20)
 
-      } else if (itemload === 25) {
+      } else if (itemload === 20) {
 
         
       }
-      else if (itemload%25 !== 0) {
+      else if (itemload%20 !== 0) {
 
-        alert("no more" + itemload%25)
+        alert("no more" + itemload%20)
       }
     }
 

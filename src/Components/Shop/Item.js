@@ -4,6 +4,7 @@ import { useHistory, useLocation, useParams } from "react-router-dom";
 import VBucks from "../../Assets/Images/V-bucks_1.png";
 import Arrowback from "../../Assets/Images/arrow.png";
 import Navbar from "../Navbar";
+import Grid from "@mui/material/Grid";
 import Footer from "../Footer";
 import axios from "axios";
 const token = localStorage.getItem("user");
@@ -69,22 +70,38 @@ function Item(props) {
             />
           </div>
           <div className="additional-name"> Additional items </div>
-          <div className="main-additional-item">
-            {Itemlength.items.length === 1 ? (
-              <span className="additional-not-available"> Not included </span>
-            ) : (
-              Features.items.slice(1, Itemlength.items.length).map((item) => (
-                <div className="additional-item">
-                  <h1 className="additional-item-name"> {item.name} </h1>
-                  <img
-                    src={item.images.icon}
-                    className="additional-item-image"
-                    alt={item.name}
-                  />
-                </div>
-              ))
-            )}
-          </div>
+          <Grid
+            container
+            xs={12}
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              flexWrap: "wrap"
+            }}
+          >
+              {Itemlength.items.length === 1 ? (
+                <span> Not included </span>
+              ) : (
+                Features.items.slice(1, Itemlength.items.length).map((item) => (
+                  <Grid
+                    xs={3}
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      alignContent: "center"
+                    }}
+                  >
+                    <img
+                    width={"25%"}
+                      src={item.images.icon}
+                      alt={item.name}
+                    />
+                    <span> {item.name} </span>
+                  </Grid>
+                ))
+              )}
+          </Grid>
         </div>
       </div>
 
