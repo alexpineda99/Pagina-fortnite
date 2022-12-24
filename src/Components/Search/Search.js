@@ -13,6 +13,8 @@ import {
 
 function Search() {
 
+  // const {searchQuery,searchResults} = JSON.parse(window.sessionStorage.getItem("searchDetails"));
+
     let [cosmeticslength, setCosmeticslength] = useState();
     let [cosmeticsall, setCosmeticsall] = useState([]);
     let [Dailys, setDailys] = useState([]);
@@ -20,8 +22,19 @@ function Search() {
     let [loading, setLoading] = useState(false);
     let [itemload, setItemload] = useState(20);
     let [results, setResults] = useState(0);
-    let [type, setType] = useState("All");
-    const types = ["All", "outfit", "banner", "wrap", "spray", "emoji", "pickaxe", "glider", "loadingscreen", "emote"];
+    let [typeshowed, setTypeshowed] = useState({ label: "All", value: "All" });
+    let [type, setType] = useState({ label: "All", value: "All" });
+    const types = [{ label:  'All', value:  "All" },
+    { label:  'Skins', value:  "outfit" },
+    { label:  'Banners', value:  "banner" },
+    { label:  'Wraps', value:  "wrap" },
+    { label:  'Sprays', value:  "spray" },
+    {label: "Emoji", value:"emoji"},
+    {label: "Pickaxe", value:"pickaxe"},
+    {label: "Gliders", value:"glider"},
+    {label: "Loading screens", value:"loadingscreen"},
+    {label: "Emotes", value:"emote"}
+  ];
     const url = "https://fortnite-api.com/v2/cosmetics/br";
 
     function capitalizeFirstLetter(str) {
@@ -30,14 +43,18 @@ function Search() {
     });
     }
 
-    function handletype(value) {
-      setType(value);
-      setItemload(20);
+    function handletype(e) {
+      const selected = types.filter((type) => type.value === e)[0]
+      console.log(selected);
+      setTypeshowed(selected.label);
+      setType(selected.value);
       
     }
 
     function handlesearch(value) {
       setSearch(capitalizeFirstLetter(value));
+      window.sessionStorage.setItem("searchDetails",JSON.stringify({searchQuery:value, searchType:type}))
+      console.log(window.sessionStorage.getItem("searchDetails"));
     }
 
     function loadmore () {
@@ -154,7 +171,7 @@ function Search() {
           <FormField
           type="select"
           option={types}
-          value={type}
+          value={typeshowed}
           label={'Search by...'}
           keys={"type"}
           handleOnChange={(value) => handletype(value)} />
@@ -179,7 +196,7 @@ function Search() {
           />
           </div>
           :
-          cosmeticsall.filter(type === "All" ? items=> items.type.value : items=> items.type.value === type)
+          cosmeticsall.filter(type.label === "All" ? items=> items.type.value : items=> items.type.value === type)
           .filter(itemsname=> itemsname.name.includes(search)) //filtra los items de acuerdo al valor del input search
           .slice(0, itemload).map((item, index) => //divisiona solo los primeros 25 items del array
             <div className="item" key={index}>
