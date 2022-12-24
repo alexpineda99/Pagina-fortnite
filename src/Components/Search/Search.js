@@ -9,12 +9,13 @@ import 'react-form-input-fields/dist/index.css'
 import {
   Link
 } from "react-router-dom";
+import { Alert } from '@mui/material';
 // import Carousel from 'react-elastic-carousel';
 
 function Search() {
 
-  // const {searchQuery,searchResults} = JSON.parse(window.sessionStorage.getItem("searchDetails"));
-
+    //let [lasttype, setLasttype] = useState();
+    //let [lastsearch, setLastSearch] = useState();
     let [cosmeticslength, setCosmeticslength] = useState();
     let [cosmeticsall, setCosmeticsall] = useState([]);
     let [Dailys, setDailys] = useState([]);
@@ -45,7 +46,7 @@ function Search() {
 
     function handletype(e) {
       const selected = types.filter((type) => type.value === e)[0]
-      console.log(selected);
+      window.sessionStorage.setItem("searchType",JSON.stringify({searchType:selected.value, searchShow: selected.label}));
       setTypeshowed(selected.label);
       setType(selected.value);
       
@@ -53,8 +54,7 @@ function Search() {
 
     function handlesearch(value) {
       setSearch(capitalizeFirstLetter(value));
-      window.sessionStorage.setItem("searchDetails",JSON.stringify({searchQuery:value, searchType:type}))
-      console.log(window.sessionStorage.getItem("searchDetails"));
+      window.sessionStorage.setItem("search",JSON.stringify({searchQuery:value}));
     }
 
     function loadmore () {
@@ -86,13 +86,26 @@ function Search() {
         setLoading(true);
         axios.get(url)
         .then(res => {
-        // setCosmeticslength(res.data.data.length);
+        // ******************
+        if(sessionStorage.getItem("search") !== null && sessionStorage.getItem("search") !== ""  ) {
+            let lastSearch = JSON.parse(sessionStorage.getItem("search"));
+            setSearch(capitalizeFirstLetter(lastSearch.searchQuery));
+          }
+
+          if(sessionStorage.getItem("searchType") !== null && sessionStorage.getItem("searchType") !== ""  ) {
+            let lastType = JSON.parse(sessionStorage.getItem("searchType"));
+            setTypeshowed(lastType.searchShow);
+            setType(lastType.searchType);
+
+            // setSearch(lastSearch.searchQuery);
+          }
+
+        // ******************
         setCosmeticsall(res.data.data);
         console.log(cosmeticsall.length);
         // console.log(type);
         // console.log(search);
-
-        if (type === "outfit") {
+         if (type === "outfit") {
 
           setCosmeticsall([]);
           setCosmeticslength();
@@ -205,7 +218,7 @@ function Search() {
                   <div className="text-item-box"> 
                     <span className="text-item"> {item.name} </span>
                   </div>
-                  <Link rel="noopener noreferrer" target={"_blank"} to={{pathname:`/itemsearch/${item.id}`, state: {props: item}}}>
+                  <Link rel="noopener noreferrer" to={{pathname:`/itemsearch/${item.id}`, state: {props: item}}}>
                     <button className="View-button"> View more </button>
 
                 </Link>

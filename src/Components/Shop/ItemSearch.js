@@ -57,14 +57,14 @@ function Item() {
     <div className="page-container">
       {/* change main class */}
       <Navbar />
-      {/* <div className="arrow-back-div">
+      <div className="arrow-back-div">
         <img
           src={Arrowback}
           className="arrow-back"
           onClick={goToPreviousPath}
           alt="arrowback"
         />
-      </div> */}
+      </div>
       <div className="content-wrap">
         {loading ? (
           <div className="Loader">
