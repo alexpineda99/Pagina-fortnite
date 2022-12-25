@@ -164,7 +164,7 @@ function Item() {
                         // <p>{variant?.options.map(style=> <span> {style.name} </span>)} </p>
                         <Grid key={index} sm={3} xs={6} mt={2}>
                           <Grid>
-                            <Box src={variant.image} alt={variant.name} sx={{width: 100}} />
+                            <img src={variant.image} alt={variant.name} sx={{width: "100%", height: "100%"}} />
                             <Grid>
                               <Grid>
                                 {" "}
