@@ -47,6 +47,7 @@ function Search() {
     function handletype(e) {
       const selected = types.filter((type) => type.value === e)[0]
       window.sessionStorage.setItem("searchType",JSON.stringify({searchType:selected.value, searchShow: selected.label}));
+      console.log(e + " a ver que hay");
       setTypeshowed(selected.label);
       setType(selected.value);
       
@@ -219,7 +220,7 @@ function Search() {
                     <span className="text-item"> {item.name} </span>
                   </div>
                   <Link rel="noopener noreferrer" to={{pathname:`/itemsearch/${item.id}`, state: {props: item}}}>
-                    <button className="View-button"> View more </button>
+                    <button className="btn-item"> <span> View Item </span> </button>
 
                 </Link>
                </div>
@@ -227,7 +228,6 @@ function Search() {
             )}
         </div>
         
-        {console.log(cosmeticsall.length)}
         <div className="load-buttons"> 
           <button className="load-items" onClick={loadmore}> Show more</button>
           <button className="load-items" onClick={loadless}> Show less</button>

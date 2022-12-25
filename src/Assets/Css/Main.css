@@ -23,7 +23,10 @@ body {
 }
 
 .content-wrap {
-  flex: 1 1;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  flex: 1 1 100%;
 }
 
 .nav-user {
@@ -128,6 +131,60 @@ a:hover {
   margin-right: 10%;
 }
 
+/* View Button 2023*/
+.btn-item {
+  width: 100%;
+  height: 60px;
+  background: none;
+  border: 4px solid;
+  border-radius: 20px;
+  color: #024A86;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 16px;
+  position: relative;
+}
+
+/* #109DFA */
+/* #024A86 */
+/* #E69DFB */
+/* #FF689D*/
+/* #222222 */
+/* #f4f3ee */
+
+.btn-item::before, .btn-item::after {
+ content: "";
+ position: absolute;
+ width: 14px;
+ height: 4px;
+ background: #ff689d;
+ transform: skewX(50deg);
+ transition: .4s linear; 
+}
+
+.btn-item::before {
+  top: -4px;
+  left: 10%;
+}
+
+.btn-item::after {
+  top: 52px;
+  right: 10%;
+}
+
+.btn-item:hover::before {
+  left: 70%;
+}
+
+.btn-item:hover::after {
+  right: 70%;
+}
+
+.btn-item > span {
+  color: #f4f3ee;
+}
+
+/* end view button 2023 */
 .search-buttons {
   display: flex;
   flex-direction: row;
@@ -204,7 +261,8 @@ a:hover {
   height: 90%;
 }
 
-.arrow-back-div, .creatorcode-info-right {
+.arrow-back-div,
+.creatorcode-info-right {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -224,10 +282,10 @@ a:hover {
   display: flex;
   align-items: center;
   align-content: center;
-  height: .7rem;
+  height: 0.7rem;
   /* height: 100%; */
-  width: .8rem;
-  margin-left: .2rem;
+  width: 0.8rem;
+  margin-left: 0.2rem;
   background-color: #60d8a7;
   border-radius: 50%;
   display: inline-block;
@@ -237,13 +295,18 @@ a:hover {
   display: flex;
   align-items: center;
   align-content: center;
-  height: .7rem;
+  height: 0.7rem;
   /* height: 100%; */
-  width: .8rem;
-  margin-left: .2rem;
+  width: 0.8rem;
+  margin-left: 0.2rem;
   background-color: #cf142b;
   border-radius: 50%;
   display: inline-block;
+}
+
+.css-1arzgt-MuiGrid-root {
+  flex: 1 1 100% !important;
+  align-items: center;
 }
 
 .frame {
@@ -736,7 +799,8 @@ Note: Beware of modifying this element as it can break the animations - you shou
   width: 100%;
 }
 
-.icon-eye, .creatorcode-info-left {
+.icon-eye,
+.creatorcode-info-left {
   display: flex;
   justify-content: flex-end;
   width: 100%;

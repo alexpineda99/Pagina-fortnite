@@ -76,7 +76,7 @@ function Featured() {
                   <span> {Feature.finalPrice}</span> &nbsp;  <img src={VBucks} className="v-bucks-img" alt="v-bucks price" />
                 </div>
                 <Link to={{pathname:`/item/${Feature.items[0].id}`, state: {props: Feature}}}>
-                  <button className="View-button"> View more </button>
+                 <button className="btn-item"> <span> View Item </span> </button>
                 </Link>
               </div>
               </div>

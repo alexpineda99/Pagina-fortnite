@@ -48,7 +48,6 @@ function Item(props) {
         />
       </div>
       <div className="content-wrap">
-        <div className="optional-content-wrap">
           <div className="main-div-item">
             {Features.items.slice(0, 1).map((item) => (
               <div className="item-info">
@@ -76,24 +75,31 @@ function Item(props) {
             sx={{
               display: "flex",
               flexDirection: "row",
-              flexWrap: "wrap"
+              flexWrap: "wrap",
+              flexGrow: 1,
+              flexShrink: 1,
+              flexBasis: "100%"
             }}
           >
               {Itemlength.items.length === 1 ? (
-                <span> Not included </span>
+                <Grid xs={12} sx={{display: "flex", justifyContent: "center", alignItems: "center", fontSize: "2rem"}} > Not included </Grid>
               ) : (
                 Features.items.slice(1, Itemlength.items.length).map((item) => (
                   <Grid
-                    xs={3}
+                    lg={3}
+                    md={3}
+                    sm={3}
+                    xs={6}
                     sx={{
                       display: "flex",
                       flexDirection: "column",
                       alignItems: "center",
-                      alignContent: "center"
+                      alignContent: "center",
+                      
                     }}
                   >
                     <img
-                    width={"25%"}
+                    width={"80%"}
                       src={item.images.icon}
                       alt={item.name}
                     />
@@ -102,7 +108,6 @@ function Item(props) {
                 ))
               )}
           </Grid>
-        </div>
       </div>
 
       {/* {Itemlength.shopHistory[0]} */}
