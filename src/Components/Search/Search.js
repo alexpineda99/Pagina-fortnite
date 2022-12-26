@@ -209,7 +209,7 @@ function Search() {
           </div>
           :
           //                  type.value === "All"
-          cosmeticsall.filter(type.value !== "All" ? items=> items.type.value : items=> items.type.value === type)
+          cosmeticsall.filter(type.value === "All" || type.value !== "All" ? items=> items.type.value : items=> items.type.value === type)
           .filter(itemsname=> itemsname.name.includes(search)) //filtra los items de acuerdo al valor del input search
           .slice(0, itemload).map((item, index) => //divisiona solo los primeros 25 items del array
             <div className="item" key={index}>
