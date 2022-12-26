@@ -13,7 +13,6 @@ function About() {
         <h1 className="titulo-p"> About </h1>
         <div className="about-div">
           <div className="info-about-div">
-            <p>Web App de muestra</p>
             <p>Full Stack Web Developer Alexandro Pineda</p>
             <p>
               {" "}

@@ -618,9 +618,9 @@ a:hover {
 
 .about-div {
   display: flex;
-  font-family: "Fortnite";
   flex-direction: column;
-  width: 100%;
+  justify-content: center;
+  flex: 1 1 100%;
 }
 
 .info-about-div {
