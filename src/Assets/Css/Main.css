@@ -417,7 +417,7 @@ a:hover {
 .item-image {
   display: flex;
   justify-content: center;
-  height: 170px;
+  height: 12rem;
 }
 
 .item-info {

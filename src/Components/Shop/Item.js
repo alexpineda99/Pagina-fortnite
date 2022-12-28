@@ -7,6 +7,7 @@ import Navbar from "../Navbar";
 import Grid from "@mui/material/Grid";
 import Footer from "../Footer";
 import axios from "axios";
+import { Box } from "@mui/system";
 const token = localStorage.getItem("user");
 
 function Item(props) {
@@ -19,6 +20,13 @@ function Item(props) {
   const goToPreviousPath = () => {
     history.goBack();
   };
+
+
+  function capitalizeFirstLetter(str) {
+    return str.replace(/\w\S*/g, function(txt){
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+  });
+  }
 
   useEffect(() => {
     console.log(Itemlength);
@@ -98,12 +106,19 @@ function Item(props) {
                       
                     }}
                   >
-                    <img
-                    width={"80%"}
+                   <Box
+                      component={"img"}
+                      sx={{width: "70%", marginBottom: "-10%"}}
                       src={item.images.icon}
                       alt={item.name}
-                    />
-                    <span> {item.name} </span>
+                   />
+
+                    {/* <img
+                      width={"70%"}
+                      src={item.images.icon}
+                      alt={item.name}
+                    /> */}
+                    <span> {item.name} - {capitalizeFirstLetter(item.type.value)} </span>
                   </Grid>
                 ))
               )}
