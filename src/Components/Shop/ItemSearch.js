@@ -137,9 +137,11 @@ function Item() {
                           </div>
                         ))}
                     </FormControl>
-                  ) : (
+                  ) : itemProperties?.introduction !== null ? (
+                    
                     `Battle pass item ${itemProperties?.introduction.text}`
-                  )}
+
+                  ) : null}
                 </Grid>
                 <Grid item xs={12} md={3} mt={2} mb={2}>
                   <p>Rarity: {itemProperties?.rarity.displayValue}</p>
