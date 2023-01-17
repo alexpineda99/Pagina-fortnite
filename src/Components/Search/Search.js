@@ -257,13 +257,13 @@ function Search() {
                   : (items) => items.type.value === type
               )
               .filter((itemsname) => itemsname.name.includes(search)) //filtra los items de acuerdo al valor del input search
-              .slice(0, itemload)
+              // .slice(0, itemload) //mustra los primeros 20 elementos
               .map(
                 (
                   item,
                   index //divisiona solo los primeros 25 items del array
                 ) => (
-                  <div className="item" key={index}>
+                  <Box className="item" key={index}>
                     <div className="item-info">
                       <img
                         src={
@@ -290,13 +290,13 @@ function Search() {
                         </button>
                       </Link>
                     </div>
-                  </div>
+                  </Box>
                 )
               )
           )}
         </div>
 
-        <div className="load-buttons">
+        {/* <div className="load-buttons">
           <button className="load-items" onClick={loadmore}>
             {" "}
             Show more
@@ -305,7 +305,7 @@ function Search() {
             {" "}
             Show less
           </button>
-        </div>
+        </div> */}
       </div>
       <Footer />
     </div>

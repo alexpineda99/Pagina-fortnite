@@ -11,7 +11,6 @@ body {
   height: 100%;
   width: 100%;
   font-family: "Fornite";
-  font-size: 17px;
   font-family: sans-serif;
 }
 
@@ -20,6 +19,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
   font-family: "Fortnite";
+  font-weight: 600;
 }
 
 .content-wrap {
@@ -483,7 +483,7 @@ a:hover {
 }
 
 .v-bucks-img-item {
-  width: 1.3rem;
+  width: 1.6rem;
 }
 
 /* Carousel: Almost every element in react-elastic-carousel has a css class with the rec- prefix (rec is short React Elastic Carousel). */

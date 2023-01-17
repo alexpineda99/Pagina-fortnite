@@ -21,11 +21,10 @@ function Item(props) {
     history.goBack();
   };
 
-
   function capitalizeFirstLetter(str) {
-    return str.replace(/\w\S*/g, function(txt){
+    return str.replace(/\w\S*/g, function (txt) {
       return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-  });
+    });
   }
 
   useEffect(() => {
@@ -56,73 +55,95 @@ function Item(props) {
         />
       </div>
       <div className="content-wrap">
-          <div className="main-div-item">
-            {Features.items.slice(0, 1).map((item) => (
-              <div className="item-info">
-                <h1 className="item-name">{item.name} </h1>
-                <img
-                  src={item.images.icon}
-                  className="item-image"
-                  alt={item.name}
-                />
-              </div>
-            ))}
-          </div>
-          <div className="item-price">
-            <span> {Features.finalPrice} </span> &nbsp;{" "}
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            flex: "1 1 100%"
+          }}
+        >
+          {Features.items.slice(0, 1).map((item) => (
+            <Box sx={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+              <h1 className="item-name">{item.name} </h1>
+              <img
+                src={item.images.icon}
+                className="item-image"
+                alt={item.name}
+              />
+            </Box>
+          ))}
+          <Box>
+            <Box sx={{display: "flex", justifyContent: "center" ,fontSize: "1.4rem", alignItems: "center"}}> {Features.finalPrice} 
             <img
               src={VBucks}
               className="v-bucks-img-item"
               alt="v-bucks price"
             />
-          </div>
-          <div className="additional-name"> Additional items </div>
-          <Grid
-            container
-            xs={12}
-            sx={{
-              display: "flex",
-              flexDirection: "row",
-              flexWrap: "wrap",
-              flexGrow: 1,
-              flexShrink: 1,
-              flexBasis: "100%"
-            }}
-          >
-              {Itemlength.items.length === 1 ? (
-                <Grid xs={12} sx={{display: "flex", justifyContent: "center", alignItems: "center", fontSize: "2rem"}} > Not included </Grid>
-              ) : (
-                Features.items.slice(1, Itemlength.items.length).map((item) => (
-                  <Grid
-                    lg={3}
-                    md={3}
-                    sm={3}
-                    xs={6}
-                    sx={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "center",
-                      alignContent: "center",
-                      
-                    }}
-                  >
-                   <Box
-                      component={"img"}
-                      sx={{width: "70%", marginBottom: "-10%"}}
-                      src={item.images.icon}
-                      alt={item.name}
-                   />
+            </Box>
+            <Box sx={{fontSize: "1.4rem"}}> Additional items </Box>
+          </Box>
+        </Box>
+        <Grid
+          container
+          xs={12}
+          sx={{
+            display: "flex",
+            flexDirection: "row",
+            flexWrap: "wrap",
+            flexGrow: 1,
+            flexShrink: 1,
+            flexBasis: "100%",
+          }}
+        >
+          {Itemlength.items.length === 1 ? (
+            <Grid
+              xs={12}
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                fontSize: "2rem",
+              }}
+            >
+              {" "}
+              Not included{" "}
+            </Grid>
+          ) : (
+            Features.items.slice(1, Itemlength.items.length).map((item) => (
+              <Grid
+                lg={3}
+                md={3}
+                sm={3}
+                xs={6}
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  alignContent: "center",
+                }}
+              >
+                <Box
+                  component={"img"}
+                  sx={{ width: "11rem", marginBottom: "-1%" }}
+                  src={item.images.icon}
+                  alt={item.name}
+                />
 
-                    {/* <img
+                {/* <img
                       width={"70%"}
                       src={item.images.icon}
                       alt={item.name}
                     /> */}
-                    <span> {item.name} - {capitalizeFirstLetter(item.type.value)} </span>
-                  </Grid>
-                ))
-              )}
-          </Grid>
+                <Box sx={{fontSize: "1.2rem"}}>
+                  {" "}
+                  {item.name} - {capitalizeFirstLetter(item.type.value)}{" "}
+                </Box>
+              </Grid>
+            ))
+          )}
+        </Grid>
       </div>
 
       {/* {Itemlength.shopHistory[0]} */}
