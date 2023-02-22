@@ -7,7 +7,6 @@ import SignUp from "./Components/Register/SignUp";
 import Item from "./Components/Shop/Item";
 import itemsearch from "./Components/Shop/ItemSearch";
 import Search from "./Components/Search/Search";
-import CreateCode from "./Components/New Components/CreatorCode";
 import Notfound from "./Components/Pages/Pagenotfound";
 import {
   BrowserRouter as Router,

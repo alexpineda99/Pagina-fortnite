@@ -1,4 +1,4 @@
-import Navbar from "../Components/Navbar";
+import Navbar from "./Navbar";
 import Footer from "./Footer";
 import Flag from "react-world-flags";
 import { AwesomeButtonSocial } from "react-awesome-button";
