@@ -44,15 +44,16 @@ function Search() {
       "searchType",
       JSON.stringify({ searchType: e.target.value })
     );
+    
   }
 
   function handlesearch(e) {
-    console.log(e);
     setSearch(capitalizeFirstLetter(e.target.value));
     window.sessionStorage.setItem(
       "search",
       JSON.stringify({ searchQuery: e.target.value })
     );
+    
   }
 
   function loadmore() {
@@ -61,6 +62,7 @@ function Search() {
     if (cosmeticsall.length-itemload < 20) {
       let rest = cosmeticsall.length%itemload;
       setItemload(itemload+rest)
+      
     }else {
       setItemload(itemload + 20);
     }
@@ -75,7 +77,6 @@ function Search() {
         sessionStorage.getItem("search") !== null &&
         sessionStorage.getItem("search") !== ""
       ) {
-        setItemload(20);
         let lastSearch = JSON.parse(sessionStorage.getItem("search"));
         setSearch(capitalizeFirstLetter(lastSearch.searchQuery));
       }
@@ -86,7 +87,6 @@ function Search() {
       ) {
         let lastType = JSON.parse(sessionStorage.getItem("searchType"));
         setType(lastType.searchType);
-        console.log(lastType.searchType);
       }
 
       // ******************
@@ -97,10 +97,6 @@ function Search() {
             .filter((items) => type === "All" ? items.type.value : items.type.value === type)
             .filter((itemsname) => itemsname.name.includes(search))
         );
-      }
-
-      if (cosmeticsall.length < 20) {
-        setItemload(cosmeticsall.length)
       }
 
       setLoading(false);
@@ -195,8 +191,18 @@ function Search() {
                 )
               )
           )}
-          {itemload  + ` items of ` + cosmeticsall.length}
+          
         </div>
+
+        <Box sx={{display: "flex", justifyContent: "center"}} mb={2} >
+
+        {cosmeticsall.length < 20 ?
+          cosmeticsall.length  + " out of " + cosmeticsall.length + " items" 
+          :
+
+         itemload  + " out of " + cosmeticsall.length + " items" 
+        }
+        </Box>
 
         <div className="load-buttons">
           <button disabled={cosmeticsall.length <= 20 ? true : false} className="load-items" onClick={loadmore}>
