@@ -11,19 +11,12 @@ import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
 import NativeSelect from "@mui/material/NativeSelect";
-// import Carousel from 'react-elastic-carousel';
 
 function Search() {
-  //let [lasttype, setLasttype] = useState();
-  //let [lastsearch, setLastSearch] = useState();
-  let [cosmeticslength, setCosmeticslength] = useState();
   let [cosmeticsall, setCosmeticsall] = useState([]);
-  let [Dailys, setDailys] = useState([]);
   let [search, setSearch] = useState("");
   let [loading, setLoading] = useState(false);
   let [itemload, setItemload] = useState(20);
-  let [results, setResults] = useState(0);
-  let [typeshowed, setTypeshowed] = useState({ label: "All", value: "All" });
   let [type, setType] = useState("All");
   const types = [
     { label: "All", value: "All" },
@@ -46,7 +39,6 @@ function Search() {
   }
 
   function handletype(e) {
-    console.log(e.target.value);
     setType(e.target.value);
     window.sessionStorage.setItem(
       "searchType",
@@ -64,20 +56,15 @@ function Search() {
   }
 
   function loadmore() {
-    if (itemload % 20 === 0) {
-      setItemload(itemload + 20);
-    } else {
-      alert("There are not more items to load.");
-    }
-  }
 
-  function loadless() {
-    if (itemload % 20 === 0 && itemload > 20) {
-      setItemload(itemload - 20);
-    } else if (itemload === 20) {
-    } else if (itemload % 20 !== 0) {
-      alert("no more" + (itemload % 20));
+
+    if (cosmeticsall.length-itemload < 20) {
+      let rest = cosmeticsall.length%itemload;
+      setItemload(itemload+rest)
+    }else {
+      setItemload(itemload + 20);
     }
+
   }
 
   useEffect(() => {
@@ -88,6 +75,7 @@ function Search() {
         sessionStorage.getItem("search") !== null &&
         sessionStorage.getItem("search") !== ""
       ) {
+        setItemload(20);
         let lastSearch = JSON.parse(sessionStorage.getItem("search"));
         setSearch(capitalizeFirstLetter(lastSearch.searchQuery));
       }
@@ -102,104 +90,22 @@ function Search() {
       }
 
       // ******************
-      setCosmeticsall(res.data.data);
-      console.log(cosmeticsall.length);
-      // console.log(type);
-      // console.log(search);
-      if (type === "outfit") {
-        setCosmeticsall([]);
-        setCosmeticslength();
+
+      if (type) {
         setCosmeticsall(
           res.data.data
-            .filter((items) => items.type.value === "outfit")
+            .filter((items) => type === "All" ? items.type.value : items.type.value === type)
             .filter((itemsname) => itemsname.name.includes(search))
         );
-        setCosmeticslength(cosmeticsall.length);
-      } else if (type === "wrap") {
-        setCosmeticsall([]);
-        setCosmeticslength();
-        setCosmeticsall(
-          res.data.data
-            .filter((items) => items.type.value === "wrap")
-            .filter((itemsname) => itemsname.name.includes(search))
-        );
-        setCosmeticslength(cosmeticsall.length);
-      } else if (type === "banner") {
-        setCosmeticsall([]);
-        setCosmeticslength();
-        setCosmeticsall(
-          res.data.data
-            .filter((items) => items.type.value === "banner")
-            .filter((itemsname) => itemsname.name.includes(search))
-        );
-        setCosmeticslength(cosmeticsall.length);
-      } else if (type === "spray") {
-        setCosmeticsall([]);
-        setCosmeticslength();
-        setCosmeticsall(
-          res.data.data
-            .filter((items) => items.type.value === "spray")
-            .filter((itemsname) => itemsname.name.includes(search))
-        );
-        setCosmeticslength(cosmeticsall.length);
-      } else if (type === "emoji") {
-        setCosmeticsall([]);
-        setCosmeticsall(
-          res.data.data
-            .filter((items) => items.type.value === "emoji")
-            .filter((itemsname) => itemsname.name.includes(search))
-        );
-        setCosmeticslength(cosmeticsall.length);
-      } else if (type === "pickaxe") {
-        setCosmeticsall([]);
-        setCosmeticslength();
-        setCosmeticsall(
-          res.data.data
-            .filter((items) => items.type.value === "pickaxe")
-            .filter((itemsname) => itemsname.name.includes(search))
-        );
-        setCosmeticslength(cosmeticsall.length);
-      } else if (type === "glider") {
-        setCosmeticsall([]);
-        setCosmeticslength();
-        setCosmeticsall(
-          res.data.data
-            .filter((items) => items.type.value === "glider")
-            .filter((itemsname) => itemsname.name.includes(search))
-        );
-        setCosmeticslength(cosmeticsall.length);
-      } else if (type === "loadingscreen") {
-        setCosmeticsall([]);
-        setCosmeticslength();
-        setCosmeticsall(
-          res.data.data
-            .filter((items) => items.type.value === "loadingscreen")
-            .filter((itemsname) => itemsname.name.includes(search))
-        );
-        setCosmeticslength(cosmeticsall.length);
-      } else if (type === "emote") {
-        setCosmeticsall([]);
-        setCosmeticslength();
-        setCosmeticsall(
-          res.data.data
-            .filter((items) => items.type.value === "emote")
-            .filter((itemsname) => itemsname.name.includes(search))
-        );
-        setCosmeticslength(cosmeticsall.length);
-      } else if (search.length > 0) {
-        setCosmeticsall([]);
-        setCosmeticslength();
-        setCosmeticsall(
-          res.data.data.filter((itemsname) => itemsname.name.includes(search))
-        );
-        setCosmeticslength(cosmeticsall.length);
       }
 
-      console.log(cosmeticslength);
+      if (cosmeticsall.length < 20) {
+        setItemload(cosmeticsall.length)
+      }
 
       setLoading(false);
     });
-  }, [search, type]);
+  }, [search, type, cosmeticsall.length]);
 
   return (
     <div className="page-container">
@@ -249,15 +155,10 @@ function Search() {
               <Loader type="Rings" color="#109DFA" height={80} width={80} />
             </div>
           ) : (
-            //                  type.value === "All"
             cosmeticsall
-              .filter(
-                type.value === "All" || type.value !== "All"
-                  ? (items) => items.type.value
-                  : (items) => items.type.value === type
-              )
+              .filter((items) => items.type.value)
               .filter((itemsname) => itemsname.name.includes(search)) //filtra los items de acuerdo al valor del input search
-              // .slice(0, itemload) //mustra los primeros 20 elementos
+              .slice(0, itemload) //mustra los primeros 20 elementos
               .map(
                 (
                   item,
@@ -294,18 +195,15 @@ function Search() {
                 )
               )
           )}
+          {itemload  + ` items of ` + cosmeticsall.length}
         </div>
 
-        {/* <div className="load-buttons">
-          <button className="load-items" onClick={loadmore}>
+        <div className="load-buttons">
+          <button disabled={cosmeticsall.length <= 20 ? true : false} className="load-items" onClick={loadmore}>
             {" "}
             Show more
           </button>
-          <button className="load-items" onClick={loadless}>
-            {" "}
-            Show less
-          </button>
-        </div> */}
+        </div>
       </div>
       <Footer />
     </div>

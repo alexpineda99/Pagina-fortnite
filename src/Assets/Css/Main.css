@@ -250,7 +250,7 @@ a:hover {
   display: flex;
   align-items: center;
   text-align: center;
-  height: 40px;
+  height: 4rem;
   font-size: 1.1rem;
 }
 
@@ -927,7 +927,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
   justify-content: space-between;
   align-items: center;
   bottom: 0;
-  height: 4em;
+  height: 6em;
   width: 100%;
   background-color: #222222;
   color: white;
