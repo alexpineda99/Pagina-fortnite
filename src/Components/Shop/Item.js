@@ -71,6 +71,7 @@ function Item(props) {
               effect="blur"
                 src={item.images.icon}
                 className="item-image"
+                height={"12rem"}
                 alt={item.name}
               />
             </Box>
@@ -80,7 +81,8 @@ function Item(props) {
             <LazyLoadImage 
               effect='blur'
               src={VBucks}
-              className="v-bucks-img-item"
+              width={"1.6rem"}
+              // height={"1.6rem"}
               alt="v-bucks price"
             />
             </Box>

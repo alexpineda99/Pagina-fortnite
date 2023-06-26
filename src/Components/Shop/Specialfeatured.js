@@ -72,7 +72,7 @@ function Specialfeatured() {
                 {Feature.items.slice(0,1).map((Item, index)=>
 
                   <div className="item-info" key={index}> 
-                  <LazyLoadImage effect='blur' src={Item.images.icon} className="img-item" alt={Item.name} />
+                  <LazyLoadImage effect='blur' src={Item.images.icon} className="img-item" width={"100%"} height={"90%"} alt={Item.name} />
                   <div className="text-item-box"> 
                     <span className="text-item"> {Item.name} </span>
                   </div>
@@ -81,7 +81,7 @@ function Specialfeatured() {
                 )}
                 <div className="item-info"> 
                 <div className="item-price"> 
-                  <span> {Feature.finalPrice}</span> &nbsp;  <LazyLoadImage effect='blur' src={VBucks} className="v-bucks-img" alt="v-bucks price" />
+                  <span> {Feature.finalPrice}</span> &nbsp;  <LazyLoadImage effect='blur' src={VBucks} width={"1.3rem"} height={"1.3rem"} alt="v-bucks price" />
                 </div>
                 <Link to={{pathname:`/item/${Feature.items[0].id}`, state: {props: Feature}}}>
                   <button className="btn-item"> <span> View Item </span> </button>

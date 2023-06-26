@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useHistory, useLocation, useParams } from "react-router-dom";
-import VBucks from "../../Assets/Images/V-bucks_1.png";
 import Arrowback from "../../Assets/Images/arrow.png";
 import Navbar from "../Navbar";
 import Footer from "../Footer";
@@ -90,6 +89,7 @@ function Item() {
                 effect="blur"
                   src={itemProperties?.images.icon}
                   className="item-image"
+                  height={"12rem"}
                   alt={itemProperties?.name}
                 />
               </div>

@@ -61,6 +61,8 @@ function Daily() {
                       src={Item.images.icon}
                       className="img-item"
                       alt={Item.name}
+                      width={"100%"}
+                      height={"90%"}
                     />
                     <div className="text-item-box">
                       <span className="text-item"> {Item.name} </span>
@@ -73,7 +75,8 @@ function Daily() {
                     <LazyLoadImage
                       effect="blur"
                       src={VBucks}
-                      className="v-bucks-img"
+                      width={"1.3rem"}
+                      height={"1.3rem"}
                       alt="v-bucks price"
                     />
                   </div>

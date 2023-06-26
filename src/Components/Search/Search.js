@@ -170,6 +170,8 @@ function Search() {
                             : item.images.smallIcon
                         }
                         className="img-item"
+                        width={"100%"} 
+                        height={"90%"}
                         alt={item.name}
                       />
                       <div className="text-item-box">
