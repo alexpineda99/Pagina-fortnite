@@ -97,6 +97,7 @@ function Search() {
             .filter((items) => type === "All" ? items.type.value : items.type.value === type)
             .filter((itemsname) => itemsname.name.includes(search))
         );
+        console.log(cosmeticsall)
       }
 
       setLoading(false);
