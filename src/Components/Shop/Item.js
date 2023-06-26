@@ -77,7 +77,8 @@ function Item(props) {
           ))}
           <Box>
             <Box sx={{display: "flex", justifyContent: "center" ,fontSize: "1.4rem", alignItems: "center"}}> {Features.finalPrice} 
-            <img
+            <LazyLoadImage 
+              effect='blur'
               src={VBucks}
               className="v-bucks-img-item"
               alt="v-bucks price"

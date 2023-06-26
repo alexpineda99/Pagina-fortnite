@@ -56,7 +56,8 @@ function Daily() {
               <div className="item" key={index}>
                 {Daily.items.slice(0, 1).map((Item, index) => (
                   <div className="item-info" key={index}>
-                    <img
+                    <LazyLoadImage 
+                      effect='blur'
                       src={Item.images.icon}
                       className="img-item"
                       alt={Item.name}

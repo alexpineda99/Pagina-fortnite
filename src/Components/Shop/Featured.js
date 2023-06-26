@@ -68,7 +68,7 @@ function Featured() {
                 )}
                 <div className="item-info"> 
                 <div className="item-price"> 
-                  <span> {Feature.finalPrice}</span> &nbsp;  <img src={VBucks} className="v-bucks-img" alt="v-bucks price" />
+                  <span> {Feature.finalPrice}</span> &nbsp;  <LazyLoadImage effect='blur' src={VBucks} className="v-bucks-img" alt="v-bucks price" />
                 </div>
                 <Link to={{pathname:`/item/${Feature.items[0].id}`, state: {props: Feature}}}>
                  <button className="btn-item"> <span> View Item </span> </button>
