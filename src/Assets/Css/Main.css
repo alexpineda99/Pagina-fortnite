@@ -1,6 +1,6 @@
 @font-face {
-  font-family: "Fortnite";
   font-display: "swap";
+  font-family: "Fortnite";
   src: local("Fortnite"), url(../Fonts/Font-Fortnite/Fortnite.ttf);
 }
 
