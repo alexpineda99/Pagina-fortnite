@@ -31,10 +31,10 @@ function Map() {
 
   return (
     <div className="">
-        <h2 className="titulo-challenge"> Season´s Map </h2>
+        {/* <h2 className="titulo-challenge"> Season's Map </h2>
           <div className="map-div">
-            <LazyLoadImage effect='blur' src={Map} className="map-image" alt="Seasons map" />
-          </div>
+            <LazyLoadImage effect='blur' src={Map} width={"60%"} height={"50%"} className="map-image" alt="Seasons map" />
+          </div> */}
     </div>
   );
 }
