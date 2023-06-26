@@ -117,6 +117,7 @@ function Search() {
                 Search by...
               </InputLabel>
               <NativeSelect
+                sx={{width: "100%"}}
                 onChange={(e) => handletype(e)}
                 defaultValue={type}
                 value={type}
@@ -136,6 +137,7 @@ function Search() {
                 label="Search item..."
                 variant="standard"
                 value={search}
+                sx={{width: "100%"}}
                 onChange={(e) => handlesearch(e)}
                 placeholder={'Search item...'}
               />
@@ -198,7 +200,7 @@ function Search() {
           
         </div>
 
-        <Box sx={{display: "flex", justifyContent: "center"}} mb={2} >
+        <Box sx={{display: "flex", justifyContent: "center"}} mb={2} width={"100%"} >
 
         {cosmeticsall.length < 20 ?
           cosmeticsall.length  + " out of " + cosmeticsall.length + " items" 
@@ -208,12 +210,12 @@ function Search() {
         }
         </Box>
 
-        <div className="load-buttons">
+        <Box className="load-buttons" width={"100%"} sx={{display: "flex", justifyContent: "center"}}>
           <button disabled={cosmeticsall.length <= 20 ? true : false} className="load-items" onClick={loadmore}>
             {" "}
             Show more
           </button>
-        </div>
+        </Box>
       </div>
       <Footer />
     </div>
