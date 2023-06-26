@@ -1,4 +1,3 @@
-import '../Assets/Css/Main.css';
 import { slide as Menu } from 'react-burger-menu'
 import React, {useState} from 'react';
 import { bindActionCreators } from 'redux';

@@ -1,4 +1,3 @@
-import "../../Assets/Css/Main.css";
 import Navbar from "../Navbar";
 import Footer from "../Footer";
 import React, { useState, useEffect } from "react";
@@ -11,6 +10,7 @@ import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
 import NativeSelect from "@mui/material/NativeSelect";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 function Search() {
   let [cosmeticsall, setCosmeticsall] = useState([]);
@@ -162,7 +162,8 @@ function Search() {
                 ) => (
                   <Box className="item" key={index}>
                     <div className="item-info">
-                      <img
+                      <LazyLoadImage
+                      effect="blur"
                         src={
                           item.images.icon !== null
                             ? item.images.icon

@@ -1,4 +1,3 @@
-import '../../Assets/Css/Main.css';
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import Carousel from 'react-elastic-carousel';

@@ -1,4 +1,3 @@
-import "../Assets/Css/Main.css";
 import Navbar from "./Navbar";
 import Daily from "./Shop/Daily";
 import Featured from "./Shop/Featured";

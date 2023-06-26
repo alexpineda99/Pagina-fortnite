@@ -1,6 +1,6 @@
-import '../Assets/Css/Main.css';
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 function Map() {
 
@@ -33,7 +33,7 @@ function Map() {
     <div className="">
         <h2 className="titulo-challenge"> Season´s Map </h2>
           <div className="map-div">
-            <img src={Map} className="map-image" alt="Seasons map" />
+            <LazyLoadImage effect='blur' src={Map} className="map-image" alt="Seasons map" />
           </div>
     </div>
   );

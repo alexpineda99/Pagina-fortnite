@@ -1,4 +1,3 @@
-import "../../Assets/Css/Main.css";
 import React, { useState, useEffect } from "react";
 import { useHistory, useLocation, useParams } from "react-router-dom";
 import VBucks from "../../Assets/Images/V-bucks_1.png";
@@ -6,6 +5,7 @@ import Arrowback from "../../Assets/Images/arrow.png";
 import Navbar from "../Navbar";
 import Footer from "../Footer";
 import axios from "axios";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import moment from "moment";
 import Box from "@mui/material/Box";
 import Loader from "react-loader-spinner";
@@ -86,7 +86,8 @@ function Item() {
             <div className="main-div-item">
               <div className="item-info">
                 <h1 className="item-name">{itemProperties?.name} </h1>
-                <img
+                <LazyLoadImage
+                effect="blur"
                   src={itemProperties?.images.icon}
                   className="item-image"
                   alt={itemProperties?.name}

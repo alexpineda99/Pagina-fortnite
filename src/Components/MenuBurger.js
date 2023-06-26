@@ -1,8 +1,6 @@
-import '../Assets/Css/Main.css';
 import { slide as Menu } from 'react-burger-menu'
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-
 import {
   BrowserRouter as Router,
   Switch,

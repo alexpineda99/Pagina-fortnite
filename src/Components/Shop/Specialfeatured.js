@@ -1,8 +1,8 @@
-import '../../Assets/Css/Main.css';
 import React, {useState, useEffect} from 'react';
 import VBucks from "../../Assets/Images/V-bucks_1.png";
 import Loader from "react-loader-spinner";
 import ContentUnavailable from '../Pages/ContentUnavailable';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import axios from 'axios';
 import {
   Link
@@ -72,7 +72,7 @@ function Specialfeatured() {
                 {Feature.items.slice(0,1).map((Item, index)=>
 
                   <div className="item-info" key={index}> 
-                  <img src={Item.images.icon} className="img-item" alt={Item.name} />
+                  <LazyLoadImage src={Item.images.icon} className="img-item" alt={Item.name} />
                   <div className="text-item-box"> 
                     <span className="text-item"> {Item.name} </span>
                   </div>

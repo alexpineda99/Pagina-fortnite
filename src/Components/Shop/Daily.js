@@ -1,5 +1,5 @@
-import "../../Assets/Css/Main.css";
 import React, { useState, useEffect } from "react";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import VBucks from "../../Assets/Images/V-bucks_1.png";
 import axios from "axios";
 import Loader from "react-loader-spinner";
@@ -69,7 +69,8 @@ function Daily() {
                 <div className="item-info">
                   <div className="item-price">
                     <span> {Daily.finalPrice} </span> &nbsp;{" "}
-                    <img
+                    <LazyLoadImage
+                      effect="blur"
                       src={VBucks}
                       className="v-bucks-img"
                       alt="v-bucks price"

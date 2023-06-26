@@ -1,10 +1,10 @@
-import "../../Assets/Css/Main.css";
 import React, { useState, useEffect } from "react";
 import { useHistory, useLocation, useParams } from "react-router-dom";
 import VBucks from "../../Assets/Images/V-bucks_1.png";
 import Arrowback from "../../Assets/Images/arrow.png";
 import Navbar from "../Navbar";
 import Grid from "@mui/material/Grid";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Footer from "../Footer";
 import axios from "axios";
 import { Box } from "@mui/system";
@@ -67,7 +67,8 @@ function Item(props) {
           {Features.items.slice(0, 1).map((item) => (
             <Box sx={{display: "flex", flexDirection: "column", alignItems: "center"}}>
               <h1 className="item-name">{item.name} </h1>
-              <img
+              <LazyLoadImage
+              effect="blur"
                 src={item.images.icon}
                 className="item-image"
                 alt={item.name}

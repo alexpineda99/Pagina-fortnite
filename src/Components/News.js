@@ -1,4 +1,3 @@
-import "../Assets/Css/Main.css";
 import Navbar from "./Navbar";
 import Br from "./News/Br";
 import Creative from "./News/Creative";

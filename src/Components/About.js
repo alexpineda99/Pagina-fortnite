@@ -3,7 +3,6 @@ import Footer from "./Footer";
 import Flag from "react-world-flags";
 import { AwesomeButtonSocial } from "react-awesome-button";
 import AwesomeButtonStyles from "react-awesome-button/src/styles/styles.scss";
-import "../Assets/Css/Main.css";
 
 function About() {
   return (

@@ -1,7 +1,7 @@
-import '../../Assets/Css/Main.css';
 import React, {useState, useEffect} from 'react';
 import VBucks from "../../Assets/Images/V-bucks_1.png";
 import axios from 'axios';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Loader from "react-loader-spinner";
 import {
   Link
@@ -22,16 +22,11 @@ function Featured() {
         .then(res => {
 
         setFeatures(res.data.data.featured.entries);
-        
-        // console.log(res.data.data.daily.entries);
-
-        // console.log(res.data.data);
 
         setName("Featured");
 
         console.log(window.pageYOffset)
 
-        // console.log(Dailys.slice(0,1));
         setLoading(false);
 
       })
@@ -65,7 +60,7 @@ function Featured() {
                 {Feature.items.slice(0,1).map((Item, index)=>
 
                   <div className="item-info" key={index}> 
-                  <img src={Item.images.icon} className="img-item" alt={Item.name} />
+                  <LazyLoadImage effect='blur' src={Item.images.icon} className="img-item" alt={Item.name} />
                   <div className="text-item-box"> 
                     <span className="text-item"> {Item.name} </span>
                   </div>
