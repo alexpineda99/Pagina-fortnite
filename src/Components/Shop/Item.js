@@ -65,24 +65,24 @@ function Item(props) {
           }}
         >
           {Features.items.slice(0, 1).map((item) => (
-            <Box sx={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+            <Box sx={{display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center"}}>
               <h1 className="item-name">{item.name} </h1>
               <LazyLoadImage
               effect="blur"
                 src={item.images.icon}
                 className="item-image"
-                height={"12rem"}
+                height={"80%"}
+                width={"60%"}
                 alt={item.name}
               />
             </Box>
           ))}
           <Box>
-            <Box sx={{display: "flex", justifyContent: "center" ,fontSize: "1.4rem", alignItems: "center"}}> {Features.finalPrice} 
-            <LazyLoadImage 
-              effect='blur'
+            <Box sx={{display: "flex", justifyContent: "center" ,fontSize: "1.4rem"}}> {Features.finalPrice} 
+            <img
+              // effect='blur'
               src={VBucks}
-              width={"1.6rem"}
-              // height={"1.6rem"}
+              className="v-bucks-img"
               alt="v-bucks price"
             />
             </Box>
@@ -108,7 +108,7 @@ function Item(props) {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                fontSize: "2rem",
+                fontSize: "1.2rem",
               }}
             >
               {" "}
@@ -130,7 +130,7 @@ function Item(props) {
               >
                 <Box
                   component={"img"}
-                  sx={{ width: "11rem", marginBottom: "-1%" }}
+                  sx={{ width: "50%", marginBottom: "-1%" }}
                   src={item.images.icon}
                   alt={item.name}
                 />
@@ -140,7 +140,7 @@ function Item(props) {
                       src={item.images.icon}
                       alt={item.name}
                     /> */}
-                <Box sx={{fontSize: "1.2rem"}}>
+                <Box sx={{fontSize: ".9rem"}}>
                   {" "}
                   {item.name} - {capitalizeFirstLetter(item.type.value)}{" "}
                 </Box>

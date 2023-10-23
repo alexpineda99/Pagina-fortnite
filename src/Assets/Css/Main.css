@@ -222,6 +222,11 @@ a:hover {
   font-family: "Fortnite";
 }
 
+.v-bucks-img {
+  height: 100%;
+  width: 2rem;
+}
+
 .item-info {
   display: flex;
   flex-direction: column;
@@ -412,6 +417,17 @@ a:hover {
   display: flex;
   justify-content: center;
 
+}
+
+div.MuiBox-root.css-eu700b > div.MuiBox-root.css-u6v8er > span {
+  display: flex !important;
+  justify-content: center;
+}
+
+div.MuiBox-root.css-0 > div.MuiBox-root.css-gt7jvl > span {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
 }
 
 .item-info {
@@ -1173,9 +1189,6 @@ Note: Beware of modifying this element as it can break the animations - you shou
     width: 80% !important;
   }
 
-  .v-bucks-img {
-    width: 35%;
-  }
 }
 /* paleta de colores */
 
