@@ -12,10 +12,6 @@ function Challenges() {
 
   useEffect(() => {
     let fetchChallenges = async () => {
-      // await axios
-      //   .get(url, {
-      //     headers: {'auth': token}
-      //   })
       await axios
         .get(url)
 
@@ -40,8 +36,7 @@ function Challenges() {
     <div className="">
       <h2 className="titulo-challenge"> Challenges </h2>
       {/* { open ? <PopupRegistration pop={open}/> : fail ? <PopupFailRegistration pop={fail} /> : "" } */}
-      {!token ? <LoginAdvice/>
-      : Challenges.length === 0 ? <ContentUnavailable/> :
+      { Challenges.length === 0 ? <ContentUnavailable/> :
         <div className="challenge-main-div">
         {Challenges.map((Challenge, index)=>
           <div className="challenges-div" key={index}>

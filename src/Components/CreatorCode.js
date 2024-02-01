@@ -48,7 +48,7 @@ function CreatorCode() {
           marginTop: 2,
         }}
       >
-        <h4> Check your Creator code! </h4>
+        <h4 className="titulo-p"> Check your Creator code! </h4>
         <form onSubmit={handleSubmit(showcode)}>
           <Grid
             container

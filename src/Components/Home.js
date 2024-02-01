@@ -2,6 +2,7 @@ import Daily from "./Shop/Daily";
 import Navbar from "./Navbar";
 import Challenges from "./Challenges/Challenges";
 import CreatorCode from "./CreatorCode";
+import HallOfFame from "./Pages/HallOfFame";
 import Footer from "./Footer";
 import Map from "./Map";
 
@@ -11,10 +12,11 @@ function Home() {
       {/* change main class */}
       <div className="content-wrap">
         <Navbar />
-        <Daily />
+        {/* <Daily /> */}
         <CreatorCode />
+        <HallOfFame />
         <Map />
-        {/* <Challenges /> */}
+        <Challenges />
       </div>
       <Footer />
     </div>

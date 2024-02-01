@@ -16,9 +16,9 @@ function Daily() {
     setLoading(true);
     let fetchDaily = async () => {
       await axios.get(url).then((res) => {
-        setDailys(res.data.data.daily.entries);
+        setDailys(res.data.data.featured.entries);
 
-        // console.log(res.data.data.daily.entries);
+        console.log(res.data.data);
 
         console.log(res.data.data);
 
