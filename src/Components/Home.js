@@ -14,7 +14,7 @@ function Home() {
         <Navbar />
         {/* <Daily /> */}
         <CreatorCode />
-        <HallOfFame />
+        {/* <HallOfFame /> */}
         <Map />
         <Challenges />
       </div>
